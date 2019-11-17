@@ -13,7 +13,11 @@ def otvori_json(file):
     Pdv = data['PDV']['Porezi']
     del data['BrRac']
     del data['PDV']
-    fisk.FiskInit.init('passkey.pem', "sifra101", 'amplituda.crt',True)
+    #decode FISKAL_2.p12 with
+    #openssl pkcs12 -in FISKAL_2.p12 -out certificate.pem -nodes
+    #edit certificate.pem and remove certs leave only key ---BEGIN -> END---
+    #openssl.exe rsa -in certificate.key -des3 -out passkey.pem
+    fisk.FiskInit.init('passkey.pem', "password", 'certificate.pem',True)
     racun = fisk.Racun(data = {"Oib": str(data['Oib']),
               "USustPdv": str(data['USustPdv']),
               "DatVrijeme": str(data['DatVrijeme']),
