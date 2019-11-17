@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="name" content="JNet-Stanje Template">
+	<style type="text/css">
+	<!--
+		@page { margin: 2cm }
+		p { color: #000000 }
+		td p { color: #000000 }
+	-->
+	tbody { border-bottom: solid ;border-color: #b3b3b3}
+	table.stavke td { border: 1px; border-bottom: solid; border-color: #b3b3b3; padding: 0cm}
+	table.stavke th { border: none; background: #b3b3b3; padding: 0cm}
+	div { border: 1px solid; width: 10em; margin-bottom: 10px; }
+	* { font-size: 10pt; font-family: Arial, sans-serif ;font-style: normal}
+	.large { font-size: 16pt}
+	</style>
+</head>
+<body text="#000000" dir="ltr" style="background: transparent">
+<div align="center" ><span class="large">&lt;FIRMA_NAZIV&gt;</span></div>
+<div align="center" ><span class="large">&lt;FIRMA_ADRESA&gt; &lt;FIRMA_OIB&gt;</span></div>
+<div align="center" ><span class="large">&lt;FIRMA_OSTALO&gt;</span></div>
+<br>
+<div align="center"><span class="large">Ispis po nacinu placanja - detaljan</span></div>
+<br>
+<div >Vrijeme prvog dokumenta: &lt;DATUM_START&gt;</div>
+<div >Vrijeme zadnjeg dokumenta &lt;DATUM_END&gt;</div>
+
+<br>
+<table class="stavke" width="100%" cellpadding="0" cellspacing="0" style="page-break-before: auto; page-break-after: auto">
+<thead>
+	<tr>
+		<th width="20%" >
+			<div>Nacin placanja</div>
+		</th>
+		<th width="15%" >
+			<div>Placeno</div>
+		</th>
+		<th width="12%" >
+			<div>Osnovica_po_racunima</div>
+		</th>
+		<th width="12%" >
+			<div>Osnovica_izracun</div>
+		</th>
+		<th width="7%" >
+			<div >Porez_Opis</div>
+		</th>
+		<th width="12%" >
+			<div >Porez_po_racunima</div>
+		</th>
+		<th width="12%" >
+			<div >Porez_izracun</div>
+		</th>
+		<th width="10%" >
+			<div >PovratnaNaknada</div>
+		</th>
+	</tr>
+</thead>
+<tbody>
+	<tr name="tablica_stavke" valign="top">
+		<td width="20%" class="stavke" align="left">
+			<div >&lt;STAVKA_NP&gt;</div>
+		</td>
+		<td width="15%" class="stavke" align="right">
+			<div >&lt;STAVKA_Placeno&gt;</div>
+		</td>
+		<td width="12%" class="stavke" align="right">
+			<div>&lt;STAVKA_Osnovica_po_racunima&gt;</div>
+		</td>
+		<td width="12%" style="border: none; padding: 0cm" align="right"> 
+			<div >&lt;STAVKA_Osnovica_izracun&gt;</div>
+		</td>
+		<td width="7%" style="border: none; padding: 0cm" align="left">
+			<div>&lt;STAVKA_Porez_opis&gt;</div>
+		</td>
+		<td width="12%" style="border: none; padding: 0cm" align="right">
+			<div>&lt;STAVKA_Porez_po_racunima&gt;</div>
+		</td>
+		<td width="12%" style="border: none; padding: 0cm" align="right">
+			<div>&lt;STAVKA_Porez_izracun&gt;</div>
+		</td>
+		<td width="10%" style="border: none; padding: 0cm" align="right">
+			<div>&lt;STAVKA_PovratnaNaknada&gt;</div>
+		</td>
+	</tr name="tablica_stavke">
+</tbody>
+<tbody>
+	<tr name="tablica_porez" valign="top">
+		<td width="20%" class="stavke" align="right">
+			<div></div>
+		</td>
+		<td width="15%" class="stavke" align="right">
+			<div >&lt;Porez_Placeno&gt;</div>
+		</td>
+		<td width="12%" class="stavke" align="right">
+			<div>&lt;Porez_Osnovica_po_racunima&gt;</div>
+		</td>
+		<td width="12%" style="border: none; padding: 0cm" align="right"> 
+			<div >&lt;Porez_Osnovica_izracun&gt;</div>
+		</td>
+		<td width="7%" style="border: none; padding: 0cm" align="right">
+			<div>&lt;Porez_Porez_opis&gt;</div>
+		</td>
+		<td width="12%" style="border: none; padding: 0cm" align="right">
+			<div>&lt;Porez_Porez_po_racunima&gt;</div>
+		</td>
+		<td width="12%" style="border: none; padding: 0cm" align="right">
+			<div>&lt;Porez_Porez_izracun&gt;</div>
+		</td>
+		<td width="10%" style="border: none; padding: 0cm" align="right">
+			<div>&lt;Porez_PovratnaNaknada&gt;</div>
+		</td>
+	</tr name="tablica_porez">	
+</tbody>
+<tbody>
+	<tr name="tablica_ukp" valign="top">
+		<td width="20%" class="stavke" align="right">
+			<div>&lt;Ukupno_NP&gt;</div>
+		</td>
+		<td width="15%" class="stavke" align="right">
+			<div >&lt;Ukupno_Placeno&gt;</div>
+		</td>
+		<td width="12%" class="stavke" align="right">
+			<div>&lt;Ukupno_Osnovica_po_racunima&gt;</div>
+		</td>
+		<td width="12%" style="border: none; padding: 0cm" align="right"> 
+			<div >&lt;Ukupno_Osnovica_izracun&gt;</div>
+		</td>
+		<td width="7%" style="border: none; padding: 0cm" align="right">
+			<div>&lt;Ukupno_Porez_opis&gt;</div>
+		</td>
+		<td width="12%" style="border: none; padding: 0cm" align="right">
+			<div>&lt;Ukupno_Porez_po_racunima&gt;</div>
+		</td>
+		<td width="12%" style="border: none; padding: 0cm" align="right">
+			<div>&lt;Ukupno_Porez_izracun&gt;</div>
+		</td>
+		<td width="10%" style="border: none; padding: 0cm" align="right">
+			<div>&lt;Ukupno_PovratnaNaknada&gt;</div>
+		</td>
+	</tr name="tablica_ukp">	
+</tbody>
+</table>
+<p></p>
+<p style="margin-bottom: 0cm"><br>
+</p>
+</body>
+</html>

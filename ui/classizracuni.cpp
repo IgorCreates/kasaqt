@@ -447,7 +447,8 @@ bool classIzracuni::UpisiBrziRacun(int BrStola)
         if (UspjesnoUpisan == true){
 
             qDebug() << "xml-ide " << QDateTime::currentDateTime().toString("hhmmss");
-            t->xmlRacunZahtjev(RacID,false);
+            //t->xmlRacunZahtjev(RacID,false);
+            t->jsonRacunZahtjev(RacID,false);
             qDebug() << "xml-gotov " << QDateTime::currentDateTime().toString("hhmmss");
 
             if (dbL.isOpen())

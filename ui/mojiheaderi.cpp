@@ -80,6 +80,9 @@ bool mojiHeaderi::ZKI(int RacID)
 //    QString ZKI = crZKI.ZKI(qApp->property("Firma_OIB").toString(),DatumRacuna.toString("dd.MM.yyyy hh:mm:ss"),q.value(0).toString(),
 //    qApp->property("Firma_OznPosPr").toString()
 //                            ,qApp->property("Firma_OznNapUr").toString(),QString::number(sSSUMA));
+
+    return false;
+
     QSqlDatabase db = QSqlDatabase::database("baza");
     QSqlQuery q("",db);
     if (!db.open())
@@ -367,7 +370,12 @@ bool mojiHeaderi::jsonRacunZahtjev(const int RacunID, bool NaknadnoSlanje)
     QJsonDocument doc(j_racun);
     //qDebug() << doc.toJson();
     //qDebug() << doc;
-    QString ImeJsonFajla = QString("xml/Rac_%1_%2.json").arg(RacunID).arg(QDateTime::currentDateTime().toString("yyyyMMddhhmmss"));
+    QString dirp = QString("xml/%1/%2").arg(QDateTime::currentDateTime().toString("yyyy")).arg(QDateTime::currentDateTime().toString("MM"));
+    QDir dir(dirp);
+    if (!dir.exists())
+        dir.mkpath(".");
+
+    QString ImeJsonFajla = QString("%1/Rac_%2_%3.json").arg(dirp).arg(RacunID).arg(QDateTime::currentDateTime().toString("yyyyMMddhhmmss"));
     QFile jsonFile(ImeJsonFajla);
     if (!jsonFile.open(QIODevice::WriteOnly))
     {
@@ -394,16 +402,25 @@ bool mojiHeaderi::jsonRacunZahtjev(const int RacunID, bool NaknadnoSlanje)
     {
         zk->waitForFinished();
         QString ZKi;
+        QTextStream ZKe;
         ZKi.append(zk->readAllStandardOutput().constData());
-        qDebug() << zk->readAllStandardError();
-        qDebug() << zk->readAllStandardOutput();
-        qDebug() << zk->readAll();
+        ZKe << zk->readAllStandardError();
+        ZKe << zk->readAllStandardOutput();
+        ZKe << zk->readAll();
+        qDebug() << ZKe.readAll() <<endl;
         //zk->close();
         qDebug() << "FISK_RETURN:" << ZKi;
         QString bb =  ZKi;   //"ZKI : bbd743f6fd3abe1ba2a145dff71c80d7\r\nRacunZahtjev reply errors:\r\nOIB iz poruke zahtjeva nije jednak OIB-u iz certifikata.\r\n('Done in ', 0.2754233, 'seconds')\r\nJIR is: c59de779-28d1-4714-9141-1bd2c10b852f";
         QStringList bL = bb.split("\r\n");
         QString ZKI="";
         QString JIR="";
+
+        QFile filed(QString("%1_DEB").arg(ImeJsonFajla));
+        if (filed.open(QIODevice::ReadWrite))
+        {
+            QTextStream stream(&filed);
+            stream <<  ZKi <<endl;
+        }
 
         QFile file(QString("%1_Odgovor").arg(ImeJsonFajla));
         if (file.open(QIODevice::ReadWrite))

@@ -31,6 +31,8 @@
 #include <QFile>
 #include <QTextStream>
 #include <QTranslator>
+#include <stdio.h>
+#include <stdlib.h>
 
 
 //#include <ui/frmtipkovnica.h>
@@ -50,7 +52,7 @@ void LoadLang(QString lang){
         qApp->installTranslator(qt_translator);
     }
 }
-
+#if QT_VERSION < 0x050000
 void myMessageHandler(QtMsgType type, const char *msg)
 {
     QString txt;
@@ -76,7 +78,46 @@ void myMessageHandler(QtMsgType type, const char *msg)
     QTextStream ts(&outFile);
     ts << txt << endl;
 }
+#endif
 
+#if QT_VERSION > 0x050000
+void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
+{
+    QByteArray localMsg = msg.toLocal8Bit();
+    QString txt;
+    QString dt = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
+    const char *file = context.file ? context.file : "";
+    const char *function = context.function ? context.function : "";
+    switch (type) {
+    case QtDebugMsg:
+        fprintf(stderr, "Debug: %s (%s:%u, %s)\n", localMsg.constData(), file, context.line, function);
+        txt = QString("%1-Debug: %2").arg(dt).arg(msg);
+        break;
+    case QtInfoMsg:
+        fprintf(stderr, "Info: %s (%s:%u, %s)\n", localMsg.constData(), file, context.line, function);
+        txt = QString("%1-Info: %2").arg(dt).arg(msg);
+        break;
+    case QtWarningMsg:
+        fprintf(stderr, "Warning: %s (%s:%u, %s)\n", localMsg.constData(), file, context.line, function);
+        txt = QString("%1-Warning: %2").arg(dt).arg(msg);
+        break;
+    case QtCriticalMsg:
+        fprintf(stderr, "Critical: %s (%s:%u, %s)\n", localMsg.constData(), file, context.line, function);
+        txt = QString("%1-Critical: %2").arg(dt).arg(msg);
+        break;
+    case QtFatalMsg:
+        fprintf(stderr, "Fatal: %s (%s:%u, %s)\n", localMsg.constData(), file, context.line, function);
+        txt = QString("%1-Fatal: %2").arg(dt).arg(msg);
+        break;
+    }
+    QFile outFile("log");
+    outFile.open(QIODevice::WriteOnly | QIODevice::Append);
+
+    QTextStream ts(&outFile);
+    ts << txt << endl;
+}
+
+#endif
 
 int main(int argc, char *argv[])
 {
@@ -127,7 +168,7 @@ int main(int argc, char *argv[])
      }
      if (parser.isSet(arg_opcija_deb))
      {
-         //qInstallMessageHandler(myMessageHandler());
+         qInstallMessageHandler(myMessageOutput);
      }
      if (parser.isSet(arg_opcija_touch))
      {
@@ -188,32 +229,6 @@ int main(int argc, char *argv[])
     }
 #endif
 
-    //QString bb = "ZKI : bbd743f6fd3abe1ba2a145dff71c80d7\r\nRacunZahtjev reply errors:\r\nOIB iz poruke zahtjeva nije jednak OIB-u iz certifikata.\r\n('Done in ', 0.2754233, 'seconds')\r\nJIR is: c59de779-28d1-4714-9141-1bd2c10b852f";
-//    QString bb = "ZKI : 8507c9d0ab7ae82288c0e989efbc10c8\r\nJIR is: d940a715-463b-4de6-96e9-1bd2c10b4d52\r\n";
-//    QStringList bL = bb.split("\r\n");
-
-//    QFile file("test.txt");
-//    if (file.open(QIODevice::ReadWrite))
-//    {
-//        QTextStream stream(&file);
-//        stream <<  bb <<endl;
-//    }
-
-//    //qDebug() << bb;
-//    //qDebug() << bL;
-//    foreach (QString i, bL) {
-//        //qDebug() << "List items = " << i;
-//        if (i.contains("ZKI"))
-//        {
-//            qDebug() << i.split(":");
-//            qDebug() << QString(i.split(":")[1]).trimmed();
-//        }
-//        if (i.contains("JIR"))
-//        {
-//            qDebug() << i.split(":");
-//            qDebug() << QString(i.split(":")[1]).trimmed();
-//        }
-//    }
 
     frmLogin w;
     w.show();

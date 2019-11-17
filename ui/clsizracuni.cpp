@@ -850,7 +850,8 @@ bool clsIzracuni::UpisiRac()
                 if (qApp->property("Prog-Fiskalizacija").toString() != "0")
                 {
                     //qDebug() << "xml-ide " << QDateTime::currentDateTime().toString("hhmmss");
-                    t->xmlRacunZahtjev(_Rac1ID,false);
+                    //t->xmlRacunZahtjev(_Rac1ID,false);
+                    t->jsonRacunZahtjev(_Rac1ID,false);
                     //qDebug() << "xml-gotov " << QDateTime::currentDateTime().toString("hhmmss");
                     if (dbL.isOpen())
                         dbL.open();

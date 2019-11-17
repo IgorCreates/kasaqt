@@ -160,7 +160,7 @@ bool frmLogin::UcitajCryptoBazu()
 
     }
     qDebug() << qApp->property("Certs_Path").toString();
-    qDebug() << "Cert-" << qApp->property("Certs_Path").toString() <<  ",Cert-sifra-" << qApp->property("Certs_Sifra").toString();
+    qDebug() << "Cert-" << qApp->property("Certs_Path").toString() ; //<<  ",Cert-sifra-" << qApp->property("Certs_Sifra").toString();
     qc.clear();
     dbLocal.close();
 

@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>Narudzba-Mali</title>
+	<meta name="name" content="JNet-Racun Template">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.1cm }
+		p { color: #000000 }
+		td p { color: #000000 }
+	-->
+	tbody { border-bottom: solid ;border-color: #b3b3b3}
+	table.stavke td { border: 1px; border-bottom: solid; border-color: #b3b3b3; padding: 0cm}
+	table.stavke th { border: none; background: #b3b3b3; padding: 0cm}
+	table.ukupno td {border: 1px; border-bottom: solid-black;border-color: #b3b3b3; padding: 0cm}
+	table.ukupno th { border: 1px; background: #b3b3b3; padding: 0cm}
+	div { border: 1px solid; width: 10em }
+	* { font-size: 10pt; font-family: Arial, sans-serif ;font-style: normal}
+	.large { font-size: 12pt}
+	.exLarge { font-size: 12pt; font-style: bold}
+	</style>
+</head>
+<body text="#000000" dir="ltr" style="background: transparent">
+<div align="center"><span class="large">&lt;Narudzba&gt;</span></div>
+<div >Vrijeme narudzbe: &lt;DATUM_NARUDZBE&gt;</div>
+<div style="font-size: 12pt; font-family: Arial, sans-serif ;font-style: normal">Narucio &lt;NARUDZBU_IZRADIO&gt;</div>
+<div> </div>
+<table class="stavke" width="100%" cellpadding="0" cellspacing="0">
+<thead>
+	<tr>
+		<th width="65%">
+			<div>Naziv</div>
+		</th>
+		<th width="20%">
+			<div>Kolicina</div>
+		</th>
+		<th width="15%">
+			<div>JMJ</div>
+		</th>
+	</tr>
+</thead>
+<tbody>
+	<tr name="tablica_stavke" valign="top">
+		<td width="65%" class="stavke">
+			<div >&lt;STAVKA_NAZIV&gt;</div>
+		</td>
+		<td width="20%" class="stavke" align="right">
+			<div>&lt;STAVKA_KOLICINA&gt;</div>
+		</td>
+		<td width="15%" class="stavke" align="right"> 
+			<div >&lt;STAVKA_JM&gt;</div>
+		</td>
+	</tr name="tablica_stavke">
+</tbody>
+</table>
+</body>
+</html>
