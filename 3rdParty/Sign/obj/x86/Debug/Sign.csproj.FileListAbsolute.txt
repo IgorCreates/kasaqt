@@ -1,0 +1,10 @@
+C:\Documents and Settings\juka\Local Settings\Application Data\Temporary Projects\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Documents and Settings\juka\Local Settings\Application Data\Temporary Projects\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Documents and Settings\juka\Local Settings\Application Data\Temporary Projects\ConsoleApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\juka\Local Settings\Application Data\Temporary Projects\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
+C:\Documents and Settings\juka\Local Settings\Application Data\Temporary Projects\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb
+E:\Sign\bin\Debug\Sign.exe
+E:\Sign\bin\Debug\Sign.pdb
+E:\Sign\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Sign\obj\x86\Debug\Sign.exe
+E:\Sign\obj\x86\Debug\Sign.pdb

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmIspisOdabir</class>
+ <widget class="QDialog" name="frmIspisOdabir">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>162</width>
+    <height>246</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QPushButton" name="btnPOS">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>40</y>
+     <width>151</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>POS printer</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ikone/ikone/document_print.svg</normaloff>:/ikone/ikone/document_print.svg</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnA4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>90</y>
+     <width>151</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Veliki printer</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ikone/ikone/document_preview.svg</normaloff>:/ikone/ikone/document_preview.svg</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnIzlaz">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>180</y>
+     <width>151</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Izlaz</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ikone/ikone/button_cancel.svg</normaloff>:/ikone/ikone/button_cancel.svg</iconset>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>btnIzlaz</sender>
+   <signal>released()</signal>
+   <receiver>frmIspisOdabir</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>111</x>
+     <y>180</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>16</x>
+     <y>147</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

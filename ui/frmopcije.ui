@@ -1,0 +1,1213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmOpcije</class>
+ <widget class="QDialog" name="frmOpcije">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>630</width>
+    <height>574</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="0">
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab_Printer">
+      <attribute name="title">
+       <string>Printeri</string>
+      </attribute>
+      <widget class="QPushButton" name="btnPrinteriUpis">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>110</width>
+         <height>45</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Upis</string>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>210</y>
+         <width>511</width>
+         <height>171</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Izgled ispisa</string>
+       </property>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>52</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Račun</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtIspisPoljeRacun">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>50</y>
+          <width>231</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Račun :</string>
+        </property>
+        <property name="maxLength">
+         <number>30</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>54</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Polje</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>20</y>
+          <width>54</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Vrijednost</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_7">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>70</y>
+          <width>40</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Datum</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtIspisPoljeDatum">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>70</y>
+          <width>231</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Datum :</string>
+        </property>
+        <property name="maxLength">
+         <number>30</number>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtIspisPoljeZaPlatiti">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>90</y>
+          <width>231</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Za platiti :</string>
+        </property>
+        <property name="maxLength">
+         <number>30</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_8">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>90</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Za platiti</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="chkBoxRac">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>50</y>
+          <width>121</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+        <property name="text">
+         <string>Bold</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="chkBoxDatum">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>70</y>
+          <width>121</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+        <property name="text">
+         <string>Bold</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="chkBoxZaPlatiti">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>90</y>
+          <width>121</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+        <property name="text">
+         <string>Bold</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_9">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>20</y>
+          <width>111</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Podebljana slova</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_16">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>130</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Širina</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtIspisSirinaPapira">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>130</y>
+          <width>51</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>42</string>
+        </property>
+        <property name="maxLength">
+         <number>30</number>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="chkBoxZahvala">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>110</y>
+          <width>121</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+        <property name="text">
+         <string>Bold</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_11">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>110</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Zahvala</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtIspisPoljeZahvala">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>110</y>
+          <width>231</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Hvala</string>
+        </property>
+        <property name="maxLength">
+         <number>30</number>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>390</y>
+         <width>551</width>
+         <height>121</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>PrinterOpcije</string>
+       </property>
+       <widget class="QLineEdit" name="txtIspisKonverzija">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>20</y>
+          <width>111</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="maxLength">
+         <number>30</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_14">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Konverzija </string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_15">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>0</y>
+          <width>181</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Konverzija: Iz UTF8 u napisanu&lt;/p&gt;&lt;p&gt;provjeriti sa &amp;quot;iconv -l&amp;quot; listu &lt;/p&gt;&lt;p&gt;podrzanih&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::RichText</enum>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignJustify|Qt::AlignTop</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cmbPrinter">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>40</y>
+          <width>231</width>
+          <height>27</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_19">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>40</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Printer</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="chkLadica">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>70</y>
+          <width>121</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Ladica</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="chkRezac">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>70</y>
+          <width>121</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Rezac</string>
+        </property>
+       </widget>
+       <widget class="QRadioButton" name="prnRedova1">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>90</y>
+          <width>102</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>1 Red</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QRadioButton" name="prnRedova2">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>90</y>
+          <width>102</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>2 Reda</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnESCpostavke">
+        <property name="geometry">
+         <rect>
+          <x>384</x>
+          <y>90</y>
+          <width>151</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>ESC postavke</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtIspisKonverzijaFrom">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>20</y>
+          <width>111</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>utf8</string>
+        </property>
+        <property name="maxLength">
+         <number>30</number>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QRadioButton" name="radioIspisPOS">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>120</y>
+         <width>105</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>POS ispis</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
+      </widget>
+      <widget class="QRadioButton" name="radioIspisVeliki">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>140</y>
+         <width>105</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Veliki ispis</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
+      </widget>
+      <widget class="QCheckBox" name="chkProzorOdabirIspisa">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>70</y>
+         <width>221</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Prikazi prozor odabir ispisa</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>100</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial Black</family>
+        </font>
+       </property>
+       <property name="text">
+        <string>Predefinirani ispis</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkWINkoristiPosPrinting">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>70</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>WIN-Koristi POSPrinting</string>
+       </property>
+      </widget>
+      <widget class="QTabWidget" name="tabWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>100</y>
+         <width>371</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="tab">
+        <attribute name="title">
+         <string>POS-Tip1</string>
+        </attribute>
+        <widget class="QLineEdit" name="txtPrinterPort">
+         <property name="geometry">
+          <rect>
+           <x>150</x>
+           <y>10</y>
+           <width>113</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>/dev/ttyS0</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>10</y>
+           <width>121</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Port malog printera</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="tab_2">
+        <attribute name="title">
+         <string>POS-Tip2</string>
+        </attribute>
+        <widget class="QCheckBox" name="chkPOS_RPT_ISPIS">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>10</y>
+           <width>151</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>POS-RPT-Ispis</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="chkPOS_RPT_DirektIspis">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>30</y>
+           <width>151</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Direktan ispis</string>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="chkPOS_Pokretac_LPR">
+         <property name="geometry">
+          <rect>
+           <x>230</x>
+           <y>30</y>
+           <width>100</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>lpr</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="radioButton_2">
+         <property name="geometry">
+          <rect>
+           <x>230</x>
+           <y>50</y>
+           <width>100</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>print</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_24">
+         <property name="geometry">
+          <rect>
+           <x>240</x>
+           <y>10</y>
+           <width>59</width>
+           <height>15</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Pokretac</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="tab_3">
+        <attribute name="title">
+         <string>POS-Tip2_Margine</string>
+        </attribute>
+        <widget class="QLabel" name="label_25">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>151</width>
+           <height>17</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Upisite margine mm</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="POS_RPT_MarginaTOP">
+         <property name="geometry">
+          <rect>
+           <x>150</x>
+           <y>20</y>
+           <width>41</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>1</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="POS_RPT_MarginaBotton">
+         <property name="geometry">
+          <rect>
+           <x>150</x>
+           <y>50</y>
+           <width>41</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>1</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="POS_RPT_MarginaRight">
+         <property name="geometry">
+          <rect>
+           <x>190</x>
+           <y>35</y>
+           <width>41</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>1</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="POS_RPT_MarginaLeft">
+         <property name="geometry">
+          <rect>
+           <x>110</x>
+           <y>35</y>
+           <width>41</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>1</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_Certifikat">
+      <attribute name="title">
+       <string>Certfikati</string>
+      </attribute>
+      <layout class="QFormLayout" name="formLayout">
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Cert</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="txtCertsPath"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Sifra</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="txtCertsSifra"/>
+       </item>
+       <item row="3" column="1">
+        <widget class="QPushButton" name="btnPoslovniProstor">
+         <property name="text">
+          <string>Slanje podataka o 
+poslovnom prostoru</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QPushButton" name="btnCertifikatiUpis">
+         <property name="text">
+          <string>Upis</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_Polog">
+      <attribute name="title">
+       <string>Polog u kasi</string>
+      </attribute>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>70</y>
+         <width>54</width>
+         <height>15</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Polog</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtPologUKasi">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>70</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>500</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnPologUpis">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>110</width>
+         <height>45</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Upis</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_DokNaCekanju">
+      <attribute name="title">
+       <string>Dok na cekanju</string>
+      </attribute>
+      <widget class="QLabel" name="label_13">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>100</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="lineWidth">
+        <number>3</number>
+       </property>
+       <property name="text">
+        <string>Sto pise za dokument na cekanjui</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignJustify|Qt::AlignTop</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtDokNaCekanjuPise">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>100</y>
+         <width>113</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Stol</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnUpisDokNaCekanju">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>110</width>
+         <height>45</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Upis</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkKoristiStol">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>60</y>
+         <width>161</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Koristi dok na cekanju</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_OpcijePrograma">
+      <attribute name="title">
+       <string>Opcije programa</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="txtSamoZakljucaj">
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QCheckBox" name="chkSamoZakljucaj">
+         <property name="text">
+          <string>Aut odjava nakon</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0" colspan="2">
+        <widget class="QCheckBox" name="chkProgA4IspisCustom">
+         <property name="text">
+          <string>R-Nalog ispis-Custom</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="3">
+        <widget class="QCheckBox" name="chkRnalogRazduziSklad">
+         <property name="text">
+          <string>R-Nalog razduzi sa sklad</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1" colspan="3">
+        <widget class="QComboBox" name="cmbSklad"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_18">
+         <property name="text">
+          <string>Cjenik</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0" colspan="2">
+        <widget class="QCheckBox" name="chkProgPretragaPoBarcode">
+         <property name="text">
+          <string>Pretraga po barcode</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="0" colspan="2">
+        <widget class="QCheckBox" name="chkSamoSvojDok">
+         <property name="text">
+          <string>Samo svoj dok na cekanju</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0" colspan="2">
+        <widget class="QCheckBox" name="chkProgArtSifLike">
+         <property name="text">
+          <string>Pretraga artikala
+od pocetka naziva</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0" colspan="2">
+        <widget class="QCheckBox" name="chkProgPretragaPoSifri">
+         <property name="text">
+          <string>Pretraga po sifri</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_17">
+         <property name="text">
+          <string>Skladište</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="2">
+        <widget class="QCheckBox" name="chkProgRacArtSifra">
+         <property name="text">
+          <string>Ako ima sifru art,
+dodaj kolicinu +1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0">
+        <widget class="QCheckBox" name="chkLogRac">
+         <property name="text">
+          <string>LogRac</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="3">
+        <widget class="QCheckBox" name="chkProgPorukaBrisanjeStavke">
+         <property name="text">
+          <string>Makni poruku kod brisanje stavke</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="3">
+        <widget class="QCheckBox" name="chkProgBTNBRziRacun">
+         <property name="text">
+          <string>BTN BrziRacun</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="3">
+        <widget class="QComboBox" name="cmbCjenik"/>
+       </item>
+       <item row="0" column="0">
+        <widget class="QPushButton" name="btnUpisOpcijeProg">
+         <property name="text">
+          <string>Upis</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="3">
+        <widget class="QCheckBox" name="chkProgFiskalizacija">
+         <property name="text">
+          <string>Fiskalizacija</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="3">
+        <widget class="QCheckBox" name="chkZabranaBrisanjaArt">
+         <property name="text">
+          <string>Zabrana brisanja artikala</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="3">
+        <widget class="QCheckBox" name="chkArtPitajKol">
+         <property name="text">
+          <string>Art pita kolicinu</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QLabel" name="label_26">
+         <property name="text">
+          <string>u sec</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="3">
+        <widget class="QCheckBox" name="chkKasaPrikazZadnjeSume">
+         <property name="text">
+          <string>Kasa prikaz zadnje sume</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_mailPostavke">
+      <attribute name="title">
+       <string>Mail postavke</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_4">
+       <item row="1" column="0">
+        <layout class="QFormLayout" name="formLayout_2">
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_20">
+           <property name="text">
+            <string>Mail server</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_21">
+           <property name="text">
+            <string>Mail port</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_22">
+           <property name="text">
+            <string>Username</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_23">
+           <property name="text">
+            <string>Password</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="txtMailServer">
+           <property name="text">
+            <string>smtp.gmail.com</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="txtMailPort">
+           <property name="text">
+            <string>465</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="txtMailUsername"/>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="txtMailPassword">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="echoMode">
+            <enum>QLineEdit::Password</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" colspan="2">
+          <widget class="QPushButton" name="btnUpisOpcijeMail">
+           <property name="text">
+            <string>Upis</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>txtPrinterPort</tabstop>
+  <tabstop>txtIspisPoljeDatum</tabstop>
+  <tabstop>txtIspisPoljeRacun</tabstop>
+  <tabstop>txtIspisPoljeZaPlatiti</tabstop>
+  <tabstop>txtIspisPoljeZahvala</tabstop>
+  <tabstop>txtIspisSirinaPapira</tabstop>
+  <tabstop>txtIspisKonverzijaFrom</tabstop>
+  <tabstop>cmbPrinter</tabstop>
+  <tabstop>btnESCpostavke</tabstop>
+  <tabstop>chkBoxRac</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>txtIspisKonverzija</tabstop>
+  <tabstop>chkBoxDatum</tabstop>
+  <tabstop>chkLadica</tabstop>
+  <tabstop>chkRezac</tabstop>
+  <tabstop>prnRedova1</tabstop>
+  <tabstop>btnPrinteriUpis</tabstop>
+  <tabstop>prnRedova2</tabstop>
+  <tabstop>chkBoxZahvala</tabstop>
+  <tabstop>chkBoxZaPlatiti</tabstop>
+  <tabstop>radioIspisPOS</tabstop>
+  <tabstop>radioIspisVeliki</tabstop>
+  <tabstop>chkProzorOdabirIspisa</tabstop>
+  <tabstop>chkWINkoristiPosPrinting</tabstop>
+  <tabstop>chkPOS_RPT_ISPIS</tabstop>
+  <tabstop>txtCertsPath</tabstop>
+  <tabstop>txtCertsSifra</tabstop>
+  <tabstop>btnPoslovniProstor</tabstop>
+  <tabstop>btnCertifikatiUpis</tabstop>
+  <tabstop>txtPologUKasi</tabstop>
+  <tabstop>btnPologUpis</tabstop>
+  <tabstop>txtDokNaCekanjuPise</tabstop>
+  <tabstop>btnUpisDokNaCekanju</tabstop>
+  <tabstop>chkKoristiStol</tabstop>
+  <tabstop>chkProgA4IspisCustom</tabstop>
+  <tabstop>chkRnalogRazduziSklad</tabstop>
+  <tabstop>cmbSklad</tabstop>
+  <tabstop>chkProgPretragaPoBarcode</tabstop>
+  <tabstop>chkProgPretragaPoSifri</tabstop>
+  <tabstop>chkProgArtSifLike</tabstop>
+  <tabstop>chkSamoSvojDok</tabstop>
+  <tabstop>chkProgRacArtSifra</tabstop>
+  <tabstop>chkLogRac</tabstop>
+  <tabstop>chkProgPorukaBrisanjeStavke</tabstop>
+  <tabstop>chkProgBTNBRziRacun</tabstop>
+  <tabstop>cmbCjenik</tabstop>
+  <tabstop>chkProgFiskalizacija</tabstop>
+  <tabstop>btnUpisOpcijeProg</tabstop>
+  <tabstop>chkZabranaBrisanjaArt</tabstop>
+  <tabstop>txtMailServer</tabstop>
+  <tabstop>txtMailPort</tabstop>
+  <tabstop>txtMailUsername</tabstop>
+  <tabstop>txtMailPassword</tabstop>
+  <tabstop>btnUpisOpcijeMail</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
+</ui>

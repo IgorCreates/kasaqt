@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmPrinterOpcije</class>
+ <widget class="QDialog" name="frmPrinterOpcije">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>686</width>
+    <height>597</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="1">
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Printer Opcije</string>
+      </attribute>
+      <widget class="QPushButton" name="btnUpisIspisPostavke">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>110</width>
+         <height>45</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Upis</string>
+       </property>
+      </widget>
+      <widget class="QTableView" name="tableView">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>190</y>
+         <width>641</width>
+         <height>351</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>90</y>
+         <width>41</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>prefix</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnUpis">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>160</y>
+         <width>111</width>
+         <height>27</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Upis</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnBrisi">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>160</y>
+         <width>111</width>
+         <height>27</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Brisanje</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtPPrefix">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>113</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtPSuffix">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>110</y>
+         <width>113</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>90</y>
+         <width>41</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>sufix</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtPPNastavak">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>110</y>
+         <width>113</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>90</y>
+         <width>81</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>pref_nastavak</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cmbPrinter">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>30</y>
+         <width>221</width>
+         <height>27</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>60</y>
+         <width>181</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Printer komande u hex-obliku
+bez razmaka</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblPID">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>140</y>
+         <width>51</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cmbPrnFunkcija">
+       <property name="geometry">
+        <rect>
+         <x>470</x>
+         <y>110</y>
+         <width>131</width>
+         <height>27</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>bold</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ladica</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>reset</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>rezac</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QPushButton" name="btnBrisi_2">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>160</y>
+         <width>111</width>
+         <height>27</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Cisti polja</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txtPSNastavak">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>110</y>
+         <width>113</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>90</y>
+         <width>81</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>suff_nastavak</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>Ispis Postavke</string>
+      </attribute>
+      <widget class="QPushButton" name="btnUpisIspisPostavke_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>110</width>
+         <height>45</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Upis</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="radioIspisPostavkeH2">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>20</y>
+         <width>141</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Zaglavlje nakon</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>85</width>
+         <height>27</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Pomoc</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="txtIspisPostavkeRac">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>180</y>
+         <width>301</width>
+         <height>311</height>
+        </rect>
+       </property>
+       <property name="plainText">
+        <string>kupac_ime
+kupac_adresa
+kupac_oib
+
+rac_br
+
+rac_datum
+rac_prodao
+rac_stol
+rac_placeno
+&lt;z&gt;=&lt;/z&gt;
+artikli_zaglavlje
+&lt;z&gt;-&lt;/z&gt;
+artikli
+&lt;z&gt;=&lt;/z&gt;
+rac_porezi
+&lt;z&gt;-&lt;/z&gt;
+rac_za_platiti
+&lt;z&gt;-&lt;/z&gt;
+rac_zki
+rac_jir
+rac_napomenarac_zahvala</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="txtIspisPostavkeHeader">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>70</y>
+         <width>301</width>
+         <height>101</height>
+        </rect>
+       </property>
+       <property name="plainText">
+        <string>firma_naziv
+firma_oib
+firma_adresa,firma_grad firma_zip
+firma_cb
+</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="radioIspisPostavkeH1">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>20</y>
+         <width>121</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Prvo zaglavlje</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

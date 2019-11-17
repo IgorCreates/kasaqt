@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmPregDokum</class>
+ <widget class="QDialog" name="frmPregDokum">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>712</width>
+    <height>572</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PregledDokumenata</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="1" column="0">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="sizeConstraint">
+        <enum>QLayout::SetFixedSize</enum>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QToolBox" name="toolBox">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="page">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>100</width>
+            <height>388</height>
+           </rect>
+          </property>
+          <attribute name="label">
+           <string>Racuni</string>
+          </attribute>
+          <widget class="QToolButton" name="toolBtnIspis">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>110</y>
+             <width>101</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="toolTip">
+            <string>Ispis racuna</string>
+           </property>
+           <property name="text">
+            <string>&amp;Ispis</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../kasares.qrc">
+             <normaloff>:/ikone/ikone/document_print.svg</normaloff>:/ikone/ikone/document_print.svg</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>32</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="popupMode">
+            <enum>QToolButton::InstantPopup</enum>
+           </property>
+           <property name="toolButtonStyle">
+            <enum>Qt::ToolButtonTextBesideIcon</enum>
+           </property>
+          </widget>
+          <widget class="QToolButton" name="toolBtnStorno">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>210</y>
+             <width>101</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="toolTip">
+            <string>Storno Racuna</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 85, 127);</string>
+           </property>
+           <property name="text">
+            <string>Storno</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../kasares.qrc">
+             <normaloff>:/ikone/ikone/remove.svg</normaloff>:/ikone/ikone/remove.svg</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>32</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="toolButtonStyle">
+            <enum>Qt::ToolButtonTextBesideIcon</enum>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btnPrikaziNeposlane_3">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>98</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Prikazi
+Racune</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../kasares.qrc">
+             <normaloff>:/ikone/ikone/pregled_racuna.png</normaloff>:/ikone/ikone/pregled_racuna.png</iconset>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btnPrikaziStavke">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>40</y>
+             <width>98</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Prikazi
+Stavke</string>
+           </property>
+          </widget>
+          <widget class="QToolButton" name="toolBtnPretraga">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>80</y>
+             <width>98</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Pretraga</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../kasares.qrc">
+             <normaloff>:/ikone/ikone/document_preview.svg</normaloff>:/ikone/ikone/document_preview.svg</iconset>
+           </property>
+           <property name="toolButtonStyle">
+            <enum>Qt::ToolButtonTextBesideIcon</enum>
+           </property>
+          </widget>
+          <widget class="QToolButton" name="toolBtnIspisOdDo">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>150</y>
+             <width>101</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="toolTip">
+            <string>Ispis racuna</string>
+           </property>
+           <property name="text">
+            <string>Od - Do</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../kasares.qrc">
+             <normaloff>:/ikone/ikone/document_print.svg</normaloff>:/ikone/ikone/document_print.svg</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>32</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="popupMode">
+            <enum>QToolButton::InstantPopup</enum>
+           </property>
+           <property name="toolButtonStyle">
+            <enum>Qt::ToolButtonTextBesideIcon</enum>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btnPrikazNarudzbe">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>280</y>
+             <width>99</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Prikazi 
+narudzbe</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="page_3">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>100</width>
+            <height>388</height>
+           </rect>
+          </property>
+          <attribute name="label">
+           <string>Otpremnice</string>
+          </attribute>
+          <widget class="QToolButton" name="toolBtnIspis_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>50</y>
+             <width>101</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="toolTip">
+            <string>Ispis racuna</string>
+           </property>
+           <property name="text">
+            <string>Ispis</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../kasares.qrc">
+             <normaloff>:/ikone/ikone/document_print.svg</normaloff>:/ikone/ikone/document_print.svg</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>32</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="popupMode">
+            <enum>QToolButton::InstantPopup</enum>
+           </property>
+           <property name="toolButtonStyle">
+            <enum>Qt::ToolButtonTextBesideIcon</enum>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btnPrikaziNeposlane_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>98</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Prikazi
+otpremnice</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="page_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>100</width>
+            <height>388</height>
+           </rect>
+          </property>
+          <attribute name="label">
+           <string>FIskal provjere</string>
+          </attribute>
+          <widget class="QPushButton" name="btnPrikaziNeposlane">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>98</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Prikazi
+neposlane</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btnSaljiPonovno">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>50</y>
+             <width>98</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Ponovi
+slanje</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btnZKI">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>100</y>
+             <width>98</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Prikazi
+Bez ZKI</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btnRekreiranjeZKI">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>150</y>
+             <width>98</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Ponovi
+Kreiranje ZKI</string>
+           </property>
+          </widget>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolBox" name="toolBokPretraga">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="pageFilteri">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>250</width>
+            <height>419</height>
+           </rect>
+          </property>
+          <attribute name="label">
+           <string>Filteri</string>
+          </attribute>
+          <widget class="QLabel" name="label">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>120</y>
+             <width>71</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Po broju</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="txtFilterBroj">
+           <property name="geometry">
+            <rect>
+             <x>80</x>
+             <y>120</y>
+             <width>81</width>
+             <height>23</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="txtFilterDa">
+           <property name="geometry">
+            <rect>
+             <x>80</x>
+             <y>150</y>
+             <width>81</width>
+             <height>23</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_2">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>150</y>
+             <width>71</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Godina</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btnFilter">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>80</y>
+             <width>231</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Filter</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="txtFilterVrsta">
+           <property name="geometry">
+            <rect>
+             <x>80</x>
+             <y>210</y>
+             <width>51</width>
+             <height>23</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_3">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>210</y>
+             <width>71</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Vrsta</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btnFilterZatvori">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>0</y>
+             <width>231</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Zatvori</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btnFilterDesno1000">
+           <property name="geometry">
+            <rect>
+             <x>130</x>
+             <y>50</y>
+             <width>111</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>1000&gt;&gt;</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btnFilterLjevo1000">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>50</y>
+             <width>111</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>&lt;&lt;1000</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_4">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>30</y>
+             <width>231</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Pomicanje za po 1000redova</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="txtFilterProdavac">
+           <property name="geometry">
+            <rect>
+             <x>80</x>
+             <y>240</y>
+             <width>161</width>
+             <height>23</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_5">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>240</y>
+             <width>71</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Prodavac</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chkStorno">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>270</y>
+             <width>231</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Storniran racun</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="txtFilterDatum_Mjesec">
+           <property name="geometry">
+            <rect>
+             <x>80</x>
+             <y>180</y>
+             <width>81</width>
+             <height>23</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_8">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>180</y>
+             <width>71</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Mjesec</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="pgKreiranjeRacuna">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>250</width>
+            <height>419</height>
+           </rect>
+          </property>
+          <attribute name="label">
+           <string>Kreiranje x racuna</string>
+          </attribute>
+          <widget class="QLabel" name="label_6">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>0</y>
+             <width>151</width>
+             <height>17</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Upisite broj racuna</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_7">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>60</y>
+             <width>221</width>
+             <height>17</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Upisite opis na racunima</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="txtKreirajXRacunaBr">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>20</y>
+             <width>141</width>
+             <height>27</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QPlainTextEdit" name="txtKreirajXRacunaOpis">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>90</y>
+             <width>231</width>
+             <height>201</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btnKreirajXRacuna">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>300</y>
+             <width>221</width>
+             <height>27</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Kreiraj x racuna</string>
+           </property>
+          </widget>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableView" name="tableView">
+         <property name="tabKeyNavigation">
+          <bool>false</bool>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="0">
+      <widget class="QPushButton" name="btnIzlaz">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Izlaz</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../kasares.qrc">
+         <normaloff>:/ikone/ikone/window_close.svg</normaloff>:/ikone/ikone/window_close.svg</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>22</width>
+         <height>22</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="lblPoruke">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../kasares.qrc"/>
+ </resources>
+ <connections/>
+</ui>
