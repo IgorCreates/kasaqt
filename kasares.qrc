@@ -1,0 +1,45 @@
+<RCC>
+    <qresource prefix="/ikone">
+        <file>ikone/button_cancel.svg</file>
+        <file>ikone/button_ok.svg</file>
+        <file>ikone/CRM.jpg</file>
+        <file>ikone/document_encrypt.svg</file>
+        <file>ikone/document_preview.svg</file>
+        <file>ikone/document_print.svg</file>
+        <file>ikone/edit_clear.svg</file>
+        <file>ikone/edit_delete.svg</file>
+        <file>ikone/k1.png</file>
+        <file>ikone/list_add.svg</file>
+        <file>ikone/list_add_user.svg</file>
+        <file>ikone/list_remove.svg</file>
+        <file>ikone/mail.png</file>
+        <file>ikone/menu.png</file>
+        <file>ikone/napravi_racun.png</file>
+        <file>ikone/pregled_racuna.png</file>
+        <file>ikone/remove.svg</file>
+        <file>ikone/stol.png</file>
+        <file>ikone/system_log_out.svg</file>
+        <file>ikone/view_sort_ascending.svg</file>
+        <file>ikone/view_sort_descending.svg</file>
+        <file>ikone/view_statistics.svg</file>
+        <file>ikone/window_close.svg</file>
+        <file>ikone/Credit_Card.png</file>
+        <file>ikone/configure.png</file>
+        <file>ikone/edit_find_user.png</file>
+        <file>ikone/keyboard.png</file>
+        <file>ikone/messagebox_critical.png</file>
+        <file>ikone/messagebox_info.png</file>
+        <file>ikone/messagebox_warning.png</file>
+        <file>ikone/preferences_desktop_cryptography.png</file>
+        <file>ikone/American Express.png</file>
+        <file>ikone/Cash.png</file>
+        <file>ikone/ Cirrus.png</file>
+        <file>ikone/Mastercard.png</file>
+        <file>ikone/PayPal.png</file>
+        <file>ikone/Shopping Cart.png</file>
+        <file>ikone/VISA.png</file>
+        <file>ikone/backspace.png</file>
+        <file>ikone/edit.png</file>
+        <file>ikone/jnetlogo.png</file>
+    </qresource>
+</RCC>

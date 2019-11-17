@@ -1,0 +1,28 @@
+#include <QtCore>
+
+int main(int argc, char* argv[])
+{
+    QCoreApplication app(argc, argv);
+
+    int a = 3;
+    int b = 53;
+
+    QByteArray ls;
+    ls += 0x1b; // hex
+    ls += 39; // decimal
+    ls += '\0'; // as a character
+    ls += 015; // octal
+    ls += static_cast<char>(a); // explicit cast from int
+    ls += b; // implicit cast from int
+    // send the byte array
+
+    qDebug() << ls.toHex();
+
+    return 0;
+}
+
+You could more conveniently initialise the fixed data in the array like:
+
+
+QByteArray ls = QByteArray::fromHex("1b27000d");
+
