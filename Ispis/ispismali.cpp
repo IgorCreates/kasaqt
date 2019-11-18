@@ -12,11 +12,11 @@
 
 ispisMali::ispisMali()
 {
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
     PokretacJasper = "/opt/iReport/jasperstarter/bin/jasperstarter";
     PokretacJasperRunPath = "/opt/iReport/runjasperreports";
 #endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     PokretacJasper = "jasperstarter";
     PokretacJasperRunPath = "c:\\opt\\iReport\\runjasperreports";
 #endif
@@ -69,14 +69,14 @@ void ispisMali::ispisVeliki(const QString &ImeReporta, const QString &Parametri)
     qDebug() << zk1.readAll() << zk1.readAllStandardOutput() << zk1.readAllStandardError() << zk1.readChannel();
     qDebug() << "isp kom "  << Komanda.append(NK.join(" "));
 
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
     Komanda = QString("evince %1/%2.pdf").arg(qApp->applicationDirPath()).arg(ImeReporta);
 #endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     Komanda = QString("%1/%2.pdf").arg(qApp->applicationDirPath()).arg(ImeReporta);
 #endif
 
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
 //    system(Komanda.toUtf8().constData());
     zk1.setReadChannel(QProcess::StandardOutput);
     zk1.setProcessChannelMode(QProcess::MergedChannels);
@@ -97,7 +97,7 @@ void ispisMali::ispisVeliki(const QString &ImeReporta, const QString &Parametri)
     }
     //qDebug() << system(Komanda.toUtf8().constData());
 #endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     QString pdfFajl = QString("/%1/%2.pdf").arg(qApp->applicationDirPath()).arg(ImeReporta);
     qDebug() << pdfFajl;
     QUrl pdfF = QUrl::fromLocalFile(pdfFajl);
@@ -114,23 +114,23 @@ void ispisMali::IspisRNalog(const int &RnalogID)
     QString ImeReportaPDF = ImeReporta;
     QString Parametri = QString("rid=integer:%1").arg(RnalogID);
     ImeReporta.prepend(QString("%1/").arg(qApp->applicationDirPath()));
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
     ImeReportaPDF.prepend("/tmp/");
 #endif
     QString Komanda = QString("jasperstarter pr -t mysql -H %1 -u kasauser -p KasaPasSwd -n %2 -i %3.jasper"
                               " -f pdf -P %4 --jdbc-dir %5 -o %6").arg(QSqlDatabase::database("baza").hostName())
             .arg(QSqlDatabase::database("baza").databaseName()).arg(ImeReporta).arg(Parametri).arg(PokretacJasperRunPath).arg(ImeReportaPDF);
     //Komanda.prepend(PokretacJasper);
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
     Komanda.prepend("/opt/iReport/jasperstarter/bin/");
 #endif
     qDebug() << Komanda;
     qDebug() << qApp->applicationDirPath();
     qDebug() << system(Komanda.toUtf8().constData());
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
     Komanda = QString("evince %1.pdf").arg(ImeReportaPDF);
 #endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     Komanda = QString("%1.pdf").arg(ImeReportaPDF);
 #endif
 
@@ -196,13 +196,14 @@ void ispisMali::IspisMaliPos(const QString &BrRacuna)
 
     //QFile file("/tmp/ispNewT.txt");
     QFile file;
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
     //QFile file("/tmp/ispMali.txt");
     file.setFileName("/tmp/ispMali.txt");
 #endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     //QFile file(QString("%1/ispMali.txt").arg(qApp->applicationDirPath()));
     file.setFileName(QString("%1/ispMali.txt").arg(qApp->applicationDirPath()));
+    qDebug() << "PrintFile: " << QString(file.fileName());
 #endif
     file.open(QIODevice::WriteOnly);
     QTextStream ispRac(&file);
@@ -442,7 +443,6 @@ void ispisMali::IspisMaliPos(const QString &BrRacuna)
         SaljiNaPrinter(file.fileName());
 
         /*
-
         QString Komanda;
         QString PrinterPort;
         if (!qApp->property("Printer-Port").isNull())
@@ -456,11 +456,11 @@ void ispisMali::IspisMaliPos(const QString &BrRacuna)
         if (!qApp->property("Printer-Konverzija").isNull())
         {
     //        qDebug() << qApp->property("Printer-Konverzija").toString();
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
             Komanda = QString("cat /tmp/ispMali.txt | iconv -f %1 -t %2 -o %3" ).arg(qApp->property("Printer-KonverzijaFrom").toString()).arg(qApp->property("Printer-Konverzija").toString()).arg(PrinterPort);
            // qDebug()<<Komanda;
 #endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
             if (qApp->property("Printer-WINkoristiPOSPrinting").toString() == "1")
             {
                 Komanda = QString("POSPrinting").arg(PrinterPort);
@@ -474,10 +474,10 @@ void ispisMali::IspisMaliPos(const QString &BrRacuna)
         }else
 
         {
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
             Komanda= QString("cat /tmp/ispMali.txt >> %1").arg(PrinterPort);
 #endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
             if (qApp->property("Printer-WINkoristiPOSPrinting").toString() == "1")
             {
                 Komanda = QString("POSPrinting").arg(PrinterPort);
@@ -617,10 +617,10 @@ void ispisMali::IspisKrajDanaKorisnik(const QDateTime &DatumOd, const QDateTime 
     rDetail += QString("=").repeated(SirinaPapira);
 //    QFile file("/tmp/ispStanje1.txt");
     QFile file;
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
     file.setFileName("/tmp/ispStanje1.txt");
 #endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     file.setFileName(QString("%1/ispStanje1.txt").arg(qApp->applicationDirPath()));
 #endif
 
@@ -768,10 +768,10 @@ void ispisMali::IspisMaliPosVrac(const QString &BrRacuna)
     //QFile file("/tmp/ispNewT.txt");
 
     QFile file;
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
     file.setFileName("/tmp/ispMali.txt");
 #endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     file.setFileName(QString("%1/ispMali.txt").arg(qApp->applicationDirPath()));
 #endif
     file.open(QIODevice::WriteOnly);
@@ -1004,11 +1004,11 @@ void ispisMali::IspisMaliPosVrac(const QString &BrRacuna)
         if (!qApp->property("Printer-Konverzija").isNull())
         {
     //        qDebug() << qApp->property("Printer-Konverzija").toString();
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
             //Komanda = QString("cat /tmp/ispMali.txt | iconv -f UTF8 -t %1 -o %2" ).arg(qApp->property("Printer-Konverzija").toString()).arg(PrinterPort);
             Komanda = QString("cat /tmp/ispMali.txt | iconv -f %1 -t %2 -o %3" ).arg(qApp->property("Printer-KonverzijaFrom").toString()).arg(qApp->property("Printer-Konverzija").toString()).arg(PrinterPort);
 #endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
             if (qApp->property("Printer-WINkoristiPOSPrinting").toString() == "1")
             {
                 Komanda = QString("POSPrinting").arg(PrinterPort);
@@ -1020,10 +1020,10 @@ void ispisMali::IspisMaliPosVrac(const QString &BrRacuna)
 #endif
         }else
         {
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
             Komanda= QString("cat /tmp/ispMali.txt >> %1").arg(PrinterPort);
 #endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
 //            Komanda = QString("copy ispMali.txt %1").arg(PrinterPort);
             if (qApp->property("Printer-WINkoristiPOSPrinting").toString() == "1")
             {
@@ -1056,11 +1056,11 @@ void ispisMali::SaljiNaPrinter(QString FileZaIspis)
     }
     if (!qApp->property("Printer-Konverzija").isNull())
     {
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
         Komanda = QString("cat %1 | iconv -f %2 -t %3 -o %4" ).arg(FileZaIspis).arg(qApp->property("Printer-KonverzijaFrom").toString()).arg(qApp->property("Printer-Konverzija").toString()).arg(PrinterPort);
        // qDebug()<<Komanda;
 #endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
         if (qApp->property("Printer-WINkoristiPOSPrinting").toString() == "1")
         {
             Komanda = QString("POSPrinting -f%1").arg(FileZaIspis);
@@ -1072,10 +1072,10 @@ void ispisMali::SaljiNaPrinter(QString FileZaIspis)
 #endif
     }else
     {
-#ifdef Q_WS_X11
+#ifdef Q_OS_X11
         Komanda= QString("cat %1 >> %2").arg(FileZaIspis).arg(PrinterPort);
 #endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
         if (qApp->property("Printer-WINkoristiPOSPrinting").toString() == "1")
         {
             Komanda = QString("POSPrinting -f%1").arg(FileZaIspis);

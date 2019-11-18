@@ -103,7 +103,7 @@ void frmFiskalPoruke::on_pushButton_pressed()
     QString vr= QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
 
     QString ImeXMLFajla = QString("xml/xmlPPZ_%1.xml").arg(vr);
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     ImeXMLFajla.prepend(QString("%1/").arg(qApp->applicationDirPath()));
 #endif
     QFile file(ImeXMLFajla);
@@ -116,16 +116,16 @@ void frmFiskalPoruke::on_pushButton_pressed()
     //xmlsec1 --sign --id-attr:Id 'http://www.apis-it.hr/fin/2012/types/f73':RacunZahtjev --pkcs12 mycert2.pfx --pwd 1 --output  O.xml /tmp/xmlRacZahtjerv.xml
     QString ImeXML_sign_Fajla = QString("xml/xmlPPZ_%1_sign.xml").arg(vr);
     QString Komanda;
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     ImeXML_sign_Fajla.prepend(QString("%1/").arg(qApp->applicationDirPath()));
 #endif
    //qApp->property("Certs_Path").toString()).arg(qApp->property("Certs_Sifra").toString()
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
     Komanda = QString("xmlsec1 --sign --id-attr:Id 'http://www.apis-it.hr/fin/2012/types/f73':PoslovniProstorZahtjev "
                               "--pkcs12 %3 --pwd %4 --output  %2 %1").arg(ImeXMLFajla).arg(ImeXML_sign_Fajla)
             .arg(qApp->property("Certs_Path").toString()).arg(qApp->property("Certs_Sifra").toString());
 #endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     Komanda = QString("xmlsec1 --sign --id-attr:Id PoslovniProstorZahtjev "
                               "--pkcs12 %5/%3 --pwd %4 --output  %2 %1").arg(ImeXMLFajla).arg(ImeXML_sign_Fajla)
             .arg(qApp->property("Certs_Path").toString()).arg(qApp->property("Certs_Sifra").toString()).arg(qApp->applicationDirPath());
@@ -133,11 +133,11 @@ void frmFiskalPoruke::on_pushButton_pressed()
     qDebug() << Komanda;
     qDebug() <<  system(Komanda.toUtf8().constData());
 /*
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
     //Komanda = QString("PERL_LWP_SSL_VERIFY_HOSTNAME=0 perl p.pl %1 >> %1.povratni").arg(ImeXML_sign_Fajla);
     Komanda = QString("python p.py %1 >> %1.povratni").arg(ImeXML_sign_Fajla);
 #endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     Komanda = QString("%2/bin/p.bat %1 >> %1.povratni").arg(ImeXML_sign_Fajla).arg(qApp->applicationDirPath());
 #endif
 */

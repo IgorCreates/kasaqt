@@ -130,12 +130,12 @@ bool mojiHeaderi::ZKI(int RacID)
     //qApp->property("Certs_Path").toString()).arg(qApp->property("Certs_Sifra").toString()
     qDebug() << qApp->property("Certs_Path").toString() << qApp->property("Certs_Sifra").toString() ;
     QString Komand;
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
 //    Komand = QString("mono Sign.exe %2 %3 \"%1\"").arg(medj).arg(qApp->property("Certs_Path").toString()).arg(qApp->property("Certs_Sifra").toString());
     Komand = QString("./p.py -z \"%1\"").arg(medjN);
     qDebug() << "command: " << Komand;
 #endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     //zk->start();
     Komand = QString("%4/Sign.exe %4/%2 %3 \"%1\"").arg(medj).arg(qApp->property("Certs_Path").toString()).arg(qApp->property("Certs_Sifra").toString()).arg(qApp->applicationDirPath());
     qDebug() << "command: " << Komand;
@@ -788,10 +788,10 @@ bool mojiHeaderi::xmlRacunZahtjev(const int RacunID, bool NaknadnoSlanje)
     //qDebug() << doc.toString();
 
     QString PathXML;
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     PathXML = QString("%1/xml/").arg(qApp->applicationDirPath());
 #endif
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
     PathXML = "xml/";
 #endif
     //PathXML = "";
@@ -830,20 +830,20 @@ qDebug() << "Ime xmlfajla:" << ImeXMLFajla;
     QProcess *zk = new QProcess(this);
 
 QString KomandaXMLSEC;
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     KomandaXMLSEC = QString("%1/bin/xmlsec ").arg(qApp->applicationDirPath());
 #endif
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
     KomandaXMLSEC = "xmlsec1 ";
 #endif
 
     QString Komanda;
     QStringList NK;
 //    Komanda = QString(" --sign --id-attr:Id 'http://www.apis-it.hr/fin/2012/types/f73': RacunZahtjev --pkcs12 %3 --pwd %4 --output  %2 %1").arg(ImeXMLFajla).arg(ImeXML_sign_Fajla).arg(qApp->property("Certs_Path").toString()).arg(qApp->property("Certs_Sifra").toString());
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
     Komanda = QString(" --sign --id-attr:Id RacunZahtjev --pkcs12 %3 --pwd %4 --output  %2 %1").arg(ImeXMLFajla).arg(ImeXML_sign_Fajla).arg(qApp->property("Certs_Path").toString()).arg(qApp->property("Certs_Sifra").toString());
 #endif
-//#ifdef Q_WS_WIN
+//#ifdef Q_OS_WIN
     NK <<"--sign" << "--id-attr:Id RacunZahtjev" << "--pkcs12" << QString("%1/%2").arg(qApp->applicationDirPath()).arg(qApp->property("Certs_Path").toString())
       << "--pwd" << qApp->property("Certs_Sifra").toString()
       << "--output" << ImeXML_sign_Fajla << ImeXMLFajla;
@@ -872,16 +872,16 @@ QString KomandaXMLSEC;
 
     //qDebug() << system(KomandaXMLSEC.append(NK.join(" ")).toUtf8().constData());
 /* Maknuto i prebaceno sve na python
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
 //    Komanda = QString("PERL_LWP_SSL_VERIFY_HOSTNAME=0 perl p.pl %1 >> %1.povratni").arg(ImeXML_sign_Fajla);
     Komanda = QString("python p.py %1 >> %1.povratni").arg(ImeXML_sign_Fajla);
 #endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     Komanda = QString("%2/bin/p.bat %1 >> %1.povratni").arg(ImeXML_sign_Fajla).arg(qApp->applicationDirPath());
 #endif
 */
     Komanda = QString("./p.py %1 >> %1.povratni").arg(ImeXML_sign_Fajla);
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     Komanda = QString("python p2.py %1 >> %1.povratni").arg(ImeXML_sign_Fajla);
 #endif
 

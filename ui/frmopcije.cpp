@@ -39,11 +39,11 @@ frmOpcije::frmOpcije(QWidget *parent) :
     UcitajOpcije();
     this->setWindowTitle("FiskalKasa-Opcije");
     //ui->tab_6->setVisible(false);
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     ui->chkWINkoristiPosPrinting->setEnabled(true);
     ui->chkWINkoristiPosPrinting->setVisible(true);
 #endif
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
     ui->chkWINkoristiPosPrinting->setVisible(true);
     ui->chkWINkoristiPosPrinting->setEnabled(true);
 #endif

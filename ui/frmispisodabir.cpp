@@ -985,10 +985,10 @@ void frmIspisOdabir::ispisA4templateStanje(QDateTime DatumStart, QDateTime Datum
         //(file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         //QString text = file.readAll();
     QFile file;
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
     file.setFileName("/tmp/ispStanje1.txt");
 #endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     file.setFileName(QString("%1/ispStanje1.txt").arg(qApp->applicationDirPath()));
 #endif
 

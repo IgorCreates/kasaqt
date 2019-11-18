@@ -705,10 +705,10 @@ bool frmKasa::eventFilter(QObject *target, QEvent *event)
                 SamoZakljucajTimerReset();
 
             }
-//#ifdef Q_WS_X11
+//#ifdef Q_OS_LINUX
             else if (event->type() == QEvent::KeyPress)
 //#endif
-//#ifdef Q_WS_WIN*/
+//#ifdef Q_OS_WIN*/
 //            else if (event->type() == QEvent::KeyRelease)
 //#endif
             {
@@ -820,10 +820,10 @@ bool frmKasa::eventFilter(QObject *target, QEvent *event)
         {
             ui->tableView->setStyleSheet(PamtiStyle);
         }
-//#ifdef Q_WS_X11
+//#ifdef Q_OS_LINUX
             else if (event->type() == QEvent::KeyPress)
 /*#endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
             else if (event->type() == QEvent::KeyRelease)
 #endif*/
         {

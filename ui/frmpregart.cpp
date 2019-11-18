@@ -323,10 +323,10 @@ bool frmPregart::eventFilter(QObject *target, QEvent *event)
     if (target == ui->tableView )
     {
         //qDebug() << event->type();
-//#ifdef Q_WS_X11
+//#ifdef Q_OS_LINUX
             if (event->type() == QEvent::KeyPress)
 /*#endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
             if (event->type() == QEvent::KeyRelease)
 #endif*/
             {

@@ -110,10 +110,10 @@ void frmIspisKuhinja::slotIspisStol(int StolBR)
         return;
 
     QFile file;
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
     file.setFileName("/tmp/ispStol.txt");
 #endif
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
     file.setFileName(QString("%1/ispStol.txt").arg(qApp->applicationDirPath()));
 #endif
 
