@@ -108,7 +108,7 @@ void frmIspisOdabir::on_btnA4_released()
         if (qApp->property("Prog-IspisRnalogCustom").toString() == "1")
         {
             ispisMali *isp = new ispisMali();
-            isp->ispisVeliki("ispRacun",QString("\"rid=int:%1\"").arg(RacunID));
+            isp->ispisVeliki("ispRacun",QString("\"rid=%1\"").arg(RacunID));
         }else
         {
             ispisA4template("",RacunID);
@@ -121,7 +121,7 @@ void frmIspisOdabir::StartA4Ispis()
 {
     //qDebug() << "T2:" << QThread::currentThread();
     ispisMali *isp = new ispisMali();
-    isp->ispisVeliki("ispRacun",QString("\"rid=int:%1\"").arg(RacunID));
+    isp->ispisVeliki("ispRacun",QString("\"rid=%1\"").arg(RacunID));
     this->close();
 
 }

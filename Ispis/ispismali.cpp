@@ -14,7 +14,7 @@ ispisMali::ispisMali()
 {
 #ifdef Q_OS_LINUX
     PokretacJasper = "/opt/iReport/jasperstarter/bin/jasperstarter";
-    PokretacJasperRunPath = "/opt/iReport/runjasperreports";
+    PokretacJasperRunPath = "/opt/iReport/jasperstarter/jdbc/";
 #endif
 #ifdef Q_OS_WIN
     PokretacJasper = "jasperstarter";
@@ -46,8 +46,8 @@ void ispisMali::ispisVeliki(const QString &ImeReporta, const QString &Parametri)
     QString Komanda=PokretacJasper;
     QStringList NK;
     NK << " pr" << "-t" << "mysql"  << "-H" << QSqlDatabase::database("baza").hostName() << "-u" << "kasauser" << "-p" << "KasaPasSwd";
-    NK << "-n" << QSqlDatabase::database("baza").databaseName() << "-i" << QString("%1.jasper").arg(ImeReporta) << "-f" << "pdf";
-    NK << "-P" << Parametri << "--jdbc-dir" << PokretacJasperRunPath << QString("-o %1/%2").arg(qApp->applicationDirPath()).arg(ImeReporta);
+    NK << "-n" << QSqlDatabase::database("baza").databaseName() << "-f" << "pdf";
+    NK << "-P" << Parametri << "--jdbc-dir" << PokretacJasperRunPath << QString("-o %1/%2").arg(qApp->applicationDirPath()).arg(ImeReporta) <<  QString("%1.jasper").arg(ImeReporta);
 
     QProcess zk1;
     zk1.setProcessEnvironment(QProcessEnvironment::systemEnvironment());
@@ -112,13 +112,13 @@ void ispisMali::IspisRNalog(const int &RnalogID)
 {
     QString ImeReporta = "isp_rNalog";
     QString ImeReportaPDF = ImeReporta;
-    QString Parametri = QString("rid=integer:%1").arg(RnalogID);
+    QString Parametri = QString("rid=%1").arg(RnalogID);
     ImeReporta.prepend(QString("%1/").arg(qApp->applicationDirPath()));
 #ifdef Q_OS_LINUX
     ImeReportaPDF.prepend("/tmp/");
 #endif
-    QString Komanda = QString("jasperstarter pr -t mysql -H %1 -u kasauser -p KasaPasSwd -n %2 -i %3.jasper"
-                              " -f pdf -P %4 --jdbc-dir %5 -o %6").arg(QSqlDatabase::database("baza").hostName())
+    QString Komanda = QString("jasperstarter pr -t mysql -H %1 -u kasauser -p KasaPasSwd -n %2 "
+                              " -f pdf -P %4 --jdbc-dir %5 -o %6 %3.jasper").arg(QSqlDatabase::database("baza").hostName())
             .arg(QSqlDatabase::database("baza").databaseName()).arg(ImeReporta).arg(Parametri).arg(PokretacJasperRunPath).arg(ImeReportaPDF);
     //Komanda.prepend(PokretacJasper);
 #ifdef Q_OS_LINUX

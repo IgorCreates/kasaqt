@@ -115,6 +115,7 @@ bool frmLogin::UcitajCryptoBazu()
     QSqlQuery qc("",dbLocal);
     if (!qc.exec("select * from firma"))
     {
+        qDebug() << "DB_DRIVERS"  << QSqlDatabase::drivers();
         qDebug() << "Greska cry-q";
         qDebug() << qc.lastError();
         JeNije = false;
@@ -178,6 +179,7 @@ void frmLogin::UcitajBazu()
     /*
     shell openssl des
     */
+    qDebug() << "DB_DRIVERS";
     qDebug() << QSqlDatabase::drivers();
 
     if (PromjenaKorisnika == false)
