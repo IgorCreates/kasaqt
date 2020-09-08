@@ -387,40 +387,35 @@ bool mojiHeaderi::jsonRacunZahtjev(const int RacunID, bool NaknadnoSlanje)
     jsonFile.close();   // Close file
 
 
-    QProcess *zk = new QProcess(this);
+    //QProcess *zk = new QProcess(this);
     //qApp->property("Certs_Path").toString()).arg(qApp->property("Certs_Sifra").toString()
     QString Komand;
 
-    Komand = QString("c:/python27/python.exe p3.py %1").arg(ImeJsonFajla);
-    zk->start(Komand);
-    zk->setReadChannel(QProcess::StandardOutput);
-    if (!zk->waitForStarted())
+    //Komand = QString("python p3.py %1").arg(ImeJsonFajla);
+    Komand = QString("/usr/bin/python2 --version");
+
+
+    QProcess zk;
+    zk.start("./p3.py",QStringList()  << "-s" << ImeJsonFajla); //vidi na windowsima sto treba to prepraviti
+
+    if (!zk.waitForFinished())
     {
-        qDebug() << "Greska json";
+        qDebug() << "Greska json" << zk.errorString();
         return false;
     }else
     {
-        zk->waitForFinished();
+        //zk->waitForFinished();
         QString ZKi;
         QTextStream ZKe;
-        ZKi.append(zk->readAllStandardOutput().constData());
-        ZKe << zk->readAllStandardError();
-        ZKe << zk->readAllStandardOutput();
-        ZKe << zk->readAll();
-        qDebug() << ZKe.readAll() <<endl;
-        //zk->close();
+
+        ZKi.append(zk.readAll());
+        qDebug() << zk.readAllStandardError();
+        qDebug() << zk.readAllStandardOutput();
         qDebug() << "FISK_RETURN:" << ZKi;
         QString bb =  ZKi;   //"ZKI : bbd743f6fd3abe1ba2a145dff71c80d7\r\nRacunZahtjev reply errors:\r\nOIB iz poruke zahtjeva nije jednak OIB-u iz certifikata.\r\n('Done in ', 0.2754233, 'seconds')\r\nJIR is: c59de779-28d1-4714-9141-1bd2c10b852f";
         QStringList bL = bb.split("\r\n");
         QString ZKI="";
         QString JIR="";
-
-        QFile filed(QString("%1_DEB").arg(ImeJsonFajla));
-        if (filed.open(QIODevice::ReadWrite))
-        {
-            QTextStream stream(&filed);
-            stream <<  ZKi <<endl;
-        }
 
         QFile file(QString("%1_Odgovor").arg(ImeJsonFajla));
         if (file.open(QIODevice::ReadWrite))
@@ -429,23 +424,32 @@ bool mojiHeaderi::jsonRacunZahtjev(const int RacunID, bool NaknadnoSlanje)
             stream <<  ZKi <<endl;
         }
 
-        foreach (QString i, bL) {
-            //qDebug() << "List items = " << i;
-            if (i.contains("ZKI"))
-            {
-                qDebug() << i.split(":");
-                ZKI =  QString(i.split(":")[1]).trimmed();
-                //qDebug() << ZKI;
-                if (!q.exec(QString("update rac1 set zki='%1' where id=%2").arg(ZKI).arg(RacunID)))
-                    qDebug() << "Greska upisa ZKI-a " << q.lastError() << " " << q.lastQuery();
-            }
-            if (i.contains("JIR"))
-            {
-                qDebug() << i.split(":");
-                JIR = QString(i.split(":")[1]).trimmed();
-                //qDebug() << JIR;
-                if (!q.exec(QString("insert into rac1fiskal (racid,datum_slanja,odgovor,potvrden) select %1,now(),'%2',1").arg(RacunID).arg(JIR)))
-                    qDebug() << "Greska upisa JIR-a " << q.lastError() << " " << q.lastQuery();
+        //QFile f("/tmp/out");
+        //if (!f.open(QIODevice::ReadOnly | QIODevice::Text))
+        //    qDebug() << "Greska otvaranja";
+        QTextStream in(&ZKi);
+        while (!in.atEnd()){
+            QString line = in.readLine();
+            QStringList bL =  line.split(("\r\n"));
+            foreach (QString i, bL){
+                if (i.contains("ZKI"))
+                {
+                    qDebug() << i.split(":");
+                    //qDebug() << i.split(":")[1];
+                    ZKI =  QString(i.split(":")[1]).trimmed();
+                    qDebug() << ZKI;
+                    if (!q.exec(QString("update rac1 set zki='%1' where id=%2").arg(ZKI).arg(RacunID)))
+                        qDebug() << "Greska upisa ZKI-a " << q.lastError() << " " << q.lastQuery();
+                }
+                if (i.contains("JIR"))
+                {
+                    qDebug() << i.split(":");
+                    //qDebug() << i.split(":")[1];
+                    JIR = QString(i.split(":")[1]).trimmed();
+                    qDebug() << JIR;
+                    if (!q.exec(QString("insert into rac1fiskal (racid,datum_slanja,odgovor,potvrden) select %1,now(),'%2',1").arg(RacunID).arg(JIR)))
+                        qDebug() << "Greska upisa JIR-a " << q.lastError() << " " << q.lastQuery();
+                }
             }
         }
      }

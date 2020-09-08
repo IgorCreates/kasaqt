@@ -123,7 +123,7 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    QString VerProga = " os_1.2";
+    QString VerProga = " os_1.5";
 
     qApp->setQuitOnLastWindowClosed(true);
     qDebug() << QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
@@ -229,6 +229,29 @@ int main(int argc, char *argv[])
     }
 #endif
 
+
+
+//    QFile f("/tmp/out");
+//    if (!f.open(QIODevice::ReadOnly | QIODevice::Text))
+//        qDebug() << "Greska otvaranja";
+//    QTextStream in(&f);
+//    while (!in.atEnd()){
+//        QString line = in.readLine();
+//        QStringList bL =  line.split(("\r\n"));
+//        foreach (QString i, bL){
+//            if (i.contains("ZKI"))
+//            {
+//                qDebug() << i.split(":");
+//                qDebug() << i.split(":")[1];
+//            }
+//            if (i.contains("JIR"))
+//            {
+//                qDebug() << i.split(":");
+//                qDebug() << i.split(":")[1];
+//            }
+
+//        }
+//    }
 
     frmLogin w;
     w.show();
