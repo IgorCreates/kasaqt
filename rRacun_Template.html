@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -15,6 +15,7 @@
 	table.stavke th { border: none; background: #b3b3b3; padding: 0cm}
 	div { border: 1px solid; width: 10em; margin-bottom: 10px; }
 	* { font-size: 10pt; font-family: TakaoPGothic, sans-serif ;font-style: normal}
+	.qr_box {width: 100%;  height: auto; }
 	.large { font-size: 16pt}
 	</style>
 </head>
@@ -25,6 +26,9 @@
 <br><br><br>
 <div align="center"><span class="large">&lt;RACUN_OTPREMNICA&gt; &lt;RACUN_BR&gt;</span></div>
 <br>
+
+
+
 <div >Datum dokumenta: &lt;DATUM_RACUNA&gt;</div>
 <div >Dokument izradio &lt;RACUN_IZRADIO&gt;</div>
 <div >Način plaćanja &lt;NACIN_PLACANJA&gt;</div>
@@ -37,8 +41,17 @@
 </br>
 </table name="kupac">
 
-<div >&lt;ZKI&gt;</div>
-<div >&lt;JIR&gt;</div>
+<table name="fiskal" width="100%">
+	<tr><td style="width: 80%">
+	<div>&lt;ZKI&gt;</div>
+	<div>&lt;JIR&gt;</div>
+	</td>
+	<td style="width=20%">
+	<div><img id="qr_box" width="60" src="/tmp/ispQR.png" /></div>
+	</td>
+</table name="fiskal">
+
+
 
 <br>
 <table class="stavke" width="100%" cellpadding="0" cellspacing="0" style="page-break-before: auto; page-break-after: auto">

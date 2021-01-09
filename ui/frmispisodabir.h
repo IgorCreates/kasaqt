@@ -82,6 +82,8 @@ private:
     QString ispisVratiHtmlContentMali(int RID);
     QString ispisVratiHtmlContentStanje(const QDateTime &DatumStart,const QDateTime &DatumEnd,const int &KasaID);
     QString ispisVratiHtmlContentNarudzba(int RID);
+    void ispisQRcreate(int RID);
+
 
     QPrinter *prnPrinter;
     QString prnImeFajla;

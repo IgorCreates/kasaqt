@@ -78,7 +78,9 @@ SOURCES += main.cpp\
     ui/frmloginrftag.cpp \
     ui/stoodabir.cpp \
     ui/dragwidget.cpp \
-    ui/frmzadnjiracpregled.cpp
+    ui/frmzadnjiracpregled.cpp \
+    qr/qrcode_generator.cpp
+
 
 HEADERS  += \
     ui/frmkasa.h \
@@ -123,7 +125,8 @@ HEADERS  += \
     ui/frmloginrftag.h \
     ui/stoodabir.h \
     ui/dragwidget.h \
-    ui/frmzadnjiracpregled.h
+    ui/frmzadnjiracpregled.h \
+    qr/qrcode_generator.h
 
 FORMS    += \
     ui/frmkasa.ui \
@@ -210,8 +213,11 @@ RESOURCES += \
 
 #unix:  LIBS += -L/tmp/ -ltableprinter
 
+LIBS += -lqrencode
+
 message (LIBS: $$LIBS)
 
+INCLUDEPATH += qr
 
 #win32:CONFIG(release, debug|release): LIBS += -L$$PWD/qsint/lib/release/ -lQSCore
 #else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/qsint/lib/debug/ -lQSCore

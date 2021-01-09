@@ -598,9 +598,7 @@ void frmZakljuci::slotF12()
         {
             BrisanjeDokNaCekanju();
 
-
-            ispisMali *isp = new ispisMali();
-
+           // ispisMali *isp = new ispisMali();
 
             //ladica
             if (qApp->property("Printer-Ladica").toString() == "1")
@@ -619,47 +617,52 @@ void frmZakljuci::slotF12()
                 Komanda = QString("cat /tmp/ispLadica.txt >> %1").arg(PrinterPort);
                 system(Komanda.toUtf8().constData());
             }
-
            //kraj ladica
 
-
-
-
 //            mojiHeaderi *t = new mojiHeaderi();
-            if (TipRacuna != "O")
-            {
-                //t->xmlRacunZahtjev(IzracRac->get_Rac1ID(),false);
-            //    isp->IspisMaliPos(QString("%1").arg(IzracRac->get_Rac1ID()));
-            }else {
-            //    isp->IspisMaliPosVrac(QString("%1").arg(IzracRac->get_Rac1ID()));
-            }
-            //QMessageBox::information(this,"Racun","Racun je upisan","OK");
+//            if (TipRacuna != "O")
+//            {
+//                //t->xmlRacunZahtjev(IzracRac->get_Rac1ID(),false);
+//            //    isp->IspisMaliPos(QString("%1").arg(IzracRac->get_Rac1ID()));
+//            }else {
+//            //    isp->IspisMaliPosVrac(QString("%1").arg(IzracRac->get_Rac1ID()));
+//            }
+//            //QMessageBox::information(this,"Racun","Racun je upisan","OK");
 
             int bb = IzracRac->get_Rac1ID();
 
             //QFuture<void> ispR = QtConcurrent::run(IspisRac,bb);
             this->hide();
-            QThread* thread = new QThread;
-            frmIspisOdabir* fisp = new frmIspisOdabir();
-            fisp->moveToThread(thread);
-            //connect(fisp,SIGNAL(accepted()),fisp,SLOT(show()));
-            connect(fisp,SIGNAL(destroyed()),thread,SLOT(deleteLater()));
-            connect(fisp,SIGNAL(rejected()),thread,SLOT(deleteLater()));
-//            connect(fisp,SIGNAL(finished(int)),thread,SLOT(quit()));
-            connect(fisp,SIGNAL(finished(int)),fisp,SLOT(deleteLater()));
-            connect(fisp,SIGNAL(finished(int)),thread,SLOT(deleteLater()));
 
+
+//            QThread *thread = new QThread;
+//            frmIspisOdabir *fisp = new frmIspisOdabir();
+//            fisp->moveToThread(thread);
+//            //connect(fisp,SIGNAL(accepted()),fisp,SLOT(show()));
+//            connect(fisp,SIGNAL(destroyed()),thread,SLOT(deleteLater()));
+//            connect(fisp,SIGNAL(rejected()),thread,SLOT(deleteLater()));
+////            connect(fisp,SIGNAL(finished(int)),thread,SLOT(quit()));
+//            connect(fisp,SIGNAL(finished(int)),fisp,SLOT(deleteLater()));
+//            connect(fisp,SIGNAL(finished(int)),thread,SLOT(deleteLater()));
+
+//            fisp->show();
+//            fisp->RacunID = bb;
+//            if (TipRacuna == "O")
+//                fisp->RacTipRacuna = "vrac1";
+//            fisp->ProvjeraOpcija();
+//            thread->start();
+//            connect(thread,SIGNAL(finished()),this,SLOT(close()));
+//            connect(thread,SIGNAL(destroyed()),this,SLOT(close()));
+//            connect(thread,SIGNAL(terminated()),this,SLOT(close()));
+//            this->hide();
+            //this->close();
+
+            frmIspisOdabir *fisp = new frmIspisOdabir();
             fisp->show();
             fisp->RacunID = bb;
             if (TipRacuna == "O")
                 fisp->RacTipRacuna = "vrac1";
             fisp->ProvjeraOpcija();
-            thread->start();
-            connect(thread,SIGNAL(finished()),this,SLOT(close()));
-            connect(thread,SIGNAL(destroyed()),this,SLOT(close()));
-            connect(thread,SIGNAL(terminated()),this,SLOT(close()));
-            this->hide();
-            this->close();
         }else
         {
             PorukaInfo->setText("Greska kod upisa racuna\rProvjerite pristup bazi\rili nazovite odrzavanje");

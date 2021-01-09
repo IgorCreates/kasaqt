@@ -34,6 +34,11 @@
 #include <QtPrintSupport/QPrinter>
 #include <QtPrintSupport/QPrintPreviewDialog>
 #include <QtWidgets>
+//#include <qrencode.h>
+#include <qr/QrCode.hpp>
+//#include "qrcode_generator.h"
+#include <qr/qrcode_generator.h>
+
 #endif
 
 
@@ -97,6 +102,10 @@ void frmIspisOdabir::on_btnPOS_released()
 
 void frmIspisOdabir::on_btnA4_released()
 {
+
+    //
+
+    //
     if (RacunID !=0 || RacuniOdDo)
     {
 //        qDebug() << "T2:" << QThread::currentThread();
@@ -111,11 +120,14 @@ void frmIspisOdabir::on_btnA4_released()
             isp->ispisVeliki("ispRacun",QString("\"rid=%1\"").arg(RacunID));
         }else
         {
+            ispisQRcreate(RacunID);
             ispisA4template("",RacunID);
         }
         this->deleteLater();
     }
 }
+
+
 
 void frmIspisOdabir::StartA4Ispis()
 {
@@ -413,10 +425,14 @@ QString frmIspisOdabir::ispisVratiHtmlContent(int RID)
         {
             htmlContent.replace("&lt;ZKI&gt;",QString("ZKI: %1").arg(q.value(q.record().indexOf("zki")).toString()));
             htmlContent.replace("&lt;JIR&gt;",QString("JIR: %1").arg(q.value(q.record().indexOf("jir")).toString()));
+            if (q.value(q.record().indexOf("jir")).toString() == "" ) {
+                htmlContent.replace("<img src=\"/tmp/ispQR.png\" />","");
+            }
         }else if (RacTipRacuna == "vrac1")
         {
             htmlContent.replace("&lt;ZKI&gt;","");
             htmlContent.replace("&lt;JIR&gt;","");
+            htmlContent.replace("<img src=\"/tmp/ispQR.png\" />","");
         }
         htmlContent.replace("&lt;UKPOSNOVICA&gt;",QString("%L1 kn").arg(q.value(q.record().indexOf("bpdv")).toDouble(),0,'f',2));
         htmlContent.replace("&lt;UKPRABAT_KN&gt;",QString("%L1 kn").arg(q.value(q.record().indexOf("rabatk")).toDouble(),0,'f',2));
@@ -1345,4 +1361,51 @@ QString frmIspisOdabir::ispisVratiHtmlContentNarudzba(int RID)
 
     //qDebug() << htmlContent;
     return htmlContent;
+}
+
+void frmIspisOdabir::ispisQRcreate(int RID)
+{
+
+    //QRcode *qr = QRcode_encodeString("https://porezna.gov.hr/rn?jir=10e736a8-a088-41e8-add5-211328549a81&datv=20170913_1344&izn=501700",1,QR_ECLEVEL_L,QR_MODE_8,0);
+
+    QSqlQuery q("",QSqlDatabase::database("baza"));
+
+    QString qveri;
+    qveri = QString("select v.* from v_ispis_rac1_1 v where r1id=%1").arg(RID);
+    if (!q.exec(qveri))
+    {
+        QMessageBox::warning(this,"ERROR","Greska dohavata podataka");
+    }
+    q.next();
+    QString r_jir = q.value(q.record().indexOf("jir")).toString();
+    QString r_datv =  q.value(q.record().indexOf("datumr")).toDateTime().toString("yyyyMMdd_hhmm");
+    QString r_izn = QString("%1").arg(q.value(q.record().indexOf("sum")).toDouble(),0,'f',2);
+
+    QString url = QString("https://porezna.gov.hr/rn?jir=%1&datv=%2&izn=%3").arg(r_jir)
+            .arg(r_datv).arg(r_izn.replace(",","").replace(".",""));
+
+    QPixmap qrcode_pixmap;
+    bool res;
+    //QString text = "https://porezna.gov.hr/rn?jir=10e736a8-a088-41e8-add5-211328549a81&datv=20170913_1344&izn=501700";
+
+    res = QRCodeGenerator::GeneratePixmapFromText(url,qrcode_pixmap,128,128);
+
+    if (true == res){
+        //ui->qrcodepixmapLabel->setPixmap(qrcode_pixmap);
+        bool saveRes;
+//        QString fileSave = QString("/media/sf_vmshare/qr-%1.png").arg(RID);
+        QString fileSave = QString("/tmp/ispQR.png");
+        saveRes = qrcode_pixmap.save(fileSave);
+        if (true != saveRes )
+        {
+            qDebug() << "Greska QR saveRes";
+            return;
+        }
+
+
+    } else {
+        qDebug() << "Greska QR res";
+        return;
+    }
+
 }
