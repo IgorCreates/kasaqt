@@ -65,6 +65,7 @@ bool QRCodeGenerator::GeneratePixmapFromText(QString &text, QPixmap &pixmap, int
         }
 
 #else
+        //qrcode = QRcode_encodeString(text.toUtf8().constData(), 0, QR_ECLEVEL_H, QR_MODE_8, 1);
         qrcode = QRcode_encodeString(text.toUtf8().constData(), 0, QR_ECLEVEL_H, QR_MODE_8, 1);
 
 #endif
@@ -77,6 +78,7 @@ bool QRCodeGenerator::GeneratePixmapFromText(QString &text, QPixmap &pixmap, int
         painter.setBrush(background);
         painter.setPen(Qt::NoPen);
         painter.drawRect(0, 0, width, height);
+
         QColor foreground(Qt::black);
         painter.setBrush(foreground);
         for( qint32 y = 0; y < qrcode_width; y ++)

@@ -427,6 +427,10 @@ QString frmIspisOdabir::ispisVratiHtmlContent(int RID)
             htmlContent.replace("&lt;JIR&gt;",QString("JIR: %1").arg(q.value(q.record().indexOf("jir")).toString()));
             if (q.value(q.record().indexOf("jir")).toString() == "" ) {
                 htmlContent.replace("<img src=\"/tmp/ispQR.png\" />","");
+            }else{
+                QString PathQR_IMG = QString("%1/qrimg/%2/").arg(qApp->applicationDirPath()).arg(QDateTime::currentDateTime().toString("yyyy/MM/dd"));
+                QString fileSave = QString("%1/qr-%2.png").arg(PathQR_IMG).arg(RID);
+                htmlContent.replace("/tmp/ispQR.png",fileSave);
             }
         }else if (RacTipRacuna == "vrac1")
         {
@@ -1390,11 +1394,25 @@ void frmIspisOdabir::ispisQRcreate(int RID)
 
     res = QRCodeGenerator::GeneratePixmapFromText(url,qrcode_pixmap,128,128);
 
+
     if (true == res){
         //ui->qrcodepixmapLabel->setPixmap(qrcode_pixmap);
         bool saveRes;
-//        QString fileSave = QString("/media/sf_vmshare/qr-%1.png").arg(RID);
-        QString fileSave = QString("/tmp/ispQR.png");
+        QString PathQR_IMG = QString("%1/qrimg/%2/").arg(qApp->applicationDirPath()).arg(QDateTime::currentDateTime().toString("yyyy/MM/dd"));
+        QString fileSave = QString("%1/qr-%2.png").arg(PathQR_IMG).arg(RID);
+        //QString fileSave = QString("/tmp/ispQR.png");
+
+        QDir dir(PathQR_IMG);
+        if (!dir.exists())
+            dir.mkpath(PathQR_IMG);
+
+        if (QFileInfo(fileSave).exists()){
+            qDebug() << "QR exists - removing ...";
+            QFile::remove(fileSave);
+        }
+
+
+
         saveRes = qrcode_pixmap.save(fileSave);
         if (true != saveRes )
         {
