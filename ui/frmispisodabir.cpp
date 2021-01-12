@@ -398,7 +398,7 @@ QString frmIspisOdabir::ispisVratiHtmlContent(int RID)
 //                            .arg(q.value(q.record().indexOf("oznpp")).toString()).arg(q.value(q.record().indexOf("kasaid")).toString()));
             htmlContent.replace("&lt;NACIN_PLACANJA&gt;",q.value(q.record().indexOf("nacin_placanja")).toString());
         }
-        htmlContent.replace("&lt;DATUM_RACUNA&gt;",q.value(q.record().indexOf("datumr")).toString());
+        htmlContent.replace("&lt;DATUM_RACUNA&gt;",q.value(q.record().indexOf("datumr")).toDateTime().toString("dd.MM.yyyy hh:mm:ss"));
         htmlContent.replace("&lt;RACUN_OPIS&gt;",q.value(q.record().indexOf("opis")).toString());
 
         //htmlContent.replace("&lt;DATUM_VALUTE&gt;",q.value(q.record().indexOf("datumv")).toString());
@@ -465,6 +465,7 @@ QString frmIspisOdabir::ispisVratiHtmlContent(int RID)
                 TablicaStavkeRow = RowStavke;
                 TablicaStavkeRow.prepend("<tr>");
                 TablicaStavkeRow.replace("&lt;STAVKA_RB&gt;",q.value(q.record().indexOf("RB")).toString());
+                TablicaStavkeRow.replace("&lt;STAVKA_ARTSIF&gt;",q.value(q.record().indexOf("artsif")).toString());
                 TablicaStavkeRow.replace("&lt;STAVKA_NAZIV&gt;&lt;p&gt;<font size=\"1\" style=\"font-size: 8pt\">&lt;STAVKA_OPIS&gt;",q.value(q.record().indexOf("naziv")).toString());
                 TablicaStavkeRow.replace("&lt;STAVKA_KOLICINA&gt;",QString("%L1").arg(q.value(q.record().indexOf("kol")).toDouble(),0,'f',2));
                 TablicaStavkeRow.replace("&lt;STAVKA_JM&gt;","KOM");
