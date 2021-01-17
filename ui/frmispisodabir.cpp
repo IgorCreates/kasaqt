@@ -80,6 +80,7 @@ void frmIspisOdabir::on_btnPOS_released()
     {
         if (qApp->property("Printer-POS-RPT-ISPIS").toString() == "1")
         {
+           ispisQRcreate(RacunID);
            ispisA4template("MaliRac",RacunID);
         }else
         {
@@ -576,7 +577,6 @@ QString frmIspisOdabir::ispisVratiHtmlContentMali(int RID)
     in.setCodec("utf-8");
     htmlContent = in.readAll();
 
-
     htmlContent.replace("<title>RAC-Mali</title>",QString("<title>RacMali_id-%1</title>").arg(RID));
 
     htmlContent.replace("&lt;FIRMA_NAZIV&gt;",qApp->property("Firma_Ime").toString());
@@ -657,10 +657,31 @@ QString frmIspisOdabir::ispisVratiHtmlContentMali(int RID)
         {
             htmlContent.replace("&lt;ZKI&gt;",QString("ZKI: %1").arg(q.value(q.record().indexOf("zki")).toString()));
             htmlContent.replace("&lt;JIR&gt;",QString("JIR: %1").arg(q.value(q.record().indexOf("jir")).toString()));
+            if (q.value(q.record().indexOf("jir")).toString() == "" ) {
+                //htmlContent.replace("<img src=\"/tmp/ispQR.png\" />","");
+                exp.setPattern("<table name=\"QR\"(.*)</table name=\"QR\">");
+                RowStavke = htmlContent;
+                exp.indexIn(RowStavke);
+                RowStavke = exp.cap(1);
+                htmlContent.replace(RowStavke,"");
+
+            }else{
+                QString PathQR_IMG = QString("%1/qrimg/%2/").arg(qApp->applicationDirPath()).arg(QDateTime::currentDateTime().toString("yyyy/MM/dd"));
+                QString fileSave = QString("%1/qr-%2.png").arg(PathQR_IMG).arg(RID);
+                htmlContent.replace("/tmp/ispQR.png",fileSave);
+            }
         }else if (RacTipRacuna == "vrac1")
         {
             htmlContent.replace("&lt;ZKI&gt;","");
             htmlContent.replace("&lt;JIR&gt;","");
+            //htmlContent.replace("<img src=\"/tmp/ispQR.png\" />","");
+            //remove QR table from print
+            exp.setPattern("<table name=\"QR\"(.*)</table name=\"QR\">");
+            RowStavke = htmlContent;
+            exp.indexIn(RowStavke);
+            RowStavke = exp.cap(1);
+            htmlContent.replace(RowStavke,"");
+
         }
         htmlContent.replace("&lt;UKPOSNOVICA&gt;",QString("%L1 kn").arg(q.value(q.record().indexOf("bpdv")).toDouble(),0,'f',2));
         htmlContent.replace("&lt;UKPRABAT_KN&gt;",QString("%L1 kn").arg(q.value(q.record().indexOf("rabatk")).toDouble(),0,'f',2));
