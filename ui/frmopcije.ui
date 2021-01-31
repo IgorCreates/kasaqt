@@ -755,6 +755,22 @@
         </widget>
        </widget>
       </widget>
+      <widget class="QRadioButton" name="radioIspisESCPOS_py">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>160</y>
+         <width>105</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>ESCPOS-py</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
+      </widget>
      </widget>
      <widget class="QWidget" name="tab_Certifikat">
       <attribute name="title">

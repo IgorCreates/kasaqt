@@ -162,6 +162,7 @@ FORMS    += \
     ui/stoodabir.ui \
     ui/frmzadnjiracpregled.ui
 
+
 #Release:DESTDIR = release
 #Release:OBJECTS_DIR = release/.obj
 #Release:MOC_DIR = release/.moc
@@ -235,4 +236,6 @@ INCLUDEPATH += qr
 TRANSLATIONS = languages/lang_hr.ts  languages/lang_en.ts
 
 DISTFILES += \
-    fiskal.py
+    fiskal.py \
+    print-escpos.py \
+    print-escpos.py

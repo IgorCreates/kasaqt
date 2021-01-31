@@ -55,9 +55,13 @@ public:
     void ProvjeraOpcija();
     //void ispisA4stanjeTemplate(QDateTime DatumStart,QDateTime DatumEnd,int KasaID);
     void ispisA4templateStanje(QDateTime DatumStart,QDateTime DatumEnd,int KasaID,QString MaliVeliki);
+
     static void IzvrtiSQL(QDateTime DatumStart,QDateTime DatumEnd,int KasaID);
     void ispisPOS_poFile(QString PathDoDatoteke);
     QString IspisMaliSto;
+    QTextDocument *doc;
+
+
 
 private slots:
     void on_btnPOS_released();
@@ -65,9 +69,12 @@ private slots:
     void StartA4Ispis();
     void StopA4Ispis();
     void IspisPreview(QPrinter *printer);
+    void IspisPreviewTT(QPrinter *printer);
+
     void PokaziSaljiMejl();
     void SaljiMejl();
     void mailSent(QString);
+    void print(QPrinter *printer);
 
 
 
@@ -75,14 +82,21 @@ private slots:
 private:
     Ui::frmIspisOdabir *ui;
     void ispisA4template(QString Sto, int RID);
+    void ispisA4templateTT(QString Sto, int RID);
     void ispisHTMLtemplate(int RID,QString Sto);
+    void ispisQRcreate(int RID);
+
 
     QTextDocument *DokumentZaIspisA4;
+    QPainter *painter;
     QString ispisVratiHtmlContent(int RID);
     QString ispisVratiHtmlContentMali(int RID);
     QString ispisVratiHtmlContentStanje(const QDateTime &DatumStart,const QDateTime &DatumEnd,const int &KasaID);
     QString ispisVratiHtmlContentNarudzba(int RID);
-    void ispisQRcreate(int RID);
+
+    QString ispisQR_path;
+    QString ispisQR_url;
+    void  ispisTestPOS(int RID);
 
 
     QPrinter *prnPrinter;
@@ -92,6 +106,7 @@ private:
     QPlainTextEdit *txtMailPoruka;
     QWidget *mm;
     QPrintPreviewDialog *pw;
+
 
 
 signals:

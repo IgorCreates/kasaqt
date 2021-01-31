@@ -4,6 +4,7 @@
 #include <QDateTime>
 #include <QtSql>
 
+
 class ispisMali
 {
 public:
@@ -33,6 +34,9 @@ public:
     void UcitajPostavkePrintera();
     void IspisRNalog(const int &RnalogID);
     void SaljiNaPrinter(QString FileZaIspis);
+    void SaljiNaESCPOS(QString FileZaIspis);
+    QString ispisQRurl;
+    QString ispisQRpath;
 
 //private:
 //    bool VratiMjesto(QString &Polje, int &PredvidenaDuljina) const;

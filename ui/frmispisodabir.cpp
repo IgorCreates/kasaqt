@@ -55,6 +55,7 @@ frmIspisOdabir::frmIspisOdabir(QWidget *parent) :
     RacuniOdDo = false;
     RacuniID.clear();
     prnImeFajla = "Ispis.pdf";
+
 }
 
 frmIspisOdabir::~frmIspisOdabir()
@@ -71,8 +72,130 @@ void frmIspisOdabir::ProvjeraOpcija()
             frmIspisOdabir::on_btnPOS_released();
         if (qApp->property("Printer-DEFprinter-Veliki").toString() == "1")
             frmIspisOdabir::on_btnA4_released();
+        if (qApp->property("Printer-DEFprinter-ESCPOS").toString() == "1")
+            frmIspisOdabir::on_btnPOS_released();
     }
 }
+
+void frmIspisOdabir::ispisA4templateTT(QString Sto,int RID)
+{
+    QString Ispis;
+    Ispis = "";
+    if (RacuniOdDo)
+    {
+        QListIterator<int> Ridovi( RacuniID );
+
+
+        int BrojIspisa= 0;
+        while(Ridovi.hasNext())
+        {
+            BrojIspisa++;
+            //qDebug() << "Prvi-" << BrojIspisa << "-" << Ridovi.next();
+            Ridovi.next();
+        }
+        Ridovi.toFront();
+
+        int i = 0;
+        while( Ridovi.hasNext() )
+        {
+            i++;
+            emit Ridovi_Promjena(i);
+            if (Sto == "")
+            {
+                Ispis += ispisVratiHtmlContent(Ridovi.next());
+            }else
+            {
+                Ispis += ispisVratiHtmlContentMali(Ridovi.next());
+            }
+            Ispis += "<DIV style=\"page-break-after:always\"></DIV>";
+        }
+
+
+    }else
+    {
+        if (IspisMaliSto == "narudzba")
+            Sto = IspisMaliSto;
+        if (Sto == "")
+        {
+            Ispis = ispisVratiHtmlContent(RID);
+        }else if (Sto == "narudzba")
+        {
+            Ispis += ispisVratiHtmlContentNarudzba(RID);
+        }
+        else
+        {
+            Ispis += ispisVratiHtmlContentMali(RID);
+        }
+    }
+//    DokumentZaIspisA4->setHtml(ispisVratiHtmlContent(RID));
+
+    DokumentZaIspisA4 = new QTextDocument();
+    DokumentZaIspisA4->setHtml(Ispis);
+
+}
+
+
+void frmIspisOdabir::print( QPrinter *printer)
+{
+    QPainter *painter=new QPainter(printer);
+    //QRect paper = printer->pageRect();
+
+//    painter->setPen(Qt::black);
+//    painter->setFont(QFont("Sans",14,0,0));
+//    painter->drawText(100,100,QString("TEST TEST TEST TEST"));
+//    painter->drawText(QRect(0,0,100,100),Qt::AlignLeft||Qt::AlignTop,"page1");
+
+    DokumentZaIspisA4->documentLayout()->setPaintDevice(printer);
+    DokumentZaIspisA4->setTextWidth(printer->width());
+    DokumentZaIspisA4->drawContents(painter);
+    DokumentZaIspisA4->setUseDesignMetrics(true);
+
+//    QTextDocument *doc = new QTextDocument(this);
+//    doc->setUndoRedoEnabled(false);
+//    doc->setHtml("<p><span style=\"color:#000000; font-weight:600\">BLA SRA KENJ </span></p>");
+//    doc->documentLayout()->setPaintDevice(printer);
+//    doc->setTextWidth(printer->width());
+//    doc->setUseDesignMetrics(true);
+//    doc->setDefaultTextOption(QTextOption(Qt::AlignHCenter));
+
+//    doc->drawContents(painter);
+
+    painter->end();
+    //delete DokumentZaIspisA4;
+    //emit SignalOdjava();
+}
+
+
+void frmIspisOdabir::ispisTestPOS(int RID)
+{
+
+
+    // OVO RADI
+
+    ispisA4templateTT("MaliRac",RacunID);
+    QPrinter printer(QPrinter::HighResolution);
+    //printer.setFullPage( true );
+
+    int duljina = DokumentZaIspisA4->size().height();
+//    qDebug() << "******** DULJINA = " << duljina;
+    duljina = duljina/3.7;
+
+    printer.setPageSizeMM(QSizeF(72,duljina));
+    printer.setPageMargins(5,5,10,5,QPrinter::Millimeter);
+
+
+    QPrintPreviewDialog preview(&printer, this);
+    preview.setWindowFlags ( Qt::Window );
+    connect(&preview, SIGNAL(paintRequested(QPrinter* )), SLOT(print(QPrinter* )));
+    preview.exec();
+
+
+}
+
+
+
+
+
 
 void frmIspisOdabir::on_btnPOS_released()
 {
@@ -81,13 +204,19 @@ void frmIspisOdabir::on_btnPOS_released()
         if (qApp->property("Printer-POS-RPT-ISPIS").toString() == "1")
         {
            ispisQRcreate(RacunID);
-           ispisA4template("MaliRac",RacunID);
+
+           ispisTestPOS(RacunID);
+
+           //ispisA4template("MaliRac",RacunID);
         }else
         {
             ispisMali *isp = new ispisMali();
     //        isp->IspisMaliPos(RacunID);
             if (RacTipRacuna  == "rac1")
             {
+                ispisQRcreate(RacunID);
+                isp->ispisQRurl = ispisQR_url;
+                isp->ispisQRpath = ispisQR_path;
                 isp->IspisMaliPos(QString("%1").arg(RacunID));
             }else
             {
@@ -142,6 +271,8 @@ void frmIspisOdabir::StopA4Ispis()
 {
 
 }
+
+
 
 void frmIspisOdabir::ispisA4template(QString Sto,int RID)
 {
@@ -212,7 +343,18 @@ void frmIspisOdabir::ispisA4template(QString Sto,int RID)
 
     prnPrinter = new QPrinter(QPrinter::HighResolution);
     QPrintPreviewDialog pw(prnPrinter,this);
-    connect(&pw,SIGNAL(paintRequested(QPrinter*)),SLOT(IspisPreview(QPrinter*)));
+
+    //VRATI NAKON TESTA
+    //connect(&pw,SIGNAL(paintRequested(QPrinter*)),SLOT(IspisPreview(QPrinter*)));
+    prnPrinter->setPageSizeMM(QSizeF(72,100));
+    //DokumentZaIspisA4->setTextWidth(100);
+    connect(&pw,SIGNAL(paintRequested(QPrinter*)),SLOT(IspisPreviewTT(QPrinter*)));
+
+
+
+
+    //DokumentZaIspisA4->setPageSize(QSizeF(prnPrinter->pageRect().size()));
+
 
     if (Sto == "")
     {
@@ -222,7 +364,8 @@ void frmIspisOdabir::ispisA4template(QString Sto,int RID)
         int duljina = DokumentZaIspisA4->size().height();
     //    qDebug() << "******** DULJINA = " << duljina;
         duljina = duljina/3.7;
-        prnPrinter->setPaperSize(QSizeF(80,duljina), QPrinter::Millimeter);
+        //prnPrinter->setPaperSize(QSizeF(80,duljina), QPrinter::Millimeter);
+        prnPrinter->setPageSizeMM(QSizeF(72,duljina));
         prnPrinter->setPageMargins(3,5,5,2,QPrinter::Millimeter);
     }
     //    printer.setPageMargins(25,20,20,20,QPrinter::Millimeter);
@@ -271,6 +414,18 @@ void frmIspisOdabir::ispisA4template(QString Sto,int RID)
     else
     {
         prnPrinter->setPageMargins(MarginaLeft,MarginaTop,MarginaRight,MarginaBotton,QPrinter::Millimeter);
+        //DokumentZaIspisA4->setPageSize(QSizeF(250,540));
+//        qDebug() << "************PRN DBG************\n";
+//        qDebug() << DokumentZaIspisA4->pageSize();
+//        qDebug() << QPrinter::PageSize();
+//        qDebug() << prnPrinter->pageLayout();
+//        qDebug() << prnPrinter->pageLayout().pageSize();
+//        qDebug() << prnPrinter->printerName();
+//        qDebug() << prnPrinter->outputFormat();
+//        qDebug() << prnPrinter->outputFileName();
+//        qDebug() << "************PRN DBG************\n";
+
+
         pw.exec();
     }
 
@@ -427,17 +582,37 @@ QString frmIspisOdabir::ispisVratiHtmlContent(int RID)
             htmlContent.replace("&lt;ZKI&gt;",QString("ZKI: %1").arg(q.value(q.record().indexOf("zki")).toString()));
             htmlContent.replace("&lt;JIR&gt;",QString("JIR: %1").arg(q.value(q.record().indexOf("jir")).toString()));
             if (q.value(q.record().indexOf("jir")).toString() == "" ) {
-                htmlContent.replace("<img src=\"/tmp/ispQR.png\" />","");
+                exp.setPattern("<table name=\"QR\"(.*)</table name=\"QR\">");
+                RowStavke = htmlContent;
+                exp.indexIn(RowStavke);
+                RowStavke = exp.cap(1);
+                htmlContent.replace(RowStavke,"");
             }else{
+                /*
                 QString PathQR_IMG = QString("%1/qrimg/%2/").arg(qApp->applicationDirPath()).arg(QDateTime::currentDateTime().toString("yyyy/MM/dd"));
                 QString fileSave = QString("%1/qr-%2.png").arg(PathQR_IMG).arg(RID);
                 htmlContent.replace("/tmp/ispQR.png",fileSave);
+                */
+                if (!ispisQR_path.isEmpty()){
+                    htmlContent.replace("/tmp/ispQR.png",ispisQR_path);
+                }else
+                {
+                    exp.setPattern("<table name=\"QR\"(.*)</table name=\"QR\">");
+                    RowStavke = htmlContent;
+                    exp.indexIn(RowStavke);
+                    RowStavke = exp.cap(1);
+                    htmlContent.replace(RowStavke,"");
+                }
             }
         }else if (RacTipRacuna == "vrac1")
         {
             htmlContent.replace("&lt;ZKI&gt;","");
             htmlContent.replace("&lt;JIR&gt;","");
-            htmlContent.replace("<img src=\"/tmp/ispQR.png\" />","");
+            exp.setPattern("<table name=\"QR\"(.*)</table name=\"QR\">");
+            RowStavke = htmlContent;
+            exp.indexIn(RowStavke);
+            RowStavke = exp.cap(1);
+            htmlContent.replace(RowStavke,"");
         }
         htmlContent.replace("&lt;UKPOSNOVICA&gt;",QString("%L1 kn").arg(q.value(q.record().indexOf("bpdv")).toDouble(),0,'f',2));
         htmlContent.replace("&lt;UKPRABAT_KN&gt;",QString("%L1 kn").arg(q.value(q.record().indexOf("rabatk")).toDouble(),0,'f',2));
@@ -666,9 +841,12 @@ QString frmIspisOdabir::ispisVratiHtmlContentMali(int RID)
                 htmlContent.replace(RowStavke,"");
 
             }else{
+                /*
                 QString PathQR_IMG = QString("%1/qrimg/%2/").arg(qApp->applicationDirPath()).arg(QDateTime::currentDateTime().toString("yyyy/MM/dd"));
                 QString fileSave = QString("%1/qr-%2.png").arg(PathQR_IMG).arg(RID);
                 htmlContent.replace("/tmp/ispQR.png",fileSave);
+                */
+                htmlContent.replace("/tmp/ispQR.png",ispisQR_path);
             }
         }else if (RacTipRacuna == "vrac1")
         {
@@ -807,6 +985,18 @@ QString frmIspisOdabir::ispisVratiHtmlContentMali(int RID)
     return "";
 }
 
+
+void frmIspisOdabir::IspisPreviewTT(QPrinter *printer)
+{
+    Q_UNUSED(printer);
+    QPainter *p = new QPainter();
+    p->begin(printer);
+    //DokumentZaIspisA4->print(printer);
+    DokumentZaIspisA4->drawContents(p);
+
+    //DokumentZaIspisA4->setTextWidth(width());
+    p->end();
+}
 
 
 void frmIspisOdabir::IspisPreview(QPrinter *printer)
@@ -1410,6 +1600,8 @@ void frmIspisOdabir::ispisQRcreate(int RID)
     QString url = QString("https://porezna.gov.hr/rn?jir=%1&datv=%2&izn=%3").arg(r_jir)
             .arg(r_datv).arg(r_izn.replace(",","").replace(".",""));
 
+    ispisQR_url = url;
+
     QPixmap qrcode_pixmap;
     bool res;
     //QString text = "https://porezna.gov.hr/rn?jir=10e736a8-a088-41e8-add5-211328549a81&datv=20170913_1344&izn=501700";
@@ -1424,6 +1616,7 @@ void frmIspisOdabir::ispisQRcreate(int RID)
         QString fileSave = QString("%1/qr-%2.png").arg(PathQR_IMG).arg(RID);
         //QString fileSave = QString("/tmp/ispQR.png");
 
+        ispisQR_path = fileSave;
         QDir dir(PathQR_IMG);
         if (!dir.exists())
             dir.mkpath(PathQR_IMG);
@@ -1439,13 +1632,11 @@ void frmIspisOdabir::ispisQRcreate(int RID)
         if (true != saveRes )
         {
             qDebug() << "Greska QR saveRes";
-            return;
         }
 
 
     } else {
         qDebug() << "Greska QR res";
-        return;
     }
 
 }

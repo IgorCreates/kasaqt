@@ -138,6 +138,8 @@ void frmOpcije::on_btnPrinteriUpis_pressed()
         qveri += QString(" union all select 'Printer','DEFprinter-POS',1");
     if (ui->radioIspisVeliki->isChecked())
         qveri += QString(" union all select 'Printer','DEFprinter-Veliki',1");
+    if (ui->radioIspisESCPOS_py->isChecked())
+        qveri += QString(" union all select 'Printer','DEFprinter-ESCPOS',1");
     if (ui->chkProzorOdabirIspisa->isChecked())
         qveri += QString(" union all select 'Printer','ProzorOdabirIspisa',1");
     if (ui->chkBoxRac->isChecked())
@@ -412,6 +414,14 @@ void frmOpcije::UcitajOpcije()
     {
         ui->radioIspisVeliki->setChecked(false);
     }
+    if (qApp->property("Printer-DEFprinter-ESCPOS").toString() == "1")
+    {
+        ui->radioIspisESCPOS_py->setChecked(true);
+    }else
+    {
+        ui->radioIspisESCPOS_py->setChecked(false);
+    }
+
     if (qApp->property("Printer-ProzorOdabirIspisa").toString() == "1")
     {
         ui->chkProzorOdabirIspisa->setChecked(true);

@@ -10,6 +10,8 @@
 #include <QFile>
 #include <QMessageBox>
 
+
+
 ispisMali::ispisMali()
 {
 #ifdef Q_OS_LINUX
@@ -173,8 +175,11 @@ QString ispisMali::NewH()
         hh.replace("firma_grad",qApp->property("Firma_Grad").toString());
         hh.replace("firma_zip",qApp->property("Firma_Postanski").toString());
         hh.replace("firma_cb",qApp->property("Firma_CB").toString());
-        hh.replace("<b>",printerBoldPrefix);
-        hh.replace("</b>",printerBoldSuffix);
+        if (qApp->property("Printer-DEFprinter-ESCPOS").toString() != "1")
+        {
+            hh.replace("<b>",printerBoldPrefix);
+            hh.replace("</b>",printerBoldSuffix);
+        }
     }else
     {
         hh = IspisHeader();
@@ -193,6 +198,8 @@ void ispisMali::IspisMaliPos(const QString &BrRacuna)
     QSqlDatabase dbB = QSqlDatabase::database("baza");
     QSqlQuery ql("",dbL);
     QSqlQuery q("",dbB);
+
+    bool PrintQRcode = false;
 
     //QFile file("/tmp/ispNewT.txt");
     QFile file;
@@ -273,7 +280,7 @@ void ispisMali::IspisMaliPos(const QString &BrRacuna)
             rc.replace("kupac_adresa","");
             rc.replace("kupac_oib","");
             */
-            rc.replace(QRegExp(".*rac_br"),"\nrac_br");
+            rc.replace(QRegExp(".*<c>rac_br"),"\n<c>rac_br");
             rc.replace("rac_br",QString("%1 %2/%3/%4").arg(qApp->property("Printer-IspisPoljeRacun").toString()).arg(q.value(qR1br).toString()).arg(q.value(qR1oznPP).toString()).arg(q.value(qR1kasaID).toString()));
         }
 
@@ -377,11 +384,17 @@ void ispisMali::IspisMaliPos(const QString &BrRacuna)
         if (qC.exec(QString("select odgovor from rac1fiskal where racid=%1 and potvrden=1").arg(BrRacuna)))
         {
             if (qC.next())
+            {
                 rc.replace("rac_jir",QString("JIR:%1").arg(qC.value(0).toString()));
+                PrintQRcode = true;
+            }
         }
         rc.replace("rac_jir","");
-        rc.replace("<b>",printerBoldPrefix);
-        rc.replace("</b>",printerBoldSuffix);
+        if (qApp->property("Printer-DEFprinter-ESCPOS").toString() != "1")
+        {
+            rc.replace("<b>",printerBoldPrefix);
+            rc.replace("</b>",printerBoldSuffix);
+        }
 
         rc.replace("rac_zahvala",qApp->property("Printer-IspisPoljeZahvala").toString());
         rc.replace("<z>=</z>",QString("=").repeated(SirinaPapira));
@@ -421,26 +434,38 @@ void ispisMali::IspisMaliPos(const QString &BrRacuna)
                 ispRac << NewH();
             break;
         }
-        if (qApp->property("Printer-Ladica").toString() == "1")
-        {
-            if (!printerLadicaPrefix.isNull())
+
+        //QR code
+
+        //ispRac << "\n\n";
+        if (qApp->property("Printer-DEFprinter-ESCPOS").toString() != "1"){
+            if (qApp->property("Printer-Ladica").toString() == "1")
             {
-                ispRac << "\n";
-                ispRac << printerLadicaPrefix;
+                if (!printerLadicaPrefix.isNull())
+                {
+                    ispRac << "\n";
+                    ispRac << printerLadicaPrefix;
+                }
+            }
+            if (qApp->property("Printer-Rezac").toString() == "1")
+            {
+                if (!printerRezacPrefix.isNull())
+                {
+                    ispRac << "\n";
+                    ispRac << printerRezacPrefix;
+                }
             }
         }
-        if (qApp->property("Printer-Rezac").toString() == "1")
-        {
-            if (!printerRezacPrefix.isNull())
-            {
-                ispRac << "\n";
-                ispRac << printerRezacPrefix;
-            }
-        }
+
 //        ispRac << printerResetPrefix;
 
         file.close();
-        SaljiNaPrinter(file.fileName());
+        if (qApp->property("Printer-DEFprinter-ESCPOS").toString() == "1"){
+            SaljiNaESCPOS(file.fileName());
+        }else
+        {
+            SaljiNaPrinter(file.fileName());
+        }
 
         /*
         QString Komanda;
@@ -927,6 +952,7 @@ void ispisMali::IspisMaliPosVrac(const QString &BrRacuna)
         }
         */
         rc.replace("rac_jir","");
+
         rc.replace("<b>",printerBoldPrefix);
         rc.replace("</b>",printerBoldSuffix);
 
@@ -989,55 +1015,18 @@ void ispisMali::IspisMaliPosVrac(const QString &BrRacuna)
         file.close();
         qDebug() << file.fileName();
         SaljiNaPrinter(file.fileName());
-
-        /*
-        QString Komanda;
-        QString PrinterPort;
-        if (!qApp->property("Printer-Port").isNull())
-        {
-            PrinterPort = qApp->property("Printer-Port").toString();
-        }else
-        {
-            QMessageBox::warning(qApp->desktop(),"Printer","Nemate definiran port za ispis\nPokusavam ispis na /dev/lp0","OK");
-            PrinterPort = "/dev/lp0";
-        }
-        if (!qApp->property("Printer-Konverzija").isNull())
-        {
-    //        qDebug() << qApp->property("Printer-Konverzija").toString();
-#ifdef Q_OS_LINUX
-            //Komanda = QString("cat /tmp/ispMali.txt | iconv -f UTF8 -t %1 -o %2" ).arg(qApp->property("Printer-Konverzija").toString()).arg(PrinterPort);
-            Komanda = QString("cat /tmp/ispMali.txt | iconv -f %1 -t %2 -o %3" ).arg(qApp->property("Printer-KonverzijaFrom").toString()).arg(qApp->property("Printer-Konverzija").toString()).arg(PrinterPort);
-#endif
-#ifdef Q_OS_WIN
-            if (qApp->property("Printer-WINkoristiPOSPrinting").toString() == "1")
-            {
-                Komanda = QString("POSPrinting").arg(PrinterPort);
-            }else
-            {
-                //Komanda = QString("copy ispMali.txt %1").arg(PrinterPort);
-                Komanda = QString("iconv -f %1 -t %2 ispMali.txt > %3" ).arg(qApp->property("Printer-KonverzijaFrom").toString()).arg(qApp->property("Printer-Konverzija").toString()).arg(PrinterPort);
-            }
-#endif
-        }else
-        {
-#ifdef Q_OS_LINUX
-            Komanda= QString("cat /tmp/ispMali.txt >> %1").arg(PrinterPort);
-#endif
-#ifdef Q_OS_WIN
-//            Komanda = QString("copy ispMali.txt %1").arg(PrinterPort);
-            if (qApp->property("Printer-WINkoristiPOSPrinting").toString() == "1")
-            {
-                Komanda = QString("POSPrinting").arg(PrinterPort);
-            }else
-            {
-                Komanda = QString("copy ispMali.txt %1").arg(PrinterPort);
-            }
-#endif
-        }
-        //system(QString("cat /tmp/ispMali.txt >> %1").arg(qApp.property("Printer-Port")toString());
-        system(Komanda.toUtf8().constData());
-        */
     }
+}
+void ispisMali::SaljiNaESCPOS(QString FileZaIspis)
+{
+    QString Komanda;
+
+        //Komanda = QString("cat %1 | iconv -f %2 -t %3 -o %4" ).arg(FileZaIspis).arg(qApp->property("Printer-KonverzijaFrom").toString()).arg(qApp->property("Printer-Konverzija").toString()).arg(PrinterPort);
+    Komanda = QString("./print-escpos.py -q %1 -r %2").arg(ispisQRpath).arg(FileZaIspis);
+
+    qDebug() << Komanda;
+    qDebug() << system(Komanda.toUtf8().constData());
+
 }
 
 
