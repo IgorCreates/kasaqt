@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmkupac</class>
+ <widget class="QDialog" name="frmkupac">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>598</width>
+    <height>339</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QTabWidget" name="tabVozilo">
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <italic>true</italic>
+      </font>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tabFirma">
+      <attribute name="title">
+       <string>Kupac</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_4">
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+         <property name="text">
+          <string>Sifra</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="2">
+        <widget class="QLabel" name="label">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Kupac ID</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLineEdit" name="txtFirmaSifra">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="2" colspan="5">
+        <widget class="QLineEdit" name="txtFirmaEmail">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0" colspan="2">
+        <widget class="QLabel" name="label_5">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+         <property name="text">
+          <string>OIB</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0" colspan="2">
+        <widget class="QLabel" name="label_6">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+         <property name="text">
+          <string>Email</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="3">
+        <widget class="QLabel" name="lblFirmaID">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="0" colspan="3">
+        <widget class="QPushButton" name="btnUpis">
+         <property name="text">
+          <string>Upis</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/ikone/ikone/button_ok.svg</normaloff>:/ikone/ikone/button_ok.svg</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2" colspan="5">
+        <widget class="QLineEdit" name="txtFirmaAdresa">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="2" colspan="3">
+        <widget class="QLineEdit" name="txtKupacMjesto">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="5" colspan="2">
+        <widget class="QComboBox" name="cbZemlja"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+         <property name="text">
+          <string>Naziv</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="6">
+        <widget class="QPushButton" name="btnBrisanje">
+         <property name="text">
+          <string>Brisanje</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/ikone/ikone/edit_delete.svg</normaloff>:/ikone/ikone/edit_delete.svg</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="4" colspan="2">
+        <widget class="QLabel" name="label_20">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>50</weight>
+           <italic>true</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>MB/JMBG</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="6">
+        <widget class="QLineEdit" name="txtKupacMB">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0" colspan="2">
+        <widget class="QLabel" name="label_3">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+         <property name="text">
+          <string>Adresa</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="2" colspan="2">
+        <widget class="QLineEdit" name="txtFirmaOIB">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0" colspan="2">
+        <widget class="QLabel" name="label_7">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+         <property name="text">
+          <string>Telefon</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="2">
+        <widget class="QLabel" name="label_28">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>50</weight>
+           <italic>true</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Mjesto</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="2" colspan="5">
+        <widget class="QLineEdit" name="txtFirmaTelefon">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2" colspan="5">
+        <widget class="QLineEdit" name="txtFirmaNaziv">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabOpis">
+      <attribute name="title">
+       <string>Opis</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QPlainTextEdit" name="txtFirmaOpis"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Vozila</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_9">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+         <property name="text">
+          <string>Marka</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1" colspan="4">
+        <widget class="QLineEdit" name="txtVoziloMarka">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="5" colspan="2">
+        <widget class="QLabel" name="label_10">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+         <property name="text">
+          <string>Model</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="7" colspan="2">
+        <widget class="QLineEdit" name="txtVoziloModel">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_11">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+         <property name="text">
+          <string>Godina</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1" colspan="2">
+        <widget class="QLineEdit" name="txtVoziloGodina">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>2013</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLabel" name="label_12">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+         <property name="text">
+          <string>Registracija</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="4" colspan="2">
+        <widget class="QLineEdit" name="txtVoziloRegistracija">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="6" colspan="2">
+        <widget class="QLabel" name="label_13">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+         <property name="text">
+          <string>km</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="8">
+        <widget class="QLineEdit" name="txtVoziloKM">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>0</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0" colspan="3">
+        <widget class="QLabel" name="label_14">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+         <property name="text">
+          <string>Napomena</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0" colspan="9">
+        <widget class="QPlainTextEdit" name="txtVoziloNapomena">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="2">
+        <widget class="QPushButton" name="btnVoziloUpis">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Unos</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/ikone/ikone/list_add.svg</normaloff>:/ikone/ikone/list_add.svg</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="2" colspan="2">
+        <widget class="QPushButton" name="btnVoziloIzmijena">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Izmijena</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/ikone/ikone/menu.png</normaloff>:/ikone/ikone/menu.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0" colspan="10">
+        <widget class="QTableView" name="tableView"/>
+       </item>
+       <item row="4" column="8">
+        <widget class="QPushButton" name="btnVoziloBrisanje">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Brisanje</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/ikone/ikone/list_remove.svg</normaloff>:/ikone/ikone/list_remove.svg</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>txtFirmaSifra</tabstop>
+  <tabstop>txtFirmaNaziv</tabstop>
+  <tabstop>txtFirmaAdresa</tabstop>
+  <tabstop>txtKupacMjesto</tabstop>
+  <tabstop>cbZemlja</tabstop>
+  <tabstop>txtFirmaOIB</tabstop>
+  <tabstop>txtKupacMB</tabstop>
+  <tabstop>txtFirmaEmail</tabstop>
+  <tabstop>txtFirmaTelefon</tabstop>
+  <tabstop>btnUpis</tabstop>
+  <tabstop>btnBrisanje</tabstop>
+  <tabstop>tabVozilo</tabstop>
+  <tabstop>txtFirmaOpis</tabstop>
+  <tabstop>txtVoziloMarka</tabstop>
+  <tabstop>txtVoziloModel</tabstop>
+  <tabstop>txtVoziloGodina</tabstop>
+  <tabstop>txtVoziloRegistracija</tabstop>
+  <tabstop>txtVoziloKM</tabstop>
+  <tabstop>txtVoziloNapomena</tabstop>
+  <tabstop>btnVoziloUpis</tabstop>
+  <tabstop>btnVoziloIzmijena</tabstop>
+  <tabstop>tableView</tabstop>
+  <tabstop>btnVoziloBrisanje</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

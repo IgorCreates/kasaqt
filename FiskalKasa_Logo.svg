@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="172"
+   height="147"
+   viewBox="0 0 172 147"
+   id="Logotype"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="FiskalKasa_Logo.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1865"
+     inkscape:window-height="1176"
+     id="namedview23"
+     showgrid="false"
+     inkscape:zoom="2.3339469"
+     inkscape:cx="91.496109"
+     inkscape:cy="102.11234"
+     inkscape:window-x="55"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Logotype" />
+  <metadata
+     id="metadata220">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3">
+    <linearGradient
+       id="logotypeBackground"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.0967211,0.91180883)"
+       x1="0"
+       y1="0"
+       x2="156.83112"
+       y2="0">
+      <stop
+         id="stop6"
+         style="stop-color:#327fff;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop8"
+         style="stop-color:#004dcd;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+    <font
+       horiz-adv-x="1847"
+       id="TaurusLight"
+       horiz-origin-x="0"
+       horiz-origin-y="0"
+       vert-origin-x="45"
+       vert-origin-y="90"
+       vert-adv-y="90" />
+  </defs>
+  <g
+     transform="matrix(1,0,0,1.027972,0,4e-6)"
+     id="g205"
+     style="opacity:0.1484375">
+    <rect
+       width="172"
+       height="143"
+       x="0"
+       y="0"
+       id="rect207"
+       style="fill:url(#logotypeBackground)" />
+    <g
+       transform="matrix(0.14248521,0,0,0.14248521,67.253458,48.950797)"
+       id="g209"
+       style="opacity:0.59999999999999998">
+      <g
+         id="g211">
+        <path
+           d="m 98.503,141.732 c 0,17.508 9.607,31.908 21.909,33.623 -0.994,0.111 -2,0.17 -3.02,0.17 -16.488,0 -29.858,-15.134 -29.858,-33.793 0,-18.663 13.371,-33.797 29.858,-33.797 1.02,0 2.025,0.059 3.02,0.17 -12.302,1.714 -21.909,16.116 -21.909,33.627 z m 62.756,-33.797 c -1.02,0 -2.029,0.059 -3.021,0.17 12.301,1.714 21.908,16.116 21.908,33.627 0,17.508 -9.607,31.908 -21.908,33.623 0.992,0.111 2.002,0.17 3.021,0.17 16.486,0 29.859,-15.134 29.859,-33.793 0.001,-18.663 -13.372,-33.797 -29.859,-33.797 z"
+           id="dcs2"
+           style="fill:#ffffff"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m 68.979,141.732 c 0,-22.745 9.608,-41.457 21.912,-43.682 -0.995,-0.146 -2.002,-0.223 -3.021,-0.223 -16.288,0 -29.526,19.191 -29.843,43.033 H 14.983 v 7.263 H 58.33 c 2.106,21.215 14.53,37.51 29.54,37.51 1.018,0 2.025,-0.074 3.021,-0.225 -12.304,-2.223 -21.912,-20.935 -21.912,-43.676 z m 199.499,-0.871 h -47.854 c -0.318,-23.842 -13.558,-43.033 -29.847,-43.033 -1.021,0 -2.026,0.077 -3.021,0.223 12.305,2.225 21.914,20.937 21.914,43.682 0,22.741 -9.609,41.453 -21.914,43.677 0.994,0.149 2.002,0.225 3.021,0.225 15.013,0 27.437,-16.295 29.541,-37.51 h 48.158 l 0.002,-7.264 0,0 z"
+           id="dcs1"
+           style="fill:#ffffff"
+           inkscape:connector-curvature="0" />
+        <circle
+           cx="141.73"
+           cy="141.73"
+           r="8.224"
+           id="kcs"
+           style="fill:#ffffff"
+           d="m 149.954,141.73 c 0,4.54199 -3.68201,8.224 -8.224,8.224 -4.54199,0 -8.224,-3.68201 -8.224,-8.224 0,-4.54199 3.68201,-8.224 8.224,-8.224 4.54199,0 8.224,3.68201 8.224,8.224 z"
+           sodipodi:cx="141.73"
+           sodipodi:cy="141.73"
+           sodipodi:rx="8.224"
+           sodipodi:ry="8.224" />
+      </g>
+    </g>
+    <text
+       transform="matrix(0.57876777,0,0,0.57876777,22.938768,85.935355)"
+       id="text216"
+       style="font-size:24px;opacity:0.59999999999999998;fill:#ffffff;stroke-width:0.40000001000000002;font-family:TaurusLight">Juka Net Informatika</text>
+    <text
+       x="40.124023"
+       y="127.11926"
+       transform="scale(1.3593196,0.73566215)"
+       id="text3197"
+       xml:space="preserve"
+       style="font-size:24.31448935999999961px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;opacity:0.48437500000000000;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Meera;-inkscape-font-specification:Meera"
+       sodipodi:linespacing="125%"><tspan
+         x="40.124023"
+         y="127.11926"
+         id="tspan3199"
+         style="font-size:7.29434681000000040px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;font-family:Ubuntu;-inkscape-font-specification:Ubuntu">www.juka-net.hr</tspan></text>
+    <text
+       x="39.347904"
+       y="137.60692"
+       transform="scale(1.3593196,0.73566216)"
+       id="text3197-5"
+       xml:space="preserve"
+       style="font-size:24.31448935999999961px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;opacity:0.48437500000000000;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Meera;-inkscape-font-specification:Meera"
+       sodipodi:linespacing="125%"><tspan
+         x="39.347904"
+         y="137.60692"
+         id="tspan3199-7"
+         style="font-size:7.29434681000000040px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;font-family:Ubuntu;-inkscape-font-specification:Ubuntu">info@juka-net.hr</tspan></text>
+    <text
+       x="5.5119538"
+       y="68.994339"
+       transform="matrix(0.9880071,-0.15440843,0.15440843,0.9880071,0,0)"
+       id="text3990"
+       xml:space="preserve"
+       style="font-size:33.05116272000000066px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;opacity:0.45000000000000001;fill:#000000;fill-opacity:1;stroke:none;font-family:Meera;-inkscape-font-specification:Meera"
+       sodipodi:linespacing="125%"><tspan
+         x="5.5119538"
+         y="68.994339"
+         id="tspan3992"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:Ubuntu;-inkscape-font-specification:Ubuntu">FiskalKasa</tspan></text>
+  </g>
+</svg>

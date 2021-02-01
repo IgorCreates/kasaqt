@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="name" content="JNet-Racun Template">
+	<style type="text/css">
+	<!--
+		@page { margin: 2cm }
+		p { color: #000000 }
+		td p { color: #000000 }
+	-->
+	tbody { border-bottom: solid ;border-color: #b3b3b3}
+	table.stavke td { border: 1px; border-bottom: solid; border-color: #b3b3b3; padding: 0cm}
+	table.stavke th { border: none; background: #b3b3b3; padding: 0cm}
+	div { border: 1px solid; width: 10em; margin-bottom: 10px; }
+	* { font-size: 10pt; font-family: TakaoPGothic, sans-serif ;font-style: normal}
+	.qr_box {width: 100%;  height: auto; }
+	.large { font-size: 16pt}
+	</style>
+</head>
+<body text="#000000" dir="ltr" style="background: transparent">
+<div align="center" ><span class="large">&lt;FIRMA_NAZIV&gt;</span></div>
+<div align="center" ><span class="large">&lt;FIRMA_ADRESA&gt; &lt;FIRMA_OIB&gt;</span></div>
+<div align="center" ><span class="large">&lt;FIRMA_OSTALO&gt;</span></div>
+<br><br><br>
+<div align="center"><span class="large">&lt;RACUN_OTPREMNICA&gt; &lt;RACUN_BR&gt;</span></div>
+<br>
+
+
+
+<div >Datum dokumenta: &lt;DATUM_RACUNA&gt;</div>
+<div >Dokument izradio &lt;RACUN_IZRADIO&gt;</div>
+<div >Način plaćanja &lt;NACIN_PLACANJA&gt;</div>
+
+<table name="kupac">
+</br>
+<div>&lt;KUPAC_NAZIV&gt;</div>
+<div>&lt;KUPAC_ADRESA&gt;,&lt;KUPAC_MJESTO&gt;</div>
+<div>&lt;KUPAC_OIB&gt;</div>
+</br>
+</table name="kupac">
+
+<table name="fiskal" width="100%">
+	<tr><td style="width: 80%">
+	<div>&lt;ZKI&gt;</div>
+	<div>&lt;JIR&gt;</div>
+	</td>
+	<td style="width=20%">
+	<div><img id="qr_box" width="60" src="/tmp/ispQR.png" /></div>
+	</td>
+</table name="fiskal">
+
+
+
+<br>
+<table class="stavke" width="100%" cellpadding="0" cellspacing="0" style="page-break-before: auto; page-break-after: auto">
+<thead>
+	<col width="10*">
+	<col width="108*">
+	<col width="18*">
+	<col width="13*">
+	<col width="27*">
+	<col width="17*">
+	<col width="32*">
+	<col width="32*">
+	<tr>
+		<th width="4%" >
+			<div>RB</div>
+		</th>
+		<th width="42%" >
+			<div>Naziv</div>
+		</th>
+		<th width="8%" >
+			<div>Kolicina</div>
+		</th>
+		<th width="5%" >
+			<div>JMJ</div>
+		</th>
+		<th width="10%" >
+			<div >Jed.Cijena</div>
+		</th>
+		<th width="7%" >
+			<div >Rbt%</div>
+		</th>
+		<th width="11%" >
+			<div >RbtKN</div>
+		</th>
+		<th width="13%" >
+			<div >Ukupno</div>
+		</th>
+	</tr>
+</thead>
+<tbody>
+	<tr name="tablica_stavke" valign="top">
+		<td width="4%" class="stavke" align="right">
+			<div >&lt;STAVKA_RB&gt;</div>
+		</td>
+		<td width="42%" class="stavke">
+			<div style="border-bottom:solid">&lt;STAVKA_NAZIV&gt;&lt;p&gt;<font size="1" style="font-size: 8pt">&lt;STAVKA_OPIS&gt;</font></div>
+		</td>
+		<td width="8%" class="stavke" align="right">
+			<div>&lt;STAVKA_KOLICINA&gt;</div>
+		</td>
+		<td width="5%" style="border: none; padding: 0cm" align="right"> 
+			<div >&lt;STAVKA_JM&gt;</div>
+		</td>
+		<td width="10%" style="border: none; padding: 0cm" align="right">
+			<div>&lt;STAVKA_JEDCJENA&gt;</div>
+		</td>
+		<td width="7%" style="border: none; padding: 0cm" align="right">
+			<div>&lt;STAVKA_RBTP&gt;</div>
+		</td>
+		<td width="11%" style="border: none; padding: 0cm" align="right">
+			<div>&lt;STAVKA_RBTKN&gt;</div>
+		</td>
+		<td width="13%" style="border: none; padding: 0cm" align="right">
+			<div>&lt;STAVKA_UKUPNO&gt;</div>
+		</td>
+	</tr name="tablica_stavke">
+</tbody>
+</table>
+<p></p>
+<table width="100%" cellpadding="2" cellspacing="0" valign="top">
+	<col width="40%">
+	<col width="25%">
+	<col width="40%">
+	<tr valign="top">
+		<td width="40%" style="border: none; padding: 0cm">
+			<table width="100%" cellpadding="0" cellspacing="0" valign="top">
+				<col width="60%">
+				<col width="40%">
+				<tr>
+					<td width="60%" bgcolor="#b3b3b3" style="border: none; padding: 0cm">
+						<div>Porez</div>
+					</td>
+					<td width="40%" bgcolor="#b3b3b3" style="border: none; padding: 0cm" align="right">
+						<div>Iznos Poreza</div>
+					</td>
+				</tr>
+				<tr valign="top" name="tablica_porezi_stavke">
+					<td width="60%" style="border: none; padding: 0cm">
+						<div>&lt;POREZ_OPIS&gt;</div>
+					</td>
+					<td width="40%" style="border: none; padding: 0cm">
+						<div align="right">&lt;POREZ_IZNOS&gt;</div>
+					</td>
+				</tr name="tablica_porezi_stavke">
+			</table>
+		</td>
+		<td width="25%"></td>
+		<td align="right" width="60%">
+			<table width="100%" cellpadding="4" cellspacing="0">
+				<col width="50%">
+				<col width="50%">
+				<tr valign="top">
+					<td width="40%" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+						<div>Osnovica</div>
+					</td>
+					<td width="60%" style="border: 1px solid #000000; padding: 0.1cm">
+						<div align="right">&lt;UKPOSNOVICA&gt;</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td width="40%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+						<div>Rabat &lt;UKPRABAT_POSTO&gt; %</div>
+					</td>
+					<td width="60%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+						<div align="right">&lt;UKPRABAT_KN&gt;</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td width="40%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+						<div>Za platiti</div>
+					</td>
+					<td width="60%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+						<div align="right">&lt;UKPZAPLATITI&gt;</div>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<div style="font-style=italic">&lt;POREZ_PORUKA&gt;</div>
+<br>
+<br>
+<div>&lt;RACUN_OPIS&gt;</div>
+<br>
+<br>
+<div align="right">
+	<table width="100%" cellpadding="4" cellspacing="0">
+		<col width="50%">
+		<col width="50%">
+		<tr valign="top">
+			<td width="50%" style="border: none; padding: 0cm">
+				<div>Izdao</div>
+			</td>
+			<td width="50%" style="border: none; padding: 0cm">
+		<iv align="right">Preuzeo</div>
+			</td>
+		</tr>
+	</table>
+</div>
+<p style="margin-bottom: 0cm"><br>
+</p>
+</body>
+</html>

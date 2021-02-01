@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg4254"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   width="640"
+   height="480"
+   sodipodi:docname="splash.png">
+  <metadata
+     id="metadata4260">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs4258">
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3835"
+       id="linearGradient3841"
+       x1="-329.7876"
+       y1="588.60156"
+       x2="1401.2388"
+       y2="588.60156"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1091565,0,0,1.1511592,365.79646,-137.57413)" />
+    <linearGradient
+       id="linearGradient3835">
+      <stop
+         style="stop-color:#0300ff;stop-opacity:1;"
+         offset="0"
+         id="stop3837" />
+      <stop
+         id="stop3845"
+         offset="0.53241366"
+         style="stop-color:#0300bf;stop-opacity:0.74901961;" />
+      <stop
+         id="stop3843"
+         offset="1"
+         style="stop-color:#03007f;stop-opacity:0.49803922;" />
+      <stop
+         style="stop-color:#030000;stop-opacity:0;"
+         offset="1"
+         id="stop3839" />
+    </linearGradient>
+    <filter
+       color-interpolation-filters="sRGB"
+       id="emblemFilter">
+      <feColorMatrix
+         id="feColorMatrix6"
+         values="0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0"
+         in="SourceGraphic"
+         type="matrix" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1680"
+     inkscape:window-height="1021"
+     id="namedview4256"
+     showgrid="false"
+     inkscape:zoom="0.98333333"
+     inkscape:cx="303.64084"
+     inkscape:cy="199.01027"
+     inkscape:window-x="1600"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g4091" />
+  <g
+     transform="matrix(0.33333332,0,0,0.44464108,0,-0.34496832)"
+     id="g4091">
+    <rect
+       y="0.56497872"
+       x="0.5649814"
+       height="1078.87"
+       width="1918.8701"
+       id="rect3065"
+       style="opacity:0.7265625;fill:url(#linearGradient3841);fill-opacity:1;stroke:#000000;stroke-width:1.1299628;stroke-opacity:1" />
+    <text
+       transform="scale(1.292692,0.77357947)"
+       sodipodi:linespacing="125%"
+       id="text3847"
+       y="1220.9205"
+       x="58.56451"
+       style="font-size:66.39121246px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-size:199.17364502px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         y="1220.9205"
+         x="58.56451"
+         id="tspan3849"
+         sodipodi:role="line">FiskalKasa</tspan></text>
+    <g
+       style="fill:#ffffff"
+       transform="matrix(2.7205865,0,0,1.9673407,493.96492,565.28203)"
+       id="g206">
+      <g
+         transform="matrix(0.38234969,0,0,0.41059815,135.30538,8.2591242)"
+         id="g208"
+         style="fill:#ffffff;fill-opacity:0.43016758;filter:url(#emblemFilter)">
+        <g
+           id="g210"
+           style="fill:#ffffff;fill-opacity:0.43016758">
+          <path
+             id="dcs2"
+             d="m 98.503,141.732 c 0,17.508 9.607,31.908 21.909,33.623 -0.994,0.111 -2,0.17 -3.02,0.17 -16.488,0 -29.858,-15.134 -29.858,-33.793 0,-18.663 13.371,-33.797 29.858,-33.797 1.02,0 2.025,0.059 3.02,0.17 -12.302,1.714 -21.909,16.116 -21.909,33.627 z m 62.756,-33.797 c -1.02,0 -2.029,0.059 -3.021,0.17 12.301,1.714 21.908,16.116 21.908,33.627 0,17.508 -9.607,31.908 -21.908,33.623 0.992,0.111 2.002,0.17 3.021,0.17 16.486,0 29.859,-15.134 29.859,-33.793 0.001,-18.663 -13.372,-33.797 -29.859,-33.797 z"
+             inkscape:connector-curvature="0"
+             style="fill:#ffffff;fill-opacity:0.43016758" />
+          <path
+             id="dcs1"
+             d="m 68.979,141.732 c 0,-22.745 9.608,-41.457 21.912,-43.682 -0.995,-0.146 -2.002,-0.223 -3.021,-0.223 -16.288,0 -29.526,19.191 -29.843,43.033 H 14.983 v 7.263 H 58.33 c 2.106,21.215 14.53,37.51 29.54,37.51 1.018,0 2.025,-0.074 3.021,-0.225 -12.304,-2.223 -21.912,-20.935 -21.912,-43.676 z m 199.499,-0.871 h -47.854 c -0.318,-23.842 -13.558,-43.033 -29.847,-43.033 -1.021,0 -2.026,0.077 -3.021,0.223 12.305,2.225 21.914,20.937 21.914,43.682 0,22.741 -9.609,41.453 -21.914,43.677 0.994,0.149 2.002,0.225 3.021,0.225 15.013,0 27.437,-16.295 29.541,-37.51 h 48.158 l 0.002,-7.264 0,0 z"
+             inkscape:connector-curvature="0"
+             style="fill:#ffffff;fill-opacity:0.43016758" />
+          <circle
+             cy="141.73"
+             r="8.224"
+             id="kcs"
+             cx="141.73"
+             d="m 149.954,141.73 c 0,4.54199 -3.68201,8.224 -8.224,8.224 -4.54199,0 -8.224,-3.68201 -8.224,-8.224 0,-4.54199 3.68201,-8.224 8.224,-8.224 4.54199,0 8.224,3.68201 8.224,8.224 z"
+             sodipodi:cx="141.73"
+             sodipodi:cy="141.73"
+             sodipodi:rx="8.224"
+             sodipodi:ry="8.224"
+             style="fill:#ffffff;fill-opacity:0.43016758" />
+        </g>
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-size:37.89849854px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:0.43016758;stroke:none;font-family:Sans"
+         x="23.701208"
+         y="112.38726"
+         id="text3196"
+         sodipodi:linespacing="125%"
+         transform="scale(0.99478224,1.0052451)"><tspan
+           sodipodi:role="line"
+           id="tspan3198"
+           x="23.701208"
+           y="112.38726"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:0.43016758;font-family:ubuntu;-inkscape-font-specification:ubuntu">Juka Net Informatika</tspan></text>
+    </g>
+    <text
+       transform="scale(1.384482,0.7222918)"
+       sodipodi:linespacing="125%"
+       id="text4079"
+       y="797.37616"
+       x="56.748219"
+       style="font-size:57.50704193px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+       xml:space="preserve"><tspan
+         y="797.37616"
+         x="56.748219"
+         id="tspan4081"
+         sodipodi:role="line">www.juka-net.hr</tspan></text>
+    <text
+       transform="scale(1.3731483,0.72825347)"
+       sodipodi:linespacing="125%"
+       id="text4083"
+       y="881.28076"
+       x="54.495884"
+       style="font-size:32.59215546px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-size:57.03627396px;fill:#ffffff;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         id="tspan4087"
+         y="881.28076"
+         x="54.495884"
+         sodipodi:role="line">info@juka-net.hr</tspan></text>
+  </g>
+</svg>

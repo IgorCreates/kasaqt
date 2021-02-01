@@ -1,0 +1,6 @@
+KasaQT.pro.*
+__pycache__/**
+*~
+**.bck
+**.BACKUP
+update.sh

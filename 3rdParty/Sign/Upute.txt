@@ -1,0 +1,4 @@
+USAGE:
+mono Sign.exe certifikat.pfx password "string koji se potpisuje"
+ISPISUJE REZULTAT ili ERROR
+

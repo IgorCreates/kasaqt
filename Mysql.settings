@@ -1,0 +1,36 @@
+[mysqld]
+character-set-server = utf8
+max_sp_recursion_depth = 5
+lower_case_table_names = 1
+basedir = "c:/opt/mysql"
+datadir = "c:/opt/mysql/data/"
+port = 3306
+key_buffer = 16M
+max_allowed_packet = 16M
+thread_stack = 192K
+thread_cache_size = 8
+myisam-recover = BACKUP
+query_cache_limit = 1M
+query_cache_size = 16M
+
+skip-external-locking
+join_buffer_size = 128M
+sort_buffer_size = 2M
+read_rnd_buffer_size = 2M
+
+#sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES 
+
+[client]
+port = 3306
+[mysql]
+default-character-set=utf8
+prompt = "mysql>"
+[isamchk]
+key_buffer = 16M
+
+[mysqldump]
+quick
+quote-names
+max_allowed_packet = 16M
+
+

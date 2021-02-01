@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>RAC-Mali</title>
+	<meta name="name" content="JNet-Racun Template">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.5cm }
+		p { color: #000000 }
+		td p { color: #000000 }
+	-->
+	tbody { border-bottom: solid ;border-color: #b3b3b3}
+	table.stavke td { border: 1px; border-bottom: solid; border-color: #b3b3b3; padding: 0cm}
+	table.stavke th { border: none; background: #b3b3b3; padding: 0cm}
+	table.ukupno td {border: 1px; border-bottom: solid-black;border-color: #b3b3b3; padding: 0cm}
+	table.ukupno th { border: 1px; background: #b3b3b3; padding: 0cm}
+	div { border: 1px solid; width: 10em }
+	* { font-size: 8pt; font-family: Arial, sans-serif ;font-style: normal}
+	.large { font-size: 12pt}
+	.exLarge { font-size: 12pt; font-style: bold}
+	</style>
+</head>
+<body text="#000000" dir="ltr" style="background: transparent">
+<div align="center" ><span class="large">&lt;FIRMA_NAZIV&gt;</span></div>
+<div align="center" >&lt;FIRMA_ADRESA&gt; &lt;FIRMA_OIB&gt;</div>
+<div align="center" >&lt;FIRMA_OSTALO&gt;</div>
+<br><br><br>
+<div align="center"><span class="large">&lt;RACUN_OTPREMNICA&gt; &lt;RACUN_BR&gt;</span></div>
+<br>
+<table class="stavke" width="100%" cellpadding="0" cellspacing="0">
+<tr><div >Datum dokumenta: &lt;DATUM_RACUNA&gt;</div></tr>
+<tr><div >Dokument izradio &lt;RACUN_IZRADIO&gt;</div></tr>
+<tr><div >Način plaćanja &lt;NACIN_PLACANJA&gt;</div></tr>
+</table>
+<table name="kupac">
+</br>
+<div>&lt;KUPAC_NAZIV&gt;</div>
+<div>&lt;KUPAC_ADRESA&gt;,&lt;KUPAC_MJESTO&gt;</div>
+<div>&lt;KUPAC_OIB&gt;</div>
+</br>
+</table name="kupac">
+
+<div >&lt;ZKI&gt;</div>
+<div >&lt;JIR&gt;</div>
+
+<br>
+<table class="stavke" width="100%" cellpadding="0" cellspacing="0" style="page-break-before: auto; page-break-after: auto">
+<thead>
+	<tr>
+		<th width="100%" colspan="4">
+			<div>Naziv</div>
+		</th>
+	</tr>
+	<tr>
+		<th width="10%" >
+			<div>Kolicina</div>
+		</th>
+		<th width="10%" >
+			<div>JMJ</div>
+		</th>
+		<th width="40%" >
+			<div >Jed.Cijena</div>
+		</th>
+		<th width="40%" >
+			<div >Ukupno vv</div>
+		</th>
+	</tr>
+</thead>
+<tbody>
+	<tr name="tablica_stavke" valign="top">
+		<td width="100%" class="stavke" colspan="4">
+			<div style="border-bottom:solid">&lt;STAVKA_NAZIV&gt; &lt;STAVKA_RBTP&gt;&lt;STAVKA_RBTKN&gt;</div>
+		</td>
+	</tr>
+	<tr>
+		<td width="10%" class="stavke" align="right">
+			<div>&lt;STAVKA_KOLICINA&gt;</div>
+		</td>
+		<td width="10%" style="border: none; padding: 0cm" align="right"> 
+			<div >&lt;STAVKA_JM&gt;</div>
+		</td>
+		<td width="40%" style="border: none; padding: 0cm" align="right">
+			<div>&lt;STAVKA_JEDCJENA&gt;</div>
+		</td>
+		<td width="40%" style="border: none; padding: 0cm" align="right">
+			<div>&lt;STAVKA_UKUPNO&gt;</div>
+		</td>
+	</tr name="tablica_stavke">
+</tbody>
+</table>
+<p></p>
+<table width="100%" cellpadding="2" cellspacing="0" valign="top">
+	<col width="100%">
+	<tr valign="top">
+		<td width="100%" style="border: none; padding: 0cm">
+			<table width="100%" cellpadding="0" cellspacing="0" valign="top">
+				<col width="60%">
+				<col width="40%">
+				<tr>
+					<td width="60%" bgcolor="#b3b3b3" style="border: none; padding: 0cm">
+						<div>Porez</div>
+					</td>
+					<td width="40%" bgcolor="#b3b3b3" style="border: none; padding: 0cm" align="right">
+						<div>Iznos Poreza</div>
+					</td>
+				</tr>
+				<tr valign="top" name="tablica_porezi_stavke">
+					<td width="60%" style="border: none; padding: 0cm">
+						<div>&lt;POREZ_OPIS&gt;</div>
+					</td>
+					<td width="40%" style="border: none; padding: 0cm">
+						<div align="right">&lt;POREZ_IZNOS&gt;</div>
+					</td>
+				</tr name="tablica_porezi_stavke">
+			</table>
+		</td>
+	</tr>
+</table>
+<br>
+<table class="ukupno" width="100%" cellpadding="0" cellspacing="0" style="page-break-before: auto; page-break-after: auto">	<col width="50%">
+	<tr valign="top">
+		<td width="40%">
+			<div>Osnovica</div>
+		</td>
+		<td width="60%">
+			<div align="right">&lt;UKPOSNOVICA&gt;</div>
+		</td>
+	</tr>
+	<tr valign="top" >
+		<td width="40%">
+			<div>Rabat &lt;UKPRABAT_POSTO&gt; %</div>
+		</td>
+		<td width="60%">
+			<div align="right">&lt;UKPRABAT_KN&gt;</div>
+		</td>
+	</tr>
+	<tr valign="top" >
+		<td width="40%">
+			</span></div>
+			<div align="left"><span class="exLarge">Za platiti</span></div>
+		</td>
+		<td width="60%">
+			<div align="right"><span class="exLarge">&lt;UKPZAPLATITI&gt;</span></div>
+		</td>
+	</tr>
+</table>
+<div style="font-style=italic">&lt;POREZ_PORUKA&gt;</div>
+<br>
+<br>
+<div>&lt;RACUN_OPIS&gt;</div>
+<br>
+<table name="QR" width="100%">
+	<td style="width=20%" align="center">
+	<div><img id="qr_box" width="80" src="/tmp/ispQR.png" /></div>
+	</td>
+</table name="QR">
+<br>
+<p style="margin-bottom: 0cm"><br>
+</p>
+</body>
+</html>
