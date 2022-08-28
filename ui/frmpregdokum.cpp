@@ -297,6 +297,8 @@ void frmPregDokum::on_toolBtnIspis_pressed()
     ispOd->ProvjeraOpcija();
 }
 
+
+
 void frmPregDokum::on_btnPrikaziNeposlane_pressed()
 {
     ui->btnRekreiranjeZKI->setVisible(false);
@@ -586,6 +588,33 @@ void frmPregDokum::on_btnFilterZatvori_pressed()
 void frmPregDokum::on_btnFilterLjevo1000_released()
 {
 
+}
+
+void frmPregDokum::on_btnRekreirajJson_pressed()
+{
+
+    QProgressBar *PP = new QProgressBar(this);
+    QLabel *Poruka = new QLabel(this);
+    QFont  serifFont("Times", 18, QFont::Bold);
+    Poruka->setText("Pricekajte dok ne\nzavrsi rekreiranje JSONa");
+    Poruka->setFont(serifFont);
+    Poruka->setFixedSize(300,100);
+    Poruka->show();
+    Poruka->move((this->width()/2)-(Poruka->width()/2),(this->height()/2)-(Poruka->height()/2));
+    Poruka->setStyleSheet("color: rgb(255, 0, 0);");
+
+    mojiHeaderi fZKI;
+    int RacID =ui->tableView->model()->data(ui->tableView->model()->index(ui->tableView->currentIndex().row(),0)).toInt();
+    //fZKI.ZKI(RacID);
+    fZKI.jsonRacunZahtjev(RacID,false);
+
+    if (Poruka->styleSheet() == "color: rgb(255, 0, 0);")
+    {
+        Poruka->setStyleSheet("color: rgb(255, 0, 0);");
+    }else
+    {
+        Poruka->setStyleSheet("color: rgb(0, 0, 0);");
+    }
 }
 
 void frmPregDokum::on_btnFilterDesno1000_released()

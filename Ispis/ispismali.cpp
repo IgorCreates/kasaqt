@@ -215,6 +215,8 @@ void ispisMali::IspisMaliPos(const QString &BrRacuna)
     file.open(QIODevice::WriteOnly);
     QTextStream ispRac(&file);
 
+    //EURO tecaj
+    double valEuro = 7.5345;
 
     if (!q.exec(QString("select r1.*,k.naziv prodao,ka.naziv naziv_np from rac1 r1 left join korisnik k on r1.uid=k.id left join kartice ka on r1.np=ka.id where r1.id=%1").arg(BrRacuna)))
     {
@@ -318,6 +320,8 @@ void ispisMali::IspisMaliPos(const QString &BrRacuna)
         rc.replace("rac_za_platiti",QString("%1%2").arg(qApp->property("Printer-IspisPoljeZaPlatiti").toString())
                    .arg(QString(" ").repeated(VM(QString("%L1").arg(q.value(qR1sum).toDouble(),0,'f',2),9))  + QString("%L1").arg(q.value(qR1sum).toDouble(),0,'f',2)));
 
+        rc.replace("rac_euri",QString("Total: %L1 EUR").arg(q.value(qR1sum).toDouble()/valEuro,0,'f',2).leftJustified(this->SirinaPapira, ' ', true));
+
         //artikli
         QString artiklZaglavlje;
         if (this->bRacunStavkaJedanRed)
@@ -375,6 +379,9 @@ void ispisMali::IspisMaliPos(const QString &BrRacuna)
                 aDetail += "\nRabat: " + qC.value(r2Rbt).toString() + "% ";
                 aDetail += QString(" Rabat kn: %L1\n").arg(qC.value(r2RbtK).toDouble(),0,'f',2);
             }
+            // EURO
+
+            aDetail += "\n" + QString("%L1 EUR").arg(qC.value(r2Ukp).toDouble()/valEuro,0,'f',2).rightJustified(this->SirinaPapira, ' ', true) + "";
             Brojac++;
          //ispRac << aDetail;
         }

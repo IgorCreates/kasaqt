@@ -123,7 +123,7 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    QString VerProga = " os_2.0";
+    QString VerProga = " os_2.1";
 
     qApp->setQuitOnLastWindowClosed(true);
     qDebug() << QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
