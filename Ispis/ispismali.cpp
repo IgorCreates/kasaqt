@@ -217,6 +217,17 @@ void ispisMali::IspisMaliPos(const QString &BrRacuna)
 
     //EURO tecaj
     double valEuro = 7.5345;
+    if (!q.exec("select tecaj from tecaj where id=1"))
+    {
+        qDebug() << "Greska povlacenja tecaja - set default 7,53450" << q.lastError();
+    }else{
+        if (q.next())
+        {
+            qDebug() << "Tecaj " << q.value(0).toDouble();
+            valEuro = q.value(0).toDouble();
+        }
+    }
+
 
     if (!q.exec(QString("select r1.*,k.naziv prodao,ka.naziv naziv_np from rac1 r1 left join korisnik k on r1.uid=k.id left join kartice ka on r1.np=ka.id where r1.id=%1").arg(BrRacuna)))
     {
@@ -314,13 +325,15 @@ void ispisMali::IspisMaliPos(const QString &BrRacuna)
         if (qC.next())
         {
             if (qC.value(0).toDouble() != 0)
-                rcPorezi += QString("Povratna naknada: %L1 kn\n").arg(qC.value(0).toDouble(),0,'f',2);
+                rcPorezi += QString("Povratna naknada: %L1 EUR\n").arg(qC.value(0).toDouble(),0,'f',2);
         }
         rc.replace("rac_porezi",rcPorezi);
         rc.replace("rac_za_platiti",QString("%1%2").arg(qApp->property("Printer-IspisPoljeZaPlatiti").toString())
                    .arg(QString(" ").repeated(VM(QString("%L1").arg(q.value(qR1sum).toDouble(),0,'f',2),9))  + QString("%L1").arg(q.value(qR1sum).toDouble(),0,'f',2)));
 
-        rc.replace("rac_euri",QString("Total: %L1 EUR").arg(q.value(qR1sum).toDouble()/valEuro,0,'f',2).leftJustified(this->SirinaPapira, ' ', true));
+        QString PrikazEuroKN = QString("Total: %L1 EUR").arg(q.value(qR1sum).toDouble()/valEuro,0,'f',2).leftJustified(this->SirinaPapira, ' ', true);
+        PrikazEuroKN += QString("\nTecaj 1 EUR: %L1 kn").arg(valEuro,0,'f',6);
+        rc.replace("rac_euri",PrikazEuroKN);
 
         //artikli
         QString artiklZaglavlje;
@@ -377,7 +390,7 @@ void ispisMali::IspisMaliPos(const QString &BrRacuna)
             if (qC.value(r2Rbt).toDouble() > 0)
             {
                 aDetail += "\nRabat: " + qC.value(r2Rbt).toString() + "% ";
-                aDetail += QString(" Rabat kn: %L1\n").arg(qC.value(r2RbtK).toDouble(),0,'f',2);
+                aDetail += QString(" Rabat EUR: %L1\n").arg(qC.value(r2RbtK).toDouble(),0,'f',2);
             }
             // EURO
 

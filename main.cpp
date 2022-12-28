@@ -136,6 +136,9 @@ int main(int argc, char *argv[])
     app.setApplicationDisplayName("FiskalKasa");
     qApp->setProperty("App_Verzija",app.applicationVersion());
 
+    //set KN or EUR valuta label
+    qApp->setProperty("App_VALUTA","EUR");
+
     QCommandLineParser parser;
     QCommandLineOption arg_verzija("verzija","Verzija:",qApp->property("App_Verzija").toString());
     parser.addOption(arg_verzija);

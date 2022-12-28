@@ -205,9 +205,9 @@ void frmIspisOdabir::on_btnPOS_released()
         {
            ispisQRcreate(RacunID);
 
-           ispisTestPOS(RacunID);
+           //ispisTestPOS(RacunID);
 
-           //ispisA4template("MaliRac",RacunID);
+           ispisA4template("MaliRac",RacunID);
         }else
         {
             ispisMali *isp = new ispisMali();
@@ -345,10 +345,11 @@ void frmIspisOdabir::ispisA4template(QString Sto,int RID)
     QPrintPreviewDialog pw(prnPrinter,this);
 
     //VRATI NAKON TESTA
-    //connect(&pw,SIGNAL(paintRequested(QPrinter*)),SLOT(IspisPreview(QPrinter*)));
-    prnPrinter->setPageSizeMM(QSizeF(72,100));
-    //DokumentZaIspisA4->setTextWidth(100);
-    connect(&pw,SIGNAL(paintRequested(QPrinter*)),SLOT(IspisPreviewTT(QPrinter*)));
+    connect(&pw,SIGNAL(paintRequested(QPrinter*)),SLOT(IspisPreview(QPrinter*)));
+
+//    prnPrinter->setPageSizeMM(QSizeF(72,100));
+//    //DokumentZaIspisA4->setTextWidth(100);
+//    connect(&pw,SIGNAL(paintRequested(QPrinter*)),SLOT(IspisPreviewTT(QPrinter*)));
 
 
 
@@ -511,6 +512,7 @@ QString frmIspisOdabir::ispisVratiHtmlContent(int RID)
 
 
 
+
     htmlContent.replace("&lt;FIRMA_NAZIV&gt;",qApp->property("Firma_Ime").toString());
     htmlContent.replace("&lt;FIRMA_OIB&gt;",QString("OIB: %1").arg(qApp->property("Firma_OIB").toString()));
     htmlContent.replace("&lt;FIRMA_ADRESA&gt;",QString("%1,%2-%3").arg(qApp->property("Firma_Adresa").toString()).arg(qApp->property("Firma_Postanski").toString()).arg(qApp->property("Firma_Grad").toString()));
@@ -519,6 +521,18 @@ QString frmIspisOdabir::ispisVratiHtmlContent(int RID)
     if (RID != 0)
     {
         QSqlQuery q("",QSqlDatabase::database("baza"));
+
+        double valEuro = 7.5345;
+        if (!q.exec("select tecaj from tecaj where id=1"))
+        {
+            qDebug() << "Greska povlacenja tecaja - set default 7,53450" << q.lastError();
+        }else{
+            if (q.next())
+            {
+                qDebug() << "Tecaj " << q.value(0).toDouble();
+                valEuro = q.value(0).toDouble();
+            }
+        }
 
         QString qveri;
         if (RacTipRacuna == "rac1")
@@ -614,10 +628,19 @@ QString frmIspisOdabir::ispisVratiHtmlContent(int RID)
             RowStavke = exp.cap(1);
             htmlContent.replace(RowStavke,"");
         }
-        htmlContent.replace("&lt;UKPOSNOVICA&gt;",QString("%L1 kn").arg(q.value(q.record().indexOf("bpdv")).toDouble(),0,'f',2));
-        htmlContent.replace("&lt;UKPRABAT_KN&gt;",QString("%L1 kn").arg(q.value(q.record().indexOf("rabatk")).toDouble(),0,'f',2));
+        htmlContent.replace("&lt;UKPOSNOVICA&gt;",QString("%L1 %2").arg(q.value(q.record().indexOf("bpdv")).toDouble(),0,'f',2).arg(qApp->property("App_VALUTA").toString()));
+        htmlContent.replace("&lt;UKPRABAT_EUR&gt;",QString("%L1 %2").arg(q.value(q.record().indexOf("rabatk")).toDouble(),0,'f',2).arg(qApp->property("App_VALUTA").toString()));
         htmlContent.replace("&lt;UKPRABAT_POSTO&gt;",QString("%L1").arg(q.value(q.record().indexOf("rabatp")).toDouble(),0,'f',2));
-        htmlContent.replace("&lt;UKPZAPLATITI&gt;",QString("%L1 kn").arg(q.value(q.record().indexOf("sum")).toDouble(),0,'f',2));
+        htmlContent.replace("&lt;UKPZAPLATITI&gt;",QString("%L1 %2").arg(q.value(q.record().indexOf("sum")).toDouble(),0,'f',2).arg(qApp->property("App_VALUTA").toString()));
+
+        double euro = q.value(q.record().indexOf("sum")).toDouble()*valEuro;
+        QString PrikazEuroKN = QString("%L1").arg(euro,0,'f',2);
+        //PrikazEuroKN += QString("\nTecaj 1 EUR: %L1 kn").arg(valEuro,0,'f',6);
+        htmlContent.replace("&lt;UKPZAPLATITIEURKN&gt;",PrikazEuroKN);
+        htmlContent.replace("TECAJVALUTA",QString("%L1").arg(valEuro,0,'f',5));
+
+       // rc.replace("rac_euri",PrikazEuroKN);
+
 
         exp.setPattern("<tr name=\"tablica_stavke\" valign=\"top\">(.*)</tr name=\"tablica_stavke\">");
         RowStavke = htmlContent; //"<tr name=\"tablica_stavke\" easdasdasdasdasdasdasd</tr>"; //htmlContent;
@@ -647,7 +670,7 @@ QString frmIspisOdabir::ispisVratiHtmlContent(int RID)
                 TablicaStavkeRow.replace("&lt;STAVKA_JM&gt;","KOM");
                 TablicaStavkeRow.replace("&lt;STAVKA_JEDCJENA&gt;",QString("%L1").arg(q.value(q.record().indexOf("pc")).toDouble(),0,'f',2));
                 TablicaStavkeRow.replace("&lt;STAVKA_RBTP&gt;",QString("%L1").arg(q.value(q.record().indexOf("rabatp")).toDouble(),0,'f',2));
-                TablicaStavkeRow.replace("&lt;STAVKA_RBTKN&gt;",QString("%L1").arg(q.value(q.record().indexOf("rabatk")).toDouble(),0,'f',2));
+                TablicaStavkeRow.replace("&lt;STAVKA_RBTEUR&gt;",QString("%L1").arg(q.value(q.record().indexOf("rabatk")).toDouble(),0,'f',2));
                 TablicaStavkeRow.replace("&lt;STAVKA_UKUPNO&gt;",QString("%L1").arg(q.value(q.record().indexOf("ukupno")).toDouble(),0,'f',2));
                 TablicaStavkeRow.replace("&lt;STAVKA_RB&gt;","");
                 TablicaStavkeRow.replace("&lt;STAVKA_OPIS&gt;","");
@@ -712,7 +735,7 @@ QString frmIspisOdabir::ispisVratiHtmlContent(int RID)
                     if (q.next())
                     {
                         if (q.value(0).toDouble() != 0)
-                            PorezPoruka += QString("Povratna naknada: %L1 kn").arg(q.value(0).toDouble(),0,'f',2);
+                            PorezPoruka += QString("Povratna naknada: %L1 %2").arg(q.value(0).toDouble(),0,'f',2).arg(qApp->property("App_VALUTA").toString());
                     }
                 }
             }
@@ -861,10 +884,10 @@ QString frmIspisOdabir::ispisVratiHtmlContentMali(int RID)
             htmlContent.replace(RowStavke,"");
 
         }
-        htmlContent.replace("&lt;UKPOSNOVICA&gt;",QString("%L1 kn").arg(q.value(q.record().indexOf("bpdv")).toDouble(),0,'f',2));
-        htmlContent.replace("&lt;UKPRABAT_KN&gt;",QString("%L1 kn").arg(q.value(q.record().indexOf("rabatk")).toDouble(),0,'f',2));
+        htmlContent.replace("&lt;UKPOSNOVICA&gt;",QString("%L1 %2").arg(q.value(q.record().indexOf("bpdv")).toDouble(),0,'f',2)).arg(qApp->property("App_VALUTA").toString());
+        htmlContent.replace("&lt;UKPRABAT_EUR&gt;",QString("%L1 %2").arg(q.value(q.record().indexOf("rabatk")).toDouble(),0,'f',2)).arg(qApp->property("App_VALUTA").toString());
         htmlContent.replace("&lt;UKPRABAT_POSTO&gt;",QString("%L1").arg(q.value(q.record().indexOf("rabatp")).toDouble(),0,'f',2));
-        htmlContent.replace("&lt;UKPZAPLATITI&gt;",QString("%L1 kn").arg(q.value(q.record().indexOf("sum")).toDouble(),0,'f',2));
+        htmlContent.replace("&lt;UKPZAPLATITI&gt;",QString("%L1 %2").arg(q.value(q.record().indexOf("sum")).toDouble(),0,'f',2)).arg(qApp->property("App_VALUTA").toString());
 
         exp.setPattern("<tr name=\"tablica_stavke\" valign=\"top\">(.*)</tr name=\"tablica_stavke\">");
         RowStavke = htmlContent; //"<tr name=\"tablica_stavke\" easdasdasdasdasdasdasd</tr>"; //htmlContent;
@@ -895,11 +918,11 @@ QString frmIspisOdabir::ispisVratiHtmlContentMali(int RID)
                 if (q.value(q.record().indexOf("rabatk")).toDouble() != 0)
                 {
                     TablicaStavkeRow.replace("&lt;STAVKA_RBTP&gt;",QString("<br>** Rabat %L1% -- ").arg(q.value(q.record().indexOf("rabatp")).toDouble(),0,'f',2));
-                    TablicaStavkeRow.replace("&lt;STAVKA_RBTKN&gt;",QString("%L1 kn **").arg(q.value(q.record().indexOf("rabatk")).toDouble(),0,'f',2));
+                    TablicaStavkeRow.replace("&lt;STAVKA_RBTEUR&gt;",QString("%L1 %2 **").arg(q.value(q.record().indexOf("rabatk")).toDouble(),0,'f',2).arg(qApp->property("App_VALUTA").toString()));
                 }else
                 {
                     TablicaStavkeRow.replace("&lt;STAVKA_RBTP&gt;","");
-                    TablicaStavkeRow.replace("&lt;STAVKA_RBTKN&gt;","");
+                    TablicaStavkeRow.replace("&lt;STAVKA_RBTEUR&gt;","");
                 }
                 TablicaStavkeRow.replace("&lt;STAVKA_UKUPNO&gt;",QString("%L1").arg(q.value(q.record().indexOf("ukupno")).toDouble(),0,'f',2));
                 TablicaStavkeRow.replace("&lt;STAVKA_RB&gt;","");
@@ -965,7 +988,7 @@ QString frmIspisOdabir::ispisVratiHtmlContentMali(int RID)
                     if (q.next())
                     {
                         if (q.value(0).toDouble() != 0)
-                            PorezPoruka += QString("Povratna naknada: %L1 kn").arg(q.value(0).toDouble(),0,'f',2);
+                            PorezPoruka += QString("Povratna naknada: %L1 %2").arg(q.value(0).toDouble(),0,'f',2).arg(qApp->property("App_VALUTA").toString());
                     }
                 }
             }

@@ -319,7 +319,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Popust kn</string>
+    <string>Popust EUR</string>
    </property>
   </widget>
   <widget class="QLabel" name="lblSuma">

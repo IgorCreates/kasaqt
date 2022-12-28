@@ -414,7 +414,7 @@ QPushButton *frmtouch::KreirajGumbicArt(int artID,QString artSif, QString artNaz
     }
     //qDebug() << "Naziv:" << Naziv;
     //qDebug() << "**";
-    Gumbic->setText(QString("%1\n%2-%3 kn").arg(Naziv).arg(artJMJ).arg(artPC));
+    Gumbic->setText(QString("%1\n%2-%3 %4").arg(Naziv).arg(artJMJ).arg(artPC).arg(qApp->property("App_VALUTA").toString()));
     connect(signalMapperArt,SIGNAL(mapped(QString)),
             this,SLOT(VratiTipku(QString)));
     connect(Gumbic,SIGNAL(clicked(bool)),signalMapperArt,SLOT(map()));
@@ -943,9 +943,9 @@ void frmtouch::UcitajListRac2(int dok)
                     "font: 75 11pt \"Trebuchet MS\";");
                                 //"background-color: rgb(0, 216, 213);");
 
-        QLabel* lblCijena = new QLabel(QString("%L1 kn").arg(q.value(q.record().indexOf("pc")).toDouble(),0,'f',2));
+        QLabel* lblCijena = new QLabel(QString("%L1 %2").arg(q.value(q.record().indexOf("pc")).toDouble(),0,'f',2).arg(qApp->property("App_VALUTA").toString()));
         QLabel* lblKolicina = new QLabel(QString("%1 kom").arg(q.value(q.record().indexOf("kol")).toString()));
-        QLabel* lblUkupno = new QLabel(QString("%L1 kn").arg(q.value(q.record().indexOf("ukupno")).toDouble(),0,'f',2));
+        QLabel* lblUkupno = new QLabel(QString("%L1 %2").arg(q.value(q.record().indexOf("ukupno")).toDouble(),0,'f',2).arg(qApp->property("App_VALUTA").toString()));
         if (q.value(q.record().indexOf("rabatp")).toDouble()>0)
             lblNaziv->setText(lblNaziv->text().append(QString(" Popust %1 \%").arg(q.value(q.record().indexOf("rabatp")).toDouble())));
         Button *btnEdit = new Button("Edit",this);
