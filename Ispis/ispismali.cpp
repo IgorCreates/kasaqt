@@ -331,8 +331,8 @@ void ispisMali::IspisMaliPos(const QString &BrRacuna)
         rc.replace("rac_za_platiti",QString("%1%2").arg(qApp->property("Printer-IspisPoljeZaPlatiti").toString())
                    .arg(QString(" ").repeated(VM(QString("%L1").arg(q.value(qR1sum).toDouble(),0,'f',2),9))  + QString("%L1").arg(q.value(qR1sum).toDouble(),0,'f',2)));
 
-        QString PrikazEuroKN = QString("Total: %L1 EUR").arg(q.value(qR1sum).toDouble()/valEuro,0,'f',2).leftJustified(this->SirinaPapira, ' ', true);
-        PrikazEuroKN += QString("\nTecaj 1 EUR: %L1 kn").arg(valEuro,0,'f',6);
+        QString PrikazEuroKN = QString("HRK(tecaj %2): %L1 KN").arg(q.value(qR1sum).toDouble()*valEuro,0,'f',2).arg(valEuro).leftJustified(this->SirinaPapira, ' ', true);
+        //PrikazEuroKN += QString("\nTecaj 1 EUR: %L1 kn").arg(valEuro,0,'f',6);
         rc.replace("rac_euri",PrikazEuroKN);
 
         //artikli
@@ -394,7 +394,7 @@ void ispisMali::IspisMaliPos(const QString &BrRacuna)
             }
             // EURO
 
-            aDetail += "\n" + QString("%L1 EUR").arg(qC.value(r2Ukp).toDouble()/valEuro,0,'f',2).rightJustified(this->SirinaPapira, ' ', true) + "";
+            //aDetail += "\n" + QString("%L1 EUR").arg(qC.value(r2Ukp).toDouble()/valEuro,0,'f',2).rightJustified(this->SirinaPapira, ' ', true) + "";
             Brojac++;
          //ispRac << aDetail;
         }
