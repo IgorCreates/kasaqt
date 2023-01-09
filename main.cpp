@@ -123,7 +123,7 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    QString VerProga = " os_2.0";
+    QString VerProga = " os_3.0";
 
     qApp->setQuitOnLastWindowClosed(true);
     qDebug() << QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
@@ -135,6 +135,9 @@ int main(int argc, char *argv[])
     app.setApplicationVersion(VerProga);
     app.setApplicationDisplayName("FiskalKasa");
     qApp->setProperty("App_Verzija",app.applicationVersion());
+
+    //set KN or EUR valuta label
+    qApp->setProperty("App_VALUTA","EUR");
 
     QCommandLineParser parser;
     QCommandLineOption arg_verzija("verzija","Verzija:",qApp->property("App_Verzija").toString());

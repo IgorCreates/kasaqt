@@ -319,7 +319,7 @@ void frmKrajDana::on_btnUzimanjeGotovine_released()
 
 void frmKrajDana::uzimanjeGotovineSlot()
 {
-    int ret = QMessageBox::question(this,"CASH",QString("Da li zelite uzeti iz blagajne : %1 kn\nza potrebe: %2").arg(UzimanjeGotovineIznos->text()).arg(UzimanjeGotovineOpis->toPlainText()),QMessageBox::Yes,QMessageBox::No|QMessageBox::Default);
+    int ret = QMessageBox::question(this,"CASH",QString("Da li zelite uzeti iz blagajne : %1 %2\nza potrebe: %3").arg(UzimanjeGotovineIznos->text()).arg(qApp->property("App_VALUTA").toString()).arg(UzimanjeGotovineOpis->toPlainText()),QMessageBox::Yes,QMessageBox::No|QMessageBox::Default);
     if (ret != QMessageBox::Yes)
         return;
     QSqlQuery q("",QSqlDatabase::database("baza"));

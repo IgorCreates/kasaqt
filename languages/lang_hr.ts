@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="hr_HR">
+<TS version="2.1" language="hr_HR">
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1060"/>
+        <location filename="../ui/frmkasa.cpp" line="1084"/>
         <source>F2-Meni</source>
         <translatorcomment>F2-Prikaz menija</translatorcomment>
         <translation>F2-Meni</translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1061"/>
+        <location filename="../ui/frmkasa.cpp" line="1085"/>
         <source>F4-Odabir stola</source>
         <translatorcomment>F4-Odabir stola</translatorcomment>
         <translation>F4-Odabir stola</translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1062"/>
+        <location filename="../ui/frmkasa.cpp" line="1086"/>
         <source>F12-Napravi racun</source>
         <translatorcomment>F12-Napravi racun</translatorcomment>
         <translation>F12-Napravi racun</translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1063"/>
+        <location filename="../ui/frmkasa.cpp" line="1087"/>
         <source>F3-Promijena korisnika</source>
         <translatorcomment>F3-promijena korisnika</translatorcomment>
         <translation>F3-Promijena korisnika</translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1064"/>
+        <location filename="../ui/frmkasa.cpp" line="1088"/>
         <source>&amp;Pregled racuna</source>
         <translatorcomment>Pregleda racuna</translatorcomment>
         <translation>&amp;Pregled racuna</translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1065"/>
+        <location filename="../ui/frmkasa.cpp" line="1089"/>
         <source>&amp;Kraj smjene/dana</source>
         <translatorcomment>Kraj smjene dana</translatorcomment>
         <translation>&amp;Kraj smjene/dana</translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1066"/>
+        <location filename="../ui/frmkasa.cpp" line="1090"/>
         <source>&amp;Izlaz</source>
         <translatorcomment>Izlaz iz programa</translatorcomment>
         <translation>&amp;Izlaz</translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1067"/>
+        <location filename="../ui/frmkasa.cpp" line="1091"/>
         <source>F6</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/stoodabir.cpp" line="151"/>
+        <location filename="../ui/stoodabir.cpp" line="175"/>
         <source>Odabir ikone</source>
         <translatorcomment>Odabir ikone</translatorcomment>
         <translation>Odabir ikone</translation>
@@ -103,7 +103,7 @@
         <translatorcomment>Unos kolicine</translatorcomment>
         <translation>Unos kolicine</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../ui/frmdodajstavku.ui" line="40"/>
         <source>Upiši stavku</source>
         <translatorcomment>Upisi stavku</translatorcomment>
@@ -127,7 +127,7 @@
         <translatorcomment>Naziv</translatorcomment>
         <translation>Naziv</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../ui/frmdodajstavku.ui" line="124"/>
         <source>Šifra artikla</source>
         <translatorcomment>Sifra artikla</translatorcomment>
@@ -139,7 +139,7 @@
         <translatorcomment>Naziv artikla</translatorcomment>
         <translation>Naziv artikla</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../ui/frmdodajstavku.ui" line="190"/>
         <source>Količina</source>
         <translatorcomment>Kolicina</translatorcomment>
@@ -182,9 +182,9 @@
     </message>
     <message>
         <location filename="../ui/frmdodajstavku.ui" line="322"/>
-        <source>Popust kn</source>
-        <translatorcomment>Popust kn</translatorcomment>
-        <translation>Popust kn</translation>
+        <source>Popust EUR</source>
+        <translatorcomment>Popust EUR</translatorcomment>
+        <translation>Popust EUR</translation>
     </message>
     <message>
         <location filename="../ui/frmdodajstavku.ui" line="355"/>
@@ -204,6 +204,41 @@ naknada</source>
         <source>&amp;Dostava</source>
         <translatorcomment>Dostava</translatorcomment>
         <translation>&amp;Dostava</translation>
+    </message>
+    <message>
+        <location filename="../ui/frmdodajstavku.cpp" line="42"/>
+        <source>Dodavanje stavke</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmdodajstavku.cpp" line="166"/>
+        <source>UPIS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmdodajstavku.cpp" line="167"/>
+        <source>IZLAZ</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmdodajstavku.cpp" line="171"/>
+        <source>NoviNaziv</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmdodajstavku.cpp" line="172"/>
+        <source>NoviNazivG1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmdodajstavku.cpp" line="205"/>
+        <source>GRESKA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmdodajstavku.cpp" line="205"/>
+        <source>Greska kod upisa stavke u bazu</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -331,12 +366,44 @@ broju</source>
     </message>
     <message>
         <location filename="../ui/frmfiskalporuke.ui" line="499"/>
+        <source>Firma-OIB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>42246174001</source>
-        <translation type="unfinished">0.00 {42246174001?}</translation>
+        <translation type="obsolete">0.00 {42246174001?}</translation>
     </message>
     <message>
         <location filename="../ui/frmfiskalporuke.ui" line="548"/>
         <source>Posalji</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmfiskalporuke.cpp" line="37"/>
+        <source>fiskal poruke</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmfiskalporuke.cpp" line="72"/>
+        <location filename="../ui/frmfiskalporuke.cpp" line="79"/>
+        <source>Paznja</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmfiskalporuke.cpp" line="72"/>
+        <location filename="../ui/frmfiskalporuke.cpp" line="79"/>
+        <source>Niste unijeli sve potrebne podatke</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmfiskalporuke.cpp" line="149"/>
+        <source>PP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmfiskalporuke.cpp" line="149"/>
+        <source>Poruka poslana
+odgovor je snimljen u %1.povratni</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -372,6 +439,39 @@ broju</source>
         <source>Ispis</source>
         <translatorcomment>Ispis</translatorcomment>
         <translation type="unfinished">Ispis</translation>
+    </message>
+    <message>
+        <location filename="../ui/frmispisdelstolova.cpp" line="63"/>
+        <source>Vrijeme ispisa: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmispisdelstolova.cpp" line="64"/>
+        <source>Konobar: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmispisdelstolova.cpp" line="65"/>
+        <source>KasaID : </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmispisdelstolova.cpp" line="69"/>
+        <source>Naziv artikla 
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmispisdelstolova.cpp" line="70"/>
+        <source>      Kol                PC            UKP
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmispisdelstolova.cpp" line="84"/>
+        <source>
+Ukupno : %L1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -432,6 +532,52 @@ broju</source>
         <source>Upis izmijene</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../ui/frmispiskuhinja.cpp" line="46"/>
+        <source>ispis kuhinja</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmispiskuhinja.cpp" line="127"/>
+        <source>Vrijeme ispisa: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmispiskuhinja.cpp" line="128"/>
+        <source>Konobar: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmispiskuhinja.cpp" line="129"/>
+        <source>Ispis Stol broj: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmispiskuhinja.cpp" line="131"/>
+        <source>Naziv artikla              Kol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmispiskuhinja.cpp" line="133"/>
+        <source> Uk.Cijena</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmispiskuhinja.cpp" line="215"/>
+        <source>
+Ukupno: %L1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmispiskuhinja.cpp" line="299"/>
+        <source>Upis opcija</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmispiskuhinja.cpp" line="299"/>
+        <source>Upisano</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>frmIspisOdabir</name>
@@ -460,22 +606,49 @@ broju</source>
         <translation>Izlaz</translation>
     </message>
     <message>
-        <location filename="../ui/frmispisodabir.cpp" line="202"/>
-        <location filename="../ui/frmispisodabir.cpp" line="285"/>
-        <location filename="../ui/frmispisodabir.cpp" line="1016"/>
-        <location filename="../ui/frmispisodabir.cpp" line="1169"/>
+        <location filename="../ui/frmispisodabir.cpp" line="53"/>
+        <source>Ispis</source>
+        <translation type="unfinished">Ispis</translation>
+    </message>
+    <message>
+        <location filename="../ui/frmispisodabir.cpp" line="383"/>
+        <location filename="../ui/frmispisodabir.cpp" line="478"/>
+        <location filename="../ui/frmispisodabir.cpp" line="1295"/>
+        <location filename="../ui/frmispisodabir.cpp" line="1448"/>
         <source>Posalji dokument mail-om</source>
         <translatorcomment>Posalji dokument mail-om</translatorcomment>
         <translation>Posalji dokument mail-om</translation>
     </message>
     <message>
-        <location filename="../ui/frmispisodabir.cpp" line="1132"/>
+        <location filename="../ui/frmispisodabir.cpp" line="476"/>
+        <source>Posalji mail-om</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmispisodabir.cpp" line="497"/>
+        <location filename="../ui/frmispisodabir.cpp" line="762"/>
+        <source>Greska-Ispis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmispisodabir.cpp" line="504"/>
+        <location filename="../ui/frmispisodabir.cpp" line="769"/>
+        <source>Nije moguce naci template za ispis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmispisodabir.cpp" line="548"/>
+        <source>Greska dohvata podataka</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmispisodabir.cpp" line="1411"/>
         <source>Slanje mail-a</source>
         <translatorcomment>Slanje mail-a</translatorcomment>
         <translation>Slanje mail-a</translation>
     </message>
     <message>
-        <location filename="../ui/frmispisodabir.cpp" line="1132"/>
+        <location filename="../ui/frmispisodabir.cpp" line="1411"/>
         <source>Poruka poslana!
 
 </source>
@@ -528,7 +701,7 @@ broju</source>
         <source>Odaberi</source>
         <translation>Odaberi</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../ui/frmkasa.ui" line="184"/>
         <source>Briši</source>
         <translation>Brisi</translation>
@@ -646,7 +819,7 @@ racun</source>
     <message>
         <location filename="../ui/frmkasa.ui" line="956"/>
         <location filename="../ui/frmkasa.ui" line="969"/>
-        <location filename="../ui/frmkasa.cpp" line="1001"/>
+        <location filename="../ui/frmkasa.cpp" line="1025"/>
         <source>Izlaz</source>
         <translation>Izlaz</translation>
     </message>
@@ -655,67 +828,67 @@ racun</source>
         <source>Pregled</source>
         <translation>Pregled</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../ui/frmkasa.ui" line="974"/>
         <source>Naknadni ispis računa</source>
         <translation>Naknadni ispis racuna</translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="78"/>
+        <location filename="../ui/frmkasa.cpp" line="102"/>
         <source>Fiskal Kasa %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="155"/>
-        <location filename="../ui/frmkasa.cpp" line="188"/>
+        <location filename="../ui/frmkasa.cpp" line="179"/>
+        <location filename="../ui/frmkasa.cpp" line="212"/>
         <source>Pricekajte dok se ne zavrsi obrada%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="208"/>
-        <location filename="../ui/frmkasa.cpp" line="663"/>
+        <location filename="../ui/frmkasa.cpp" line="232"/>
+        <location filename="../ui/frmkasa.cpp" line="687"/>
         <source>VAZNO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="208"/>
+        <location filename="../ui/frmkasa.cpp" line="232"/>
         <source>Imate racuna koji nisu poslani preko fiskalizacije
 Ponovite slanje iz pregleda racuna</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="303"/>
-        <location filename="../ui/frmkasa.cpp" line="1825"/>
+        <location filename="../ui/frmkasa.cpp" line="327"/>
+        <location filename="../ui/frmkasa.cpp" line="1901"/>
         <source>Printer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="303"/>
-        <location filename="../ui/frmkasa.cpp" line="1825"/>
+        <location filename="../ui/frmkasa.cpp" line="327"/>
+        <location filename="../ui/frmkasa.cpp" line="1901"/>
         <source>Nemate definiran port za ispis
 Pokusavam ispis na /dev/lp0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="612"/>
+        <location filename="../ui/frmkasa.cpp" line="636"/>
         <source>Na stolu %2 imate kolicina 0 za artikal %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="655"/>
+        <location filename="../ui/frmkasa.cpp" line="679"/>
         <source>F1-Pomoc
 Enter-potrvrda
 Del-brisanje</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="663"/>
-        <location filename="../ui/frmkasa.cpp" line="664"/>
+        <location filename="../ui/frmkasa.cpp" line="687"/>
+        <location filename="../ui/frmkasa.cpp" line="688"/>
         <source>Imate ne poslanih racuna prema poreznoj</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="722"/>
+        <location filename="../ui/frmkasa.cpp" line="746"/>
         <source>
 ********
 F2-Menu
@@ -725,257 +898,257 @@ Insert-Dodaj novi %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="723"/>
+        <location filename="../ui/frmkasa.cpp" line="747"/>
         <source>Pomoc </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="742"/>
-        <location filename="../ui/frmkasa.cpp" line="1264"/>
+        <location filename="../ui/frmkasa.cpp" line="766"/>
+        <location filename="../ui/frmkasa.cpp" line="1288"/>
         <source>Vazno</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="742"/>
-        <location filename="../ui/frmkasa.cpp" line="1264"/>
+        <location filename="../ui/frmkasa.cpp" line="766"/>
+        <location filename="../ui/frmkasa.cpp" line="1288"/>
         <source>Niste odabrali niti jedan %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="759"/>
-        <location filename="../ui/frmkasa.cpp" line="941"/>
+        <location filename="../ui/frmkasa.cpp" line="783"/>
+        <location filename="../ui/frmkasa.cpp" line="965"/>
         <source>Izlaz iz programa</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="759"/>
-        <location filename="../ui/frmkasa.cpp" line="941"/>
+        <location filename="../ui/frmkasa.cpp" line="783"/>
+        <location filename="../ui/frmkasa.cpp" line="965"/>
         <source>Da li zelite izaci iz programa?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="817"/>
+        <location filename="../ui/frmkasa.cpp" line="841"/>
         <source>Pomoc,</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="862"/>
+        <location filename="../ui/frmkasa.cpp" line="886"/>
         <source>Pomoc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="881"/>
+        <location filename="../ui/frmkasa.cpp" line="905"/>
         <source>Brisanje stavke</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="881"/>
+        <location filename="../ui/frmkasa.cpp" line="905"/>
         <source>Da li zelite obrisati stavku ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="929"/>
+        <location filename="../ui/frmkasa.cpp" line="953"/>
         <source>Dodjeljen CRM-ID %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1002"/>
+        <location filename="../ui/frmkasa.cpp" line="1026"/>
         <source>Pregled racuna</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1003"/>
+        <location filename="../ui/frmkasa.cpp" line="1027"/>
         <source>Radni nalog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1004"/>
+        <location filename="../ui/frmkasa.cpp" line="1028"/>
         <source>Zaprimanje robe</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1005"/>
-        <location filename="../ui/frmkasa.cpp" line="1293"/>
+        <location filename="../ui/frmkasa.cpp" line="1029"/>
+        <location filename="../ui/frmkasa.cpp" line="1317"/>
         <source>Opcije</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1006"/>
+        <location filename="../ui/frmkasa.cpp" line="1030"/>
         <source>Ponovno ucitavanje opcija</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1007"/>
+        <location filename="../ui/frmkasa.cpp" line="1031"/>
         <source>O programu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1134"/>
-        <location filename="../ui/frmkasa.cpp" line="2004"/>
+        <location filename="../ui/frmkasa.cpp" line="1158"/>
+        <location filename="../ui/frmkasa.cpp" line="2080"/>
         <source>Zaporka korisnika</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1134"/>
-        <location filename="../ui/frmkasa.cpp" line="2004"/>
+        <location filename="../ui/frmkasa.cpp" line="1158"/>
+        <location filename="../ui/frmkasa.cpp" line="2080"/>
         <source>Upisite svoju zaporku</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1142"/>
-        <location filename="../ui/frmkasa.cpp" line="1147"/>
+        <location filename="../ui/frmkasa.cpp" line="1166"/>
+        <location filename="../ui/frmkasa.cpp" line="1171"/>
         <source>Korisnik</source>
         <translation type="unfinished">Korisnik</translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1142"/>
+        <location filename="../ui/frmkasa.cpp" line="1166"/>
         <source>Greska kod dohvata korisnika</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1147"/>
+        <location filename="../ui/frmkasa.cpp" line="1171"/>
         <source>Nepostojeci korisnik ili kriva zaporka</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1177"/>
+        <location filename="../ui/frmkasa.cpp" line="1201"/>
         <source>Brisanje stola</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1177"/>
+        <location filename="../ui/frmkasa.cpp" line="1201"/>
         <source>Nemate prava za brisanja stola</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1184"/>
-        <location filename="../ui/frmkasa.cpp" line="1356"/>
-        <location filename="../ui/frmkasa.cpp" line="2009"/>
+        <location filename="../ui/frmkasa.cpp" line="1208"/>
+        <location filename="../ui/frmkasa.cpp" line="1380"/>
+        <location filename="../ui/frmkasa.cpp" line="2085"/>
         <source>PAZNJA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1184"/>
+        <location filename="../ui/frmkasa.cpp" line="1208"/>
         <source>Da li zelite obrisati %1?
 BR: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1293"/>
+        <location filename="../ui/frmkasa.cpp" line="1317"/>
         <source>Greska kod ucitavanja opcijaPokrenite ponovno program</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1326"/>
+        <location filename="../ui/frmkasa.cpp" line="1380"/>
+        <source>Ovaj dok je ispisan za kuhinjui nemate prava vise brisat stavke</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmkasa.cpp" line="1811"/>
+        <source>Greska kod upisa racunaProvjerite mrezne veze i pristup baziili nazovite odrzavanje</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmkasa.cpp" line="1350"/>
         <source>Kasa:%1 Firma ime:%2 SID: %3 CID: %4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1331"/>
+        <location filename="../ui/frmkasa.cpp" line="1355"/>
         <source>F4-Odabir
 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1356"/>
-        <source>Ovaj dok je ispisan za kuhinjui nemate prava vise brisat stavke</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/frmkasa.cpp" line="1626"/>
+        <location filename="../ui/frmkasa.cpp" line="1702"/>
         <source>RAC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1626"/>
+        <location filename="../ui/frmkasa.cpp" line="1702"/>
         <source>Niste odabrali dokument</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1735"/>
+        <location filename="../ui/frmkasa.cpp" line="1811"/>
         <source>Racun-upis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1735"/>
-        <source>Greska kod upisa racunaProvjerite mrezne veze i pristup baziili nazovite odrzavanje</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/frmkasa.cpp" line="1791"/>
+        <location filename="../ui/frmkasa.cpp" line="1867"/>
         <source>Vrijeme ispisa: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1792"/>
+        <location filename="../ui/frmkasa.cpp" line="1868"/>
         <source>Konobar: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1793"/>
+        <location filename="../ui/frmkasa.cpp" line="1869"/>
         <source>Ispis Stol broj: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1810"/>
+        <location filename="../ui/frmkasa.cpp" line="1886"/>
         <source>Ukp suma: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1985"/>
+        <location filename="../ui/frmkasa.cpp" line="2061"/>
         <source>CRM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="1985"/>
+        <location filename="../ui/frmkasa.cpp" line="2061"/>
         <source>Da li zelite maknuti vezu prema CRM-u?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="2009"/>
+        <location filename="../ui/frmkasa.cpp" line="2085"/>
         <source>Kriva zaporka za korisnika %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="2014"/>
+        <location filename="../ui/frmkasa.cpp" line="2090"/>
         <source>Upisite br %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="2014"/>
+        <location filename="../ui/frmkasa.cpp" line="2090"/>
         <source>Br %1 :
 (u slucaju da %1 nije otvoren
  otvara se novi)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="2088"/>
-        <location filename="../ui/frmkasa.cpp" line="2091"/>
+        <location filename="../ui/frmkasa.cpp" line="2164"/>
+        <location filename="../ui/frmkasa.cpp" line="2167"/>
         <source>Vlasnik dokumenta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="2088"/>
+        <location filename="../ui/frmkasa.cpp" line="2164"/>
         <source>Netko drugi je otvorio taj dokument,pozovite voditelja da ga otvori/zatvori</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="2091"/>
+        <location filename="../ui/frmkasa.cpp" line="2167"/>
         <source>%1 je vlasnik ovog dokumenta,nemate prava raditi po ovome dokumentu)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="2133"/>
+        <location filename="../ui/frmkasa.cpp" line="2209"/>
         <source>Narudzba br: %1 Narucio: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="2195"/>
+        <location filename="../ui/frmkasa.cpp" line="2271"/>
         <source>Brisanje/Izmijena stavke</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmkasa.cpp" line="2195"/>
+        <location filename="../ui/frmkasa.cpp" line="2271"/>
         <source>Nemate dozvolu za brisanje ili izmijenu stavke,
 zovite voditelja</source>
         <translation type="unfinished"></translation>
@@ -1095,6 +1268,85 @@ zovite voditelja</source>
         <source>Izlaz</source>
         <translation>Izlaz</translation>
     </message>
+    <message>
+        <location filename="../ui/frmlogin.cpp" line="58"/>
+        <source>Fiskal Kasa v:%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmlogin.cpp" line="203"/>
+        <source>Ne mogu otvoriti bazu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmlogin.cpp" line="203"/>
+        <source>greska Otvaranje konekcije: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmlogin.cpp" line="210"/>
+        <source>Izabrana baza:%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmlogin.cpp" line="229"/>
+        <source>BAZA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmlogin.cpp" line="229"/>
+        <source>Odabrana baza nije dostupna
+Provjeritre mrezne veze ili konfiguracije</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmlogin.cpp" line="241"/>
+        <source>F1-Pomoc
+Enter-potrvrda
+Del-brisanje</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmlogin.cpp" line="260"/>
+        <source>Pomoc </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmlogin.cpp" line="313"/>
+        <source>KASA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmlogin.cpp" line="313"/>
+        <source>nemoguc ulaz bez licence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmlogin.cpp" line="320"/>
+        <location filename="../ui/frmlogin.cpp" line="354"/>
+        <source>Login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmlogin.cpp" line="320"/>
+        <source>Prvo izaberite korsnika</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmlogin.cpp" line="354"/>
+        <source>Kriva lozinka</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmlogin.cpp" line="435"/>
+        <source>Kasa</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmlogin.cpp" line="435"/>
+        <source>Nije dozvoljen rad bez licenceIZLAZ</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>frmOdabirBaza</name>
@@ -1108,7 +1360,7 @@ zovite voditelja</source>
         <source>hostname</source>
         <translation type="unfinished"></translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../ui/frmodabirbaza.ui" line="97"/>
         <source>Podešavanje pristupa bazama</source>
         <translation type="unfinished"></translation>
@@ -1161,11 +1413,11 @@ zovite voditelja</source>
     </message>
     <message>
         <location filename="../ui/frmopcije.ui" line="36"/>
-        <location filename="../ui/frmopcije.ui" line="795"/>
-        <location filename="../ui/frmopcije.ui" line="841"/>
-        <location filename="../ui/frmopcije.ui" line="894"/>
-        <location filename="../ui/frmopcije.ui" line="1034"/>
-        <location filename="../ui/frmopcije.ui" line="1140"/>
+        <location filename="../ui/frmopcije.ui" line="811"/>
+        <location filename="../ui/frmopcije.ui" line="857"/>
+        <location filename="../ui/frmopcije.ui" line="910"/>
+        <location filename="../ui/frmopcije.ui" line="1050"/>
+        <location filename="../ui/frmopcije.ui" line="1156"/>
         <source>Upis</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1174,12 +1426,12 @@ zovite voditelja</source>
         <source>Izgled ispisa</source>
         <translation type="unfinished"></translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../ui/frmopcije.ui" line="61"/>
         <source>Račun</source>
         <translation type="unfinished"></translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../ui/frmopcije.ui" line="74"/>
         <source>Račun :</source>
         <translation type="unfinished"></translation>
@@ -1227,7 +1479,7 @@ zovite voditelja</source>
         <source>Podebljana slova</source>
         <translation type="unfinished"></translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../ui/frmopcije.ui" line="244"/>
         <source>Širina</source>
         <translation type="unfinished"></translation>
@@ -1386,190 +1638,195 @@ zovite voditelja</source>
         <translation type="unfinished">1</translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="761"/>
-        <source>Certfikati</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/frmopcije.ui" line="767"/>
-        <source>Cert</source>
+        <location filename="../ui/frmopcije.ui" line="768"/>
+        <source>ESCPOS-py</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/frmopcije.ui" line="777"/>
+        <source>Certfikati</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmopcije.ui" line="783"/>
+        <source>Cert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmopcije.ui" line="793"/>
         <source>Sifra</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="787"/>
+        <location filename="../ui/frmopcije.ui" line="803"/>
         <source>Slanje podataka o 
 poslovnom prostoru</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="803"/>
+        <location filename="../ui/frmopcije.ui" line="819"/>
         <source>Polog u kasi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="815"/>
+        <location filename="../ui/frmopcije.ui" line="831"/>
         <source>Polog</source>
         <translation type="unfinished">Polog</translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="828"/>
+        <location filename="../ui/frmopcije.ui" line="844"/>
         <source>500</source>
         <translation type="unfinished">0.00 {500?}</translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="847"/>
+        <location filename="../ui/frmopcije.ui" line="863"/>
         <source>Dok na cekanju</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="862"/>
+        <location filename="../ui/frmopcije.ui" line="878"/>
         <source>Sto pise za dokument na cekanjui</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="881"/>
+        <location filename="../ui/frmopcije.ui" line="897"/>
         <source>Stol</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="907"/>
+        <location filename="../ui/frmopcije.ui" line="923"/>
         <source>Koristi dok na cekanju</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="916"/>
+        <location filename="../ui/frmopcije.ui" line="932"/>
         <source>Opcije programa</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="935"/>
+        <location filename="../ui/frmopcije.ui" line="951"/>
         <source>Aut odjava nakon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="942"/>
+        <location filename="../ui/frmopcije.ui" line="958"/>
         <source>R-Nalog ispis-Custom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="949"/>
+        <location filename="../ui/frmopcije.ui" line="965"/>
         <source>R-Nalog razduzi sa sklad</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="959"/>
+        <location filename="../ui/frmopcije.ui" line="975"/>
         <source>Cjenik</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="966"/>
+        <location filename="../ui/frmopcije.ui" line="982"/>
         <source>Pretraga po barcode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="973"/>
+        <location filename="../ui/frmopcije.ui" line="989"/>
         <source>Samo svoj dok na cekanju</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="980"/>
+        <location filename="../ui/frmopcije.ui" line="996"/>
         <source>Pretraga artikala
 od pocetka naziva</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="988"/>
+        <location filename="../ui/frmopcije.ui" line="1004"/>
         <source>Pretraga po sifri</source>
         <translation type="unfinished"></translation>
     </message>
-    <message utf8="true">
-        <location filename="../ui/frmopcije.ui" line="995"/>
+    <message>
+        <location filename="../ui/frmopcije.ui" line="1011"/>
         <source>Skladište</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="1002"/>
+        <location filename="../ui/frmopcije.ui" line="1018"/>
         <source>Ako ima sifru art,
 dodaj kolicinu +1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="1010"/>
+        <location filename="../ui/frmopcije.ui" line="1026"/>
         <source>LogRac</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="1017"/>
+        <location filename="../ui/frmopcije.ui" line="1033"/>
         <source>Makni poruku kod brisanje stavke</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="1024"/>
+        <location filename="../ui/frmopcije.ui" line="1040"/>
         <source>BTN BrziRacun</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="1041"/>
+        <location filename="../ui/frmopcije.ui" line="1057"/>
         <source>Fiskalizacija</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="1048"/>
+        <location filename="../ui/frmopcije.ui" line="1064"/>
         <source>Zabrana brisanja artikala</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="1055"/>
+        <location filename="../ui/frmopcije.ui" line="1071"/>
         <source>Art pita kolicinu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="1062"/>
+        <location filename="../ui/frmopcije.ui" line="1078"/>
         <source>u sec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="1069"/>
+        <location filename="../ui/frmopcije.ui" line="1085"/>
         <source>Kasa prikaz zadnje sume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="1077"/>
+        <location filename="../ui/frmopcije.ui" line="1093"/>
         <source>Mail postavke</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="1085"/>
+        <location filename="../ui/frmopcije.ui" line="1101"/>
         <source>Mail server</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="1092"/>
+        <location filename="../ui/frmopcije.ui" line="1108"/>
         <source>Mail port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="1099"/>
+        <location filename="../ui/frmopcije.ui" line="1115"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="1106"/>
+        <location filename="../ui/frmopcije.ui" line="1122"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="1113"/>
+        <location filename="../ui/frmopcije.ui" line="1129"/>
         <source>smtp.gmail.com</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmopcije.ui" line="1120"/>
+        <location filename="../ui/frmopcije.ui" line="1136"/>
         <source>465</source>
         <translation type="unfinished">0.00 {465?}</translation>
     </message>
@@ -1690,87 +1947,93 @@ Kreiranje ZKI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmpregdokum.ui" line="373"/>
+        <location filename="../ui/frmpregdokum.ui" line="359"/>
+        <source>Rekreiraj
+JSON</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmpregdokum.ui" line="387"/>
         <source>Filteri</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmpregdokum.ui" line="385"/>
+        <location filename="../ui/frmpregdokum.ui" line="399"/>
         <source>Po broju</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmpregdokum.ui" line="418"/>
+        <location filename="../ui/frmpregdokum.ui" line="432"/>
         <source>Godina</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmpregdokum.ui" line="431"/>
+        <location filename="../ui/frmpregdokum.ui" line="445"/>
         <source>Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmpregdokum.ui" line="454"/>
+        <location filename="../ui/frmpregdokum.ui" line="468"/>
         <source>Vrsta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmpregdokum.ui" line="467"/>
+        <location filename="../ui/frmpregdokum.ui" line="481"/>
         <source>Zatvori</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmpregdokum.ui" line="480"/>
+        <location filename="../ui/frmpregdokum.ui" line="494"/>
         <source>1000&gt;&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmpregdokum.ui" line="493"/>
+        <location filename="../ui/frmpregdokum.ui" line="507"/>
         <source>&lt;&lt;1000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmpregdokum.ui" line="506"/>
+        <location filename="../ui/frmpregdokum.ui" line="520"/>
         <source>Pomicanje za po 1000redova</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmpregdokum.ui" line="529"/>
+        <location filename="../ui/frmpregdokum.ui" line="543"/>
         <source>Prodavac</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmpregdokum.ui" line="542"/>
+        <location filename="../ui/frmpregdokum.ui" line="556"/>
         <source>Storniran racun</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmpregdokum.ui" line="565"/>
+        <location filename="../ui/frmpregdokum.ui" line="579"/>
         <source>Mjesec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmpregdokum.ui" line="579"/>
+        <location filename="../ui/frmpregdokum.ui" line="593"/>
         <source>Kreiranje x racuna</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmpregdokum.ui" line="591"/>
+        <location filename="../ui/frmpregdokum.ui" line="605"/>
         <source>Upisite broj racuna</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmpregdokum.ui" line="604"/>
+        <location filename="../ui/frmpregdokum.ui" line="618"/>
         <source>Upisite opis na racunima</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmpregdokum.ui" line="637"/>
+        <location filename="../ui/frmpregdokum.ui" line="651"/>
         <source>Kreiraj x racuna</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmpregdokum.ui" line="664"/>
+        <location filename="../ui/frmpregdokum.ui" line="678"/>
         <source>Izlaz</source>
         <translation type="unfinished">Izlaz</translation>
     </message>
@@ -1940,44 +2203,44 @@ firma_cb
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmtipkovnica.cpp" line="47"/>
-        <location filename="../ui/frmtipkovnica.cpp" line="110"/>
+        <location filename="../ui/frmtipkovnica.cpp" line="71"/>
+        <location filename="../ui/frmtipkovnica.cpp" line="134"/>
         <source>,</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmtipkovnica.cpp" line="50"/>
-        <location filename="../ui/frmtipkovnica.cpp" line="115"/>
+        <location filename="../ui/frmtipkovnica.cpp" line="74"/>
+        <location filename="../ui/frmtipkovnica.cpp" line="139"/>
         <source>Backspace</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmtipkovnica.cpp" line="55"/>
-        <location filename="../ui/frmtipkovnica.cpp" line="122"/>
+        <location filename="../ui/frmtipkovnica.cpp" line="79"/>
+        <location filename="../ui/frmtipkovnica.cpp" line="146"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmtipkovnica.cpp" line="58"/>
-        <location filename="../ui/frmtipkovnica.cpp" line="127"/>
+        <location filename="../ui/frmtipkovnica.cpp" line="82"/>
+        <location filename="../ui/frmtipkovnica.cpp" line="151"/>
         <source>-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmtipkovnica.cpp" line="61"/>
-        <location filename="../ui/frmtipkovnica.cpp" line="132"/>
+        <location filename="../ui/frmtipkovnica.cpp" line="85"/>
+        <location filename="../ui/frmtipkovnica.cpp" line="156"/>
         <source>+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmtipkovnica.cpp" line="64"/>
-        <location filename="../ui/frmtipkovnica.cpp" line="137"/>
+        <location filename="../ui/frmtipkovnica.cpp" line="88"/>
+        <location filename="../ui/frmtipkovnica.cpp" line="161"/>
         <source>=</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmtipkovnica.cpp" line="97"/>
-        <location filename="../ui/frmtipkovnica.cpp" line="180"/>
+        <location filename="../ui/frmtipkovnica.cpp" line="121"/>
+        <location filename="../ui/frmtipkovnica.cpp" line="204"/>
         <source>Tipkovnica</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2055,7 +2318,7 @@ firma_cb
         <source>Za platiti</source>
         <translation type="unfinished"></translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../ui/frmzakljuci.ui" line="161"/>
         <source>Plaćeno</source>
         <translation type="unfinished"></translation>
@@ -2071,7 +2334,7 @@ firma_cb
         <source>Za vratiti</source>
         <translation type="unfinished"></translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../ui/frmzakljuci.ui" line="243"/>
         <location filename="../ui/frmzakljuci.ui" line="978"/>
         <source>Način plaćanja</source>
@@ -2101,7 +2364,7 @@ firma_cb
         <source>Bez popusta</source>
         <translation type="unfinished"></translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../ui/frmzakljuci.ui" line="348"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ESC-Izlaz, F2-plaćeno, F3-Naćin plačanja,F12-Napravi račun,F11-Popust&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
@@ -2161,7 +2424,7 @@ racun</source>
         <source>Napomena</source>
         <translation type="unfinished"></translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../ui/frmzakljuci.ui" line="725"/>
         <source>Šifra</source>
         <translation type="unfinished"></translation>
@@ -2186,7 +2449,7 @@ racun</source>
         <source>Adresa</source>
         <translation type="unfinished"></translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../ui/frmzakljuci.ui" line="1080"/>
         <source>ESC-Izlaz, F2-Kupci, F3-Naćin plačanja,F12-Napravi račun,F11-Popust</source>
         <translation type="unfinished"></translation>
@@ -2290,6 +2553,97 @@ racun</source>
         <source>F2-Pozivanje</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../ui/frmcrm.cpp" line="96"/>
+        <source>CRM-Greska</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmcrm.cpp" line="96"/>
+        <source>Nemate popunjenog kupca
+nije moguce upisati</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmcrm.cpp" line="107"/>
+        <location filename="../ui/frmcrm.cpp" line="119"/>
+        <location filename="../ui/frmcrm.cpp" line="131"/>
+        <source>CRM-Upis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmcrm.cpp" line="119"/>
+        <location filename="../ui/frmcrm.cpp" line="131"/>
+        <source>Greska kod upisa u bazu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmcrm.cpp" line="136"/>
+        <source>CRM-UPIS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmcrm.cpp" line="136"/>
+        <source>Upisano</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmcrm.cpp" line="256"/>
+        <source>CRM-Izlaz</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmcrm.cpp" line="256"/>
+        <source>Da li zelite zatvoriti CRM?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmcrm.cpp" line="271"/>
+        <source>CRM-Pregled stavke</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmcrm.cpp" line="346"/>
+        <source>Dodjela CRM-ID na racun</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmcrm.cpp" line="346"/>
+        <source>Da li zelite dodati ovaj CRM na racun u kreiranju?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmcrm.cpp" line="362"/>
+        <source>Micanje CRM-ID sa racuna</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmcrm.cpp" line="362"/>
+        <source>Da li zelite maknuti vezu CRM-racun?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmcrm.cpp" line="371"/>
+        <location filename="../ui/frmcrm.cpp" line="374"/>
+        <location filename="../ui/frmcrm.cpp" line="395"/>
+        <source>CRM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmcrm.cpp" line="371"/>
+        <source>Greska kod brisanja veze CRM-racun</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmcrm.cpp" line="374"/>
+        <source>Veza maknuta</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/frmcrm.cpp" line="395"/>
+        <source>Da li zelite obrisati CRM i sve veze?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>frmcrmpregled</name>
@@ -2332,6 +2686,11 @@ racun</source>
         <location filename="../ui/frmcrmpregled.ui" line="149"/>
         <source>Izlaz</source>
         <translation type="unfinished">Izlaz</translation>
+    </message>
+    <message>
+        <location filename="../ui/frmcrmpregled.cpp" line="74"/>
+        <source>Racun veza - br racuna: %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2565,7 +2924,7 @@ skladista)</source>
         <source>Ispis radnog naloga</source>
         <translation type="unfinished"></translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../ui/frmrnalog.ui" line="151"/>
         <source>Zaključi radni nalog</source>
         <translation type="unfinished"></translation>
@@ -2683,7 +3042,7 @@ izvrsitelja</source>
     </message>
     <message>
         <location filename="../ui/frmtouch.ui" line="271"/>
-        <location filename="../ui/frmtouch.cpp" line="586"/>
+        <location filename="../ui/frmtouch.cpp" line="610"/>
         <source>Racun</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2708,7 +3067,7 @@ izvrsitelja</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/frmtouch.cpp" line="615"/>
+        <location filename="../ui/frmtouch.cpp" line="639"/>
         <source>Kraj smjene</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2811,16 +3170,16 @@ izvrsitelja</source>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; font-style:italic; color:#3d74eb;&quot;&gt;Fiskal Kasa  Ver: 2.8.0&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Program izrado : &lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Juka-Net Informatika&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;	web: &lt;a href=&quot;http://www.juka-net.hr&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.juka-net.hr&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;	mail: &lt;a href=&quot;mailto:info@juka-net.hr&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;info@juka-net.hr&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Za potrebe dan na koristenje:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;	&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Firma Ime&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;	Firma adresa&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;	Firma OIB&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic; text-decoration: underline;&quot;&gt;Compiled : ver ver&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:16pt; font-weight:600; font-style:italic; color:#3d74eb;&quot;&gt;Fiskal Kasa  Ver: 2.8.0&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; font-style:italic;&quot;&gt;Program izrado : &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; font-weight:600; font-style:italic;&quot;&gt; OpenSource POS KasaQT&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt;&quot;&gt;	web: https://bitbucket.org/kasaqt/kasaqt&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt;&quot;&gt;	wiki/issues: https://bitbucket.org/kasaqt	&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; font-style:italic;&quot;&gt;Za potrebe dan na koristenje:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt;&quot;&gt;	&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; font-weight:600; font-style:italic;&quot;&gt;Firma Ime&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt;&quot;&gt;	Firma adresa&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt;&quot;&gt;	Firma OIB&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; font-weight:600; font-style:italic; text-decoration: underline;&quot;&gt;Compiled : ver ver&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

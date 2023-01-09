@@ -303,7 +303,7 @@ color: rgb(255, 255, 0);</string>
      </font>
     </property>
     <property name="text">
-     <string>kn</string>
+     <string>EUR</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_8">
@@ -1059,7 +1059,7 @@ color: rgb(255, 255, 0);</string>
      </font>
     </property>
     <property name="text">
-     <string>kn</string>
+     <string>EUR</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_27">

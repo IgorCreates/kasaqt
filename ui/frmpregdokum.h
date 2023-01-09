@@ -85,6 +85,8 @@ private slots:
 
     void on_btnPrikazNarudzbe_clicked(bool checked);
 
+    void on_btnRekreirajJson_pressed();
+
 private:
     void UcitajRacune();
     void UcitajVRacune();

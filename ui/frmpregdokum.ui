@@ -42,7 +42,7 @@
           </size>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="page">
           <property name="geometry">
@@ -344,6 +344,20 @@ Bez ZKI</string>
            <property name="text">
             <string>Ponovi
 Kreiranje ZKI</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btnRekreirajJson">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>200</y>
+             <width>98</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Rekreiraj
+JSON</string>
            </property>
           </widget>
          </widget>
