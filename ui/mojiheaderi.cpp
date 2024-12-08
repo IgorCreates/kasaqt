@@ -116,8 +116,15 @@ bool mojiHeaderi::ZKI(int RacID)
     medjN += ";" + q.value(qOznPP).toString();
     medj += q.value(qKasaID).toString();
     medjN += ";" + q.value(qKasaID).toString();
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     medj += FormatiraniBroj.sprintf("%15.2f",q.value(qUkpIznosRac).toDouble()).trimmed();
     medjN += ";" + FormatiraniBroj.sprintf("%15.2f",q.value(qUkpIznosRac).toDouble()).trimmed();
+#endif
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    medj += FormatiraniBroj.arg(q.value(qUkpIznosRac).toDouble(),15,'f',2).trimmed(); //  "%15.2f",q.value(qUkpIznosRac).toDouble()).trimmed();
+    medjN += ";" + FormatiraniBroj.arg(q.value(qUkpIznosRac).toDouble(),15,'f',2).trimmed(); //sprintf("%15.2f",q.value(qUkpIznosRac).toDouble()).trimmed();
+#endif
+
     //FormatiraniBroj.sprintf("%15.2f",qtmp.value(2).toDouble()).trimmed())
     //db.close();
 
@@ -128,11 +135,11 @@ bool mojiHeaderi::ZKI(int RacID)
 
     QProcess *zk = new QProcess(this);
     //qApp->property("Certs_Path").toString()).arg(qApp->property("Certs_Sifra").toString()
-    qDebug() << qApp->property("Certs_Path").toString() << qApp->property("Certs_Sifra").toString() ;
+    // qDebug() << qApp->property("Certs_Path").toString() << qApp->property("Certs_Sifra").toString() ;
     QString Komand;
 #ifdef Q_OS_LINUX
 //    Komand = QString("mono Sign.exe %2 %3 \"%1\"").arg(medj).arg(qApp->property("Certs_Path").toString()).arg(qApp->property("Certs_Sifra").toString());
-    Komand = QString("./p.py -z \"%1\"").arg(medjN);
+    Komand = QString("./p3.py -z \"%1\"").arg(medjN);
     qDebug() << "command: " << Komand;
 #endif
 #ifdef Q_OS_WIN
@@ -281,9 +288,18 @@ bool mojiHeaderi::jsonRacunZahtjev(const int RacunID, bool NaknadnoSlanje)
 
     while (qtmp.next())
     {
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         j_Porez.insert("Stopa", QJsonValue::fromVariant(FormatiraniBroj.sprintf("%15.2f",qtmp.value(idStopa).toDouble()).trimmed()));
         j_Porez.insert("Osnovica",QJsonValue::fromVariant(FormatiraniBroj.sprintf("%15.2f",qtmp.value(idOsnovica).toDouble()).trimmed()));
         j_Porez.insert("Iznos", QJsonValue::fromVariant(FormatiraniBroj.sprintf("%15.2f",qtmp.value(idIznos).toDouble()).trimmed()));
+#endif
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+        j_Porez.insert("Stopa", QJsonValue::fromVariant(FormatiraniBroj.arg(qtmp.value(idStopa).toDouble(),15,'f',2).trimmed())); //sprintf("%15.2f",qtmp.value(idStopa).toDouble()).trimmed()));
+        j_Porez.insert("Osnovica",QJsonValue::fromVariant(FormatiraniBroj.arg(qtmp.value(idOsnovica).toDouble(),15,'f',2).trimmed())); //sprintf("%15.2f",qtmp.value(idOsnovica).toDouble()).trimmed()));
+        j_Porez.insert("Iznos", QJsonValue::fromVariant(FormatiraniBroj.arg(qtmp.value(idIznos).toDouble(),15,'f',2).trimmed())); //sprintf("%15.2f",qtmp.value(idIznos).toDouble()).trimmed()));
+#endif
+
         j_Pdv.insert("Porezi",j_Porez);
     }
     //j_Pdv.insert("Pdv",j_Porez);
@@ -312,9 +328,18 @@ bool mojiHeaderi::jsonRacunZahtjev(const int RacunID, bool NaknadnoSlanje)
 
     while (qtmp.next())
     {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         j_Porez.insert("Stopa",QJsonValue::fromVariant(FormatiraniBroj.sprintf("%15.2f",qtmp.value(idStopa).toDouble()).trimmed()));
         j_Porez.insert("Osnovica",QJsonValue::fromVariant(FormatiraniBroj.sprintf("%15.2f",qtmp.value(idOsnovica).toDouble()).trimmed()));
         j_Porez.insert("Iznos",FormatiraniBroj.sprintf("%15.2f",qtmp.value(idIznos).toDouble()).trimmed());
+#endif
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+        j_Porez.insert("Stopa",QJsonValue::fromVariant(FormatiraniBroj.arg(qtmp.value(idStopa).toDouble(),15,'f',2).trimmed())); //sprintf("%15.2f",qtmp.value(idStopa).toDouble()).trimmed()));
+        j_Porez.insert("Osnovica",QJsonValue::fromVariant(FormatiraniBroj.arg(qtmp.value(idOsnovica).toDouble(),15,'f',2).trimmed())); //sprintf("%15.2f",qtmp.value(idOsnovica).toDouble()).trimmed()));
+        j_Porez.insert("Iznos",FormatiraniBroj.arg(qtmp.value(idIznos).toDouble(),15,'f',2).trimmed()); //sprintf("%15.2f",qtmp.value(idIznos).toDouble()).trimmed());
+#endif
+
+
         j_Pdv.insert("Porezi",j_Porez);
         ProvjeraImaElement= true;
     }
@@ -337,7 +362,13 @@ bool mojiHeaderi::jsonRacunZahtjev(const int RacunID, bool NaknadnoSlanje)
     //samo ako ima povratna naknada (tablica rac2dodatno)
         if (qtmp.value(0).toDouble() >0){
             j_Porez.insert("NazivN",QJsonValue::fromVariant("Povratna naknada"));
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             j_Porez.insert("IznosN",QJsonValue::fromVariant(FormatiraniBroj.sprintf("%15.2f",qtmp.value(0).toDouble()).trimmed()));
+#endif
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+            j_Porez.insert("IznosN",QJsonValue::fromVariant(FormatiraniBroj.arg(qtmp.value(0).toDouble(),15,'f',2).trimmed())); //sprintf("%15.2f",qtmp.value(0).toDouble()).trimmed()));
+#endif
+
             ProvjeraImaElement=true;
         }
     }
@@ -346,7 +377,13 @@ bool mojiHeaderi::jsonRacunZahtjev(const int RacunID, bool NaknadnoSlanje)
     ProvjeraImaElement=false;
     j_Porez = QJsonObject();
 
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     j_racun.insert("IznosUkupno",QJsonValue::fromVariant(FormatiraniBroj.sprintf("%15.2f",q.value(4).toDouble()).trimmed()));
+#endif
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    j_racun.insert("IznosUkupno",QJsonValue::fromVariant(FormatiraniBroj.arg(q.value(4).toDouble(),15,'f',2).trimmed())); //.sprintf("%15.2f",q.value(4).toDouble()).trimmed()));
+#endif
 
     //t1.appendChild(xmlPod("G"));
     if (!q.value(23).isNull())
@@ -394,10 +431,10 @@ bool mojiHeaderi::jsonRacunZahtjev(const int RacunID, bool NaknadnoSlanje)
 
     //QProcess *zk = new QProcess(this);
     //qApp->property("Certs_Path").toString()).arg(qApp->property("Certs_Sifra").toString()
-    QString Komand;
+    // QString Komand;
 
     //Komand = QString("python p3.py %1").arg(ImeJsonFajla);
-    Komand = QString("/usr/bin/python2 --version");
+    // Komand = QString("/usr/bin/python2 --version");
 
 
     QProcess zk;
@@ -426,7 +463,13 @@ bool mojiHeaderi::jsonRacunZahtjev(const int RacunID, bool NaknadnoSlanje)
         if (file.open(QIODevice::ReadWrite))
         {
             QTextStream stream(&file);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             stream <<  ZKi <<endl;
+#endif
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+            stream <<  ZKi << Qt::endl;
+#endif
+
         }
 
         //QFile f("/tmp/out");

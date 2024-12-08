@@ -1,8 +1,10 @@
+#fiskal-hr
 asn1crypto==1.2.0
 certifi==2019.9.11
 cffi==1.13.2
 chardet==3.0.4
-cryptography==2.8
+cryptography
+#cryptography==2.8
 defusedxml==0.6.0
 eight==0.4.2
 enum34==1.1.6
@@ -11,11 +13,13 @@ future==0.16.0
 idna==2.8
 ipaddress==1.0.23
 lxml==4.4.1
+pyOpenSSL==19.0.0
 pyasn1==0.4.7
 pycparser==2.19
 pycrypto==2.6.1
-pyOpenSSL==19.0.0
 requests==2.22.0
 signxml==2.6.0
 six==1.13.0
 urllib3==1.25.7
+xmlsec
+zeep

@@ -121,7 +121,15 @@ bool frmPregDokum::eventFilter(QObject *target, QEvent *event)
             }
             filter_model->setFilterKeyColumn(ui->tableView->currentIndex().column());
             filter_model->setFilterCaseSensitivity(Qt::CaseInsensitive);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             filter_model->setFilterRegExp(FilterPolje->text());
+#endif
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+            QRegularExpression re(FilterPolje->text(), QRegularExpression::CaseInsensitiveOption);
+            filter_model->setFilterRegularExpression(re);
+#endif
+
+
             ui->lblPoruke->setText(QString("Filter: %1 redova").arg(filter_model->rowCount()));
         }
     }
@@ -254,13 +262,13 @@ void frmPregDokum::on_toolBtnStorno_pressed()
         {
             QMessageBox::information(this,"STORNO","Racun storniran","OK");
             mojiHeaderi *t = new mojiHeaderi();
-            int brojac = 0;
-            while (!t->ZKI(nRacID.toInt()))
-            {
-                if (brojac>=3)
-                    break;
-                brojac++;
-            }
+            // int brojac = 0;
+            // while (!t->ZKI(nRacID.toInt()))
+            // {
+            //     if (brojac>=3)
+            //         break;
+            //     brojac++;
+            // }
 //            t->xmlRacunZahtjev(nRacID.toInt(),false);
             t->jsonRacunZahtjev(nRacID.toInt(),false);
             UcitajHeader();

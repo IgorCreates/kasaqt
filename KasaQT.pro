@@ -196,8 +196,11 @@ FORMS    += \
 
 
 OTHER_FILES += \
-    p.py \
-    op.db
+    p3.py \
+    op.db \
+    wsdl/ \
+    schema/ \
+    fiskalhr/
 
 RESOURCES += \
     kasares.qrc

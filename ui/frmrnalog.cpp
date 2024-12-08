@@ -993,7 +993,11 @@ void frmrnalog::IspisA4(int rnalogID)
     }
     QString htmlContent;
     QTextStream in(&htmlTemplate);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     in.setCodec("utf-8");
+#elif QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    in.setEncoding(QStringConverter::Utf8);
+#endif
     htmlContent = in.readAll();
     DokumentZaIspisA4 = new QTextDocument();
 
@@ -1073,10 +1077,17 @@ void frmrnalog::IspisA4(int rnalogID)
     QPrintPreviewDialog pw(&printer,this);
 
     connect(&pw,SIGNAL(paintRequested(QPrinter*)),SLOT(IspisPreview(QPrinter*)));
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     printer.setPageSize(QPrinter::A4);
-
     printer.setPageMargins(25,20,20,20,QPrinter::Millimeter);
-
+#elif QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    QPageSize customPageSize(QPageSize::A4);
+    QPageLayout layout = printer.pageLayout();
+    QMarginsF margins(25,20,20,20);
+    layout.setPageSize(customPageSize);
+    layout.setMargins(margins);
+    printer.setPageLayout(layout);
+#endif
     printer.setOutputFormat(QPrinter::PdfFormat);
     printer.setOutputFileName("rNalog.pdf");
     DokumentZaIspisA4->print(&printer);

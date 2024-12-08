@@ -1,103 +1,92 @@
-#!/usr/bin/python2
-import fisk
-import lxml.etree as et
-from datetime import date, timedelta
-import sys
-from timeit import default_timer as timer
-import getopt
+# ##!/home/juka/Rad/KasaQT/kasa-python/bin/python3
 import os
+import argparse
 import json
+import logging
+from fiskalhr.invoice import Invoice
+from fiskalhr.ws import FiskalClient
+from fiskalhr.signature import Signer, Verifier
+from datetime import datetime
+from timeit import default_timer as timer
 
 
-VER = "1.0.2"
+VER = "2.0.0"
 
-
-def otvori_json(file, zki=False):
-    with open(file) as json_file:
-        data = json.load(json_file)
-        BrRac = data["BrRac"]
-        del data["BrRac"]
-        # ovo vrati ---- samo je maknuto radi firme koja nije u sustavu PDVa
-        #    Pdv = data['PDV']['Porezi']
-        #    del data['PDV']
-        """
-    decode FISKAL_2.p12 with
-    openssl pkcs12 -in FISKAL_2.p12 -out certificate.pem -nodes
-    edit certificate.pem and remove certs leave only key ---BEGIN -> END---
-    openssl.exe rsa -in certificate.key -des3 -out passkey.pem
-    """
-        fisk.FiskInit.init("passkey.pem", "Sifra101", "certificate.pem", True)
-        racun = fisk.Racun(
-            data={
-                "Oib": str(data["Oib"]),
-                "USustPdv": str(data["USustPdv"]),
-                "DatVrijeme": str(data["DatVrijeme"]),
-                "BrRac": fisk.BrRac(BrRac),
-                #              "Pdv": [fisk.Porez(Pdv)],
-                "IznosUkupno": str(data["IznosUkupno"]),
-                "NacinPlac": str(data["NacinPlac"]),
-                "OibOper": str(data["OibOper"]),
-                "OznSlijed": str(data["OznSlijed"]),
-                "NakDost": str(data["NakDost"]),
-            }
-        )
-        # ovo vrati ---- samo je maknuto radi firme koja nije u sustavu PDVa
-        #    racun.BrRac = BrRac
-        #    racun.Porez = Pdv
-        print "ZKI:" + racun.ZastKod
-
-        # create Request and send it to server (DEMO) and print reply
-        #    if (zki==False):
-        #        racunZahtjev = fisk.RacunZahtjev(racun)
-        #        racun_reply = racunZahtjev.execute()
-        #        if(racun_reply != False):
-        #            print "JIR:" + racun_reply
-        #        else:
-        #            errors = racunZahtjev.get_last_error()
-        #            print "RacunZahtjev reply errors:"
-        #            for error in errors:
-        #                print error
-        #
-        # fiskpy deinitialization - maybe not needed but good for correct garbage cleaning
-        fisk.FiskInit.deinit()
-
-
-def return_help():
-    print """
-VER: {}
-Usage: p3.py json.file
-    -h --help  -- this screen
-    -z --zki   -- generate zk from json file
-    -s --send  -- generate zk and jir
-    """.format(
-        VER
-    )
-
-
-def read_argv(argv):
-    try:
-        opts, args = getopt.getopt(argv, "h:z:s:", ["", "z=", "s="])
-    except getopt.GetoptError:
-        return_help()
-        sys.exit(2)
-    for opt, arg in opts:
-        if opt in ("-h", "--help"):
-            return_help()
-            sys.exit(0)
-        elif opt in ("-z", "--zki"):
-            otvori_json(sys.argv[2], True)
-        elif opt in ("-s", "--send"):
-            otvori_json(sys.argv[2], False)
-        else:
-            return_help()
-            sys.ext(2)
-
+# print(os.getcwd())
+parser = argparse.ArgumentParser(
+    prog="fiskal.py", description="wrapper for fiskal-hr "
+)
+parser.add_argument(
+    'file',
+    metavar='FILE',
+    type=str,
+    help="Specify the Invoice JSON file to process."
+)
+parser.add_argument(
+    "-z", "--zki",action='store_true', help="Calculate ZKI"
+)
+parser.add_argument(
+    "-s", "--send",action='store_true', help="submit invoice to Fina"
+)
+args = parser.parse_args()
 
 if __name__ == "__main__":
     timer_start = timer()
-    if len(sys.argv) <= 1:
-        return_help()
-        sys.exit(2)
-    read_argv(sys.argv[1:])
+    args = parser.parse_args()
+    try:
+        with open(args.file, 'r') as file:
+            invJson = json.load(file)
+    except FileNotFoundError:
+        print(f"Error: File {args.file} not found.")
+        parser.print_help()
+        exit(1)
+
+    logging.basicConfig(
+        filename=args.file + ".log",
+        filemode="a",
+        format="%(asctime)s - %(name)s - %(levelname)s -  %(message)s",
+        level=os.environ.get("LOGLEVEL", "INFO"),
+    )
+    logging.getLogger("fiskal").setLevel(level=os.environ.get("LOGLEVEL", "INFO"))
+    logs = logging.getLogger("fiskal")
+    logs.info("Starting")
+    if os.environ.get("LOGLEVEL", "INFO") == "DEBUG":
+        import xmlsec
+        xmlsec.enable_debug_trace(True)
+
+
+    s = Signer("./certificate.pem", "./passkey.pem","SupperPassword")
+    v = Verifier("./certs/prodCAfile.pem",["./certs/prodCAfile.pem"])
+    fc = FiskalClient("./certs/prodCAfile.pem","./wsdl/FiskalizacijaService.wsdl",s,v)
+#    fc.test_service()
+    inv = Invoice(fc)
+    inv.oib = invJson['Oib']
+    inv.operator_oib = invJson['OibOper']
+    inv.invoice_number = f"{invJson['BrRac']['BrOznRac']}/{invJson['BrRac']['OznPosPr']}/{invJson['BrRac']['OznNapUr']}"
+    inv.issued_at = datetime.strptime(invJson['DatVrijeme'], "%d.%m.%YT%H:%M:%S")
+    inv.total = invJson['IznosUkupno']
+    inv.payment_method = invJson['NacinPlac']
+    inv.is_late_registration = invJson['NakDost']
+    inv.sequence_scope = invJson['OznSlijed']
+    inv.is_vat_registered = invJson['USustPdv']
+
+    if args.zki:
+        zki = inv.calculate_zki()
+        print(f"ZKI: {zki}")
+        logs.debug("ZKI: %s", zki)
+    if args.send:
+        zki = inv.calculate_zki()
+        print(f"ZKI: {zki}")
+        logs.debug("ZKI: %s", zki)
+        qr_link = inv.get_qr_link()
+        print(f"QR_LINK: {qr_link}")
+        logs.debug("QR_LINK: %s", qr_link)
+        # jir = inv.submit_invoice()
+        # print(f"JIR: {jir}")
     print("VER:" + VER)
-    print("DoneIn:" + str(timer() - timer_start) + "seconds")
+    logs.debug("VER: %s", VER)
+    # print("DoneIn:" + str(timer() - timer_start) + "seconds")
+    print(f"DoneIn: {timer() - timer_start:.4f} seconds")
+    logs.info(f"DoneIn: {timer() - timer_start:.4f} seconds")
+
+

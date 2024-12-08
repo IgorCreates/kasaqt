@@ -142,7 +142,12 @@ void frmPregart::slotGrupe(QString ImeGumba)
       qDebug() << e << "," << grupeLista->value(e);
     }
 */
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QStringList Lista = grupeLista->value(ImeGumba).split(";",QString::SkipEmptyParts);
+#endif
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    QStringList Lista = grupeLista->value(ImeGumba).split(";",Qt::SplitBehavior(QFlag(Qt::SkipEmptyParts)));    //QString::SkipEmptyParts);
+#endif
     grupeMaticna_GID =  Lista[4].toInt();
     grupeParent_GID = Lista[1].toInt();
     grupeID = Lista[0].toInt();

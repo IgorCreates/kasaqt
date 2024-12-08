@@ -1,14 +1,19 @@
 #include "ispismali.h"
 #include "QString"
 #include "QStringList"
-#include "qsql.h"
 #include <QtSql>
-#include <QtScript/QScriptable>
 #include <QDebug>
 #include <QProcess>
 #include <QtGui>
 #include <QFile>
 #include <QMessageBox>
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#include "qsql.h"
+//#include <QtScript/QScriptable>
+#elif QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#include <QSqlDatabase>
+#endif
+
 
 
 
@@ -293,7 +298,12 @@ void ispisMali::IspisMaliPos(const QString &BrRacuna)
             rc.replace("kupac_adresa","");
             rc.replace("kupac_oib","");
             */
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             rc.replace(QRegExp(".*<c>rac_br"),"\n<c>rac_br");
+#elif QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+            rc.replace(QRegularExpression(".*<c>rac_br"),"\n<c>rac_br");
+#endif
+
             rc.replace("rac_br",QString("%1 %2/%3/%4").arg(qApp->property("Printer-IspisPoljeRacun").toString()).arg(q.value(qR1br).toString()).arg(q.value(qR1oznPP).toString()).arg(q.value(qR1kasaID).toString()));
         }
 
@@ -400,7 +410,7 @@ void ispisMali::IspisMaliPos(const QString &BrRacuna)
         }
         rc.replace("artikli",aDetail);
         rc.replace("rac_zki",QString("ZKI:%1").arg(q.value(qR1zki).toString()));
-        
+
         if (qC.exec(QString("select odgovor from rac1fiskal where racid=%1 and potvrden=1").arg(BrRacuna)))
         {
             if (qC.next())
@@ -877,7 +887,15 @@ void ispisMali::IspisMaliPosVrac(const QString &BrRacuna)
             rc.replace("kupac_adresa","");
             rc.replace("kupac_oib","");
             */
+//            rc.replace(QRegExp(".*rac_br"),"\nrac_br");
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             rc.replace(QRegExp(".*rac_br"),"\nrac_br");
+
+#elif QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+            rc.replace(QRegularExpression(".*rac_br"),"\nrac_br");
+#endif
+
+
             rc.replace("rac_br",QString("%1 %2/%3/%4").arg(qApp->property("Printer-IspisPoljeRacun").toString()).arg(q.value(qR1br).toString()).arg(q.value(qR1oznPP).toString()).arg(q.value(qR1kasaID).toString()));
         }
 
