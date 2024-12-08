@@ -531,7 +531,7 @@ bool clsIzracuni::UpisiRac()
         q.bindValue(":oznPP",qApp->property("Firma_OznPosPr").toString());
         if (_RacNarID>0)
         {
-            q.bindValue(":narudzba","1");
+            q.bindValue(":narudzba",1);
             q.bindValue(":narucio_uid",_RacNarucioUID);
         }else
         {

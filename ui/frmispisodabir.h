@@ -85,6 +85,7 @@ private:
     void ispisA4templateTT(QString Sto, int RID);
     void ispisHTMLtemplate(int RID,QString Sto);
     void ispisQRcreate(int RID);
+    QString regEx(QString text, QString pattern);
 
 
     QTextDocument *DokumentZaIspisA4;

@@ -149,12 +149,22 @@ void DragWidget::dropEvent(QDropEvent *event)
 //! [1]
 void DragWidget::mousePressEvent(QMouseEvent *event)
 {
+
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
     QLabel *child = static_cast<QLabel*>(childAt(event->pos()));
     if (!child)
         return;
-
     QPixmap pixmap = *child->pixmap();
+#elif QT_VERSION >= QT_VERSION_CHECK(6,0,0)
+    QLabel *child = qobject_cast<QLabel*>(childAt(event->pos()));
+    if (child != nullptr && child) {
+        // Safely use the QLabel
+    } else {
+        qDebug() << "Pointer is null. No QLabel found at this position.";
+    }
+#endif
 
+    //QPixmap pixmap = child->pixmap();
     QByteArray itemData;
     QDataStream dataStream(&itemData, QIODevice::WriteOnly);
     dataStream << pixmap << QPoint(event->pos() - child->pos());

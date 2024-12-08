@@ -379,7 +379,14 @@ void frmKasa::UcitajSveNakonForme()
     QPalette pl;
     if (qApp->property("KorisnikBoja").toString() != "")
     {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         pl.setColor(QPalette::Background,QColor(qApp->property("KorisnikBoja").toString()));
+#endif
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+//        pl.setColor(QPalette::Background,QColor(qApp->property("KorisnikBoja").toString()));
+        pl.setColor(QPalette::Window, QColor(qApp->property("KorisnikBoja").toString()));
+#endif
+
         ui->lblKorisnikIme->setAutoFillBackground(true);
         ui->lblKorisnikIme->setPalette(pl);
     }
@@ -2090,6 +2097,7 @@ void frmKasa::slotDodajStol()
     QString NNN = QInputDialog::getText(this,QString(tr("Upisite br %1")).arg(constStoPise),QString(tr("Br %1 :\n(u slucaju da %1 nije otvoren\n otvara se novi)")).arg(constStoPise), QLineEdit::Normal,"1", &ok);
     if (ok && !NNN.isEmpty())
         {
+//        qDebug() << "tableStoloviModelRowCount: " << StoloviModel->rowCount();  // << ui->tableStolovi->model()->rowCount();
         for (int i=0;i<ui->tableStolovi->model()->rowCount();i++)
         {
             if (ui->tableStolovi->model()->data(ui->tableStolovi->model()->index(i,0)).toString() == NNN &&

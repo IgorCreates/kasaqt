@@ -114,7 +114,12 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QS
     outFile.open(QIODevice::WriteOnly | QIODevice::Append);
 
     QTextStream ts(&outFile);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     ts << txt << endl;
+#endif
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    ts << txt << Qt::endl;
+#endif
 }
 
 #endif
@@ -180,7 +185,7 @@ int main(int argc, char *argv[])
      if (parser.isSet(art_opcija_rftag))
          qApp->setProperty("Prog-LOGIN","RFTAG");
      if (parser.isSet(arg_opcija_narudzba))
-         qApp->setProperty("Prog-GUInarudzba","1");
+         qApp->setProperty("Prog-GUInarudzba",1);
 
 /*
      if (parser.positionalArguments().count() == 1)

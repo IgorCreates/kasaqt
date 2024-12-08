@@ -180,9 +180,17 @@ void frmIspisOdabir::ispisTestPOS(int RID)
 //    qDebug() << "******** DULJINA = " << duljina;
     duljina = duljina/3.7;
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     printer.setPageSizeMM(QSizeF(72,duljina));
     printer.setPageMargins(5,5,10,5,QPrinter::Millimeter);
-
+#elif QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    QPageSize customPageSize(QSizeF(72,duljina), QPageSize::Millimeter);
+    QPageLayout layout = printer.pageLayout();
+    layout.setPageSize(customPageSize);
+    QMarginsF margins(5, 5, 10, 5); // Left, Top, Right, Bottom
+    layout.setMargins(margins);
+    printer.setPageLayout(layout);
+#endif
 
     QPrintPreviewDialog preview(&printer, this);
     preview.setWindowFlags ( Qt::Window );
@@ -359,15 +367,30 @@ void frmIspisOdabir::ispisA4template(QString Sto,int RID)
 
     if (Sto == "")
     {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         prnPrinter->setPageSize(QPrinter::A4);
+#elif QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+        QPageLayout layout = prnPrinter->pageLayout();
+        layout.setPageSize(QPageSize(QPageSize::A4));
+        prnPrinter->setPageLayout(layout);
+#endif
     }else
     {
         int duljina = DokumentZaIspisA4->size().height();
     //    qDebug() << "******** DULJINA = " << duljina;
         duljina = duljina/3.7;
         //prnPrinter->setPaperSize(QSizeF(80,duljina), QPrinter::Millimeter);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         prnPrinter->setPageSizeMM(QSizeF(72,duljina));
         prnPrinter->setPageMargins(3,5,5,2,QPrinter::Millimeter);
+#elif QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+        QPageSize customPageSize(QSizeF(72,duljina), QPageSize::Millimeter);
+        QPageLayout layout = prnPrinter->pageLayout();
+        layout.setPageSize(customPageSize);
+        QMarginsF margins(3, 5, 5, 2); // Left, Top, Right, Bottom
+        layout.setMargins(margins);
+        prnPrinter->setPageLayout(layout);
+#endif
     }
     //    printer.setPageMargins(25,20,20,20,QPrinter::Millimeter);
     //prnPrinter->setOutputFormat(QPrinter::PdfFormat);
@@ -408,13 +431,23 @@ void frmIspisOdabir::ispisA4template(QString Sto,int RID)
 
     if (qApp->property("Printer-POS_RPT_DirektanIspis").toString() == "1")
     {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         prnPrinter->setPageMargins(MarginaLeft,MarginaTop,MarginaRight,MarginaBotton,QPrinter::Millimeter);
+#elif QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+        QMarginsF margins(MarginaLeft,MarginaTop,MarginaRight,MarginaBotton);
+        prnPrinter->setPageMargins(margins);
+#endif
         DokumentZaIspisA4->print(prnPrinter);
 
     }
     else
     {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         prnPrinter->setPageMargins(MarginaLeft,MarginaTop,MarginaRight,MarginaBotton,QPrinter::Millimeter);
+#elif QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+        QMarginsF margins(MarginaLeft,MarginaTop,MarginaRight,MarginaBotton);
+        prnPrinter->setPageMargins(margins);
+#endif
         //DokumentZaIspisA4->setPageSize(QSizeF(250,540));
 //        qDebug() << "************PRN DBG************\n";
 //        qDebug() << DokumentZaIspisA4->pageSize();
@@ -440,6 +473,7 @@ void frmIspisOdabir::ispisA4template(QString Sto,int RID)
     */
     emit SignalOdjava();
 }
+
 void frmIspisOdabir::ispisHTMLtemplate(int RID, QString Sto)
 {
     QString Ispis;
@@ -466,8 +500,17 @@ void frmIspisOdabir::ispisHTMLtemplate(int RID, QString Sto)
     prnPrinter = new QPrinter(QPrinter::HighResolution);
     QPrintPreviewDialog pw(prnPrinter,this);
     connect(&pw,SIGNAL(paintRequested(QPrinter*)),SLOT(IspisPreview(QPrinter*)));
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     prnPrinter->setPageSize(QPrinter::A4);
     prnPrinter->setPageMargins(25,20,20,20,QPrinter::Millimeter);
+#elif QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    QPageSize customPageSize(QPageSize::A4);
+    QPageLayout layout = prnPrinter->pageLayout();
+    layout.setPageSize(customPageSize);
+    QMarginsF margins(5, 5, 10, 5); // Left, Top, Right, Bottom
+    layout.setMargins(margins);
+    prnPrinter->setPageLayout(layout);
+#endif
 
     QList<QToolBar *> toolbarlist = pw.findChildren<QToolBar *>();
 
@@ -488,6 +531,38 @@ void frmIspisOdabir::ispisHTMLtemplate(int RID, QString Sto)
 
 }
 
+QString regEx(QString text, QString pattern) {
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
+    QRegExp exp;
+
+#elif QT_VERSION >= QT_VERSION_CHECK(6,0,0)
+    QRegularExpression exp;
+    // QRegularExpression exp("\\d+");
+//Multiple match
+    // QRegularExpressionMatchIterator it = exp.globalMatch(sto);
+    // while (it.hasNext()) {
+    //     QRegularExpressionMatch match = it.next();
+    //     int index = match.capturedStart();
+    //     QString matchedText = match.captured(0);
+    //     qDebug() << "Match at index:" << index << "Value:" << matchedText;
+    // }
+    QRegularExpressionMatch match = exp.match(text);
+    if (match.hasMatch()) {
+        //int index = match.capturedStart();  // Get start index of the match
+        return match.captured(1);
+        // QString matchedText = match.captured(1);  // Captured text
+        // qDebug() << "Match starts at index:" << index;
+        // qDebug() << "Matched text:" << matchedText;
+    }else{
+        return "";
+    }
+
+
+#endif
+
+//    RowStavke = exp.cap(1);
+
+}
 
 QString frmIspisOdabir::ispisVratiHtmlContent(int RID)
 {
@@ -507,7 +582,11 @@ QString frmIspisOdabir::ispisVratiHtmlContent(int RID)
     }
     QString htmlContent;
     QTextStream in(&htmlTemplate);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     in.setCodec("utf-8");
+#elif QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    in.setEncoding(QStringConverter::Utf8);
+#endif
     htmlContent = in.readAll();
 
 
@@ -572,8 +651,16 @@ QString frmIspisOdabir::ispisVratiHtmlContent(int RID)
         htmlContent.replace("&lt;RACUN_OPIS&gt;",q.value(q.record().indexOf("opis")).toString());
 
         //htmlContent.replace("&lt;DATUM_VALUTE&gt;",q.value(q.record().indexOf("datumv")).toString());
-        QRegExp exp;
-        exp.setCaseSensitivity(Qt::CaseInsensitive);
+// #if QT_VERSION < QT_VERSION_CHECK(6,0,0)
+//         QRegExp exp;
+//         exp.setCaseSensitivity(Qt::CaseInsensitive);
+// #elif QT_VERSION >= QT_VERSION_CHECK(6,0,0)
+// //        rc.replace(QRegularExpression(".*<c>rac_br"),"\n<c>rac_br");
+// #endif
+
+        QRegularExpression exp;
+        exp.setPatternOptions(QRegularExpression::CaseInsensitiveOption|QRegularExpression::DotMatchesEverythingOption);
+
         QString RowStavke;
         if (VrstaRac == "V" || VrstaRac == "O")
         {
@@ -585,11 +672,16 @@ QString frmIspisOdabir::ispisVratiHtmlContent(int RID)
         }else
         {
             exp.setPattern("<table name=\"kupac\">(.*)</table name=\"kupac\">");
-            RowStavke = htmlContent;
-            exp.indexIn(RowStavke);
+
+
+            // RowStavke = htmlContent;
+
+            //exp.indexIn(RowStavke);
 //            qDebug() << exp.cap(1);
-            RowStavke = exp.cap(1);
-            htmlContent.replace(RowStavke,"");
+            //RowStavke = exp.cap(1);
+            //htmlContent.replace(RowStavke,"");
+
+            htmlContent.remove(exp);
         }
         if (RacTipRacuna == "rac1")
         {
@@ -597,10 +689,12 @@ QString frmIspisOdabir::ispisVratiHtmlContent(int RID)
             htmlContent.replace("&lt;JIR&gt;",QString("JIR: %1").arg(q.value(q.record().indexOf("jir")).toString()));
             if (q.value(q.record().indexOf("jir")).toString() == "" ) {
                 exp.setPattern("<table name=\"QR\"(.*)</table name=\"QR\">");
-                RowStavke = htmlContent;
-                exp.indexIn(RowStavke);
-                RowStavke = exp.cap(1);
-                htmlContent.replace(RowStavke,"");
+                // RowStavke = htmlContent;
+                // exp.indexIn(RowStavke);
+                // RowStavke = exp.cap(1);
+                // htmlContent.replace(RowStavke,"");
+                htmlContent.remove(exp);
+
             }else{
                 /*
                 QString PathQR_IMG = QString("%1/qrimg/%2/").arg(qApp->applicationDirPath()).arg(QDateTime::currentDateTime().toString("yyyy/MM/dd"));
@@ -612,10 +706,11 @@ QString frmIspisOdabir::ispisVratiHtmlContent(int RID)
                 }else
                 {
                     exp.setPattern("<table name=\"QR\"(.*)</table name=\"QR\">");
-                    RowStavke = htmlContent;
-                    exp.indexIn(RowStavke);
-                    RowStavke = exp.cap(1);
-                    htmlContent.replace(RowStavke,"");
+                    // RowStavke = htmlContent;
+                    // exp.indexIn(RowStavke);
+                    // RowStavke = exp.cap(1);
+                    // htmlContent.replace(RowStavke,"");
+                    htmlContent.remove(exp);
                 }
             }
         }else if (RacTipRacuna == "vrac1")
@@ -623,10 +718,12 @@ QString frmIspisOdabir::ispisVratiHtmlContent(int RID)
             htmlContent.replace("&lt;ZKI&gt;","");
             htmlContent.replace("&lt;JIR&gt;","");
             exp.setPattern("<table name=\"QR\"(.*)</table name=\"QR\">");
-            RowStavke = htmlContent;
-            exp.indexIn(RowStavke);
-            RowStavke = exp.cap(1);
-            htmlContent.replace(RowStavke,"");
+            // RowStavke = htmlContent;
+            // exp.indexIn(RowStavke);
+            // RowStavke = exp.cap(1);
+            // htmlContent.replace(RowStavke,"");
+            htmlContent.remove(exp);
+
         }
         htmlContent.replace("&lt;UKPOSNOVICA&gt;",QString("%L1 %2").arg(q.value(q.record().indexOf("bpdv")).toDouble(),0,'f',2).arg(qApp->property("App_VALUTA").toString()));
         htmlContent.replace("&lt;UKPRABAT_EUR&gt;",QString("%L1 %2").arg(q.value(q.record().indexOf("rabatk")).toDouble(),0,'f',2).arg(qApp->property("App_VALUTA").toString()));
@@ -642,10 +739,12 @@ QString frmIspisOdabir::ispisVratiHtmlContent(int RID)
        // rc.replace("rac_euri",PrikazEuroKN);
 
 
-        exp.setPattern("<tr name=\"tablica_stavke\" valign=\"top\">(.*)</tr name=\"tablica_stavke\">");
+        // exp.setPattern("<tr name=\"tablica_stavke\" valign=\"top\">(.*)</tr name=\"tablica_stavke\">");
         RowStavke = htmlContent; //"<tr name=\"tablica_stavke\" easdasdasdasdasdasdasd</tr>"; //htmlContent;
-        exp.indexIn(RowStavke);
-        RowStavke = exp.cap(1);
+        // exp.indexIn(RowStavke);
+        // RowStavke = exp.cap(1);
+        QRegularExpressionMatch expMatch = exp.match("<tr name=\"tablica_stavke\" valign=\"top\">(.*)</tr name=\"tablica_stavke\">");
+        RowStavke = expMatch.captured(1);
         QString TablicaStavke;
         QString TablicaStavkeRow;
         q.exec("set @BR=0");
@@ -685,10 +784,15 @@ QString frmIspisOdabir::ispisVratiHtmlContent(int RID)
         {
             qDebug() << q.lastError() << q.lastQuery();
         }
-        exp.setPattern("<tr valign=\"top\" name=\"tablica_porezi_stavke\">(.*)</tr name=\"tablica_porezi_stavke\">");
-        RowStavke = htmlContent;
-        exp.indexIn(RowStavke);
-        RowStavke = exp.cap(1);
+        // exp.setPattern("<tr valign=\"top\" name=\"tablica_porezi_stavke\">(.*)</tr name=\"tablica_porezi_stavke\">");
+        // RowStavke = htmlContent;
+        // exp.indexIn(RowStavke);
+        // RowStavke = exp.cap(1);
+
+        // QRegularExpressionMatch
+        expMatch = exp.match("<tr name=\"tablica_stavke\" valign=\"top\">(.*)</tr name=\"tablica_stavke\">");
+        RowStavke = expMatch.captured(1);
+
         QString PorezPoruka= "";
         if (qApp->property("Firma_USustavuPDV").toString() == "false")
         {
@@ -772,9 +876,14 @@ QString frmIspisOdabir::ispisVratiHtmlContentMali(int RID)
     }
     QString htmlContent;
     QTextStream in(&htmlTemplate);
-    in.setCodec("utf-8");
-    htmlContent = in.readAll();
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
 
+    in.setCodec("utf-8");
+#elif QT_VERSION >= QT_VERSION_CHECK(6,0,0)
+    in.setEncoding(QStringConverter::Utf8);
+#endif
+
+    htmlContent = in.readAll();
     htmlContent.replace("<title>RAC-Mali</title>",QString("<title>RacMali_id-%1</title>").arg(RID));
 
     htmlContent.replace("&lt;FIRMA_NAZIV&gt;",qApp->property("Firma_Ime").toString());
@@ -1045,7 +1154,11 @@ QString frmIspisOdabir::ispisVratiHtmlContentStanje(const QDateTime &DatumStart,
     }
     QString htmlContent;
     QTextStream in(&htmlTemplate);
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
     in.setCodec("utf-8");
+#elif QT_VERSION >= QT_VERSION_CHECK(6,0,0)
+    in.setEncoding(QStringConverter::Utf8);
+#endif
     htmlContent = in.readAll();
     htmlContent.replace("&lt;FIRMA_NAZIV&gt;",qApp->property("Firma_Ime").toString());
     htmlContent.replace("&lt;FIRMA_OIB&gt;",QString("OIB: %1").arg(qApp->property("Firma_OIB").toString()));
@@ -1284,9 +1397,19 @@ void frmIspisOdabir::ispisA4templateStanje(QDateTime DatumStart, QDateTime Datum
 
 //    toolbarlist.last()->addAction(QIcon("ikone/mail.png"), tr("Posalji na"));
 
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
     prnPrinter->setPageSize(QPrinter::A4);
     prnPrinter->setPageMargins(25,20,20,20,QPrinter::Millimeter);
    // DokumentZaIspisA4->print(&printer);
+#elif QT_VERSION >= QT_VERSION_CHECK(6,0,0)
+    QPageSize customPageSize(QPageSize::A4);
+    QPageLayout layout = prnPrinter->pageLayout();
+    QMarginsF margins(25,20,20,20);
+    layout.setPageSize(customPageSize);
+    layout.setMargins(margins);
+    prnPrinter->setPageLayout(layout);
+#endif
+
     prnImeFajla = QString("ispStanje_%1.pdf").arg(QDate::currentDate().toString("yyyyMMdd"));
 
     QAction *newAct = new QAction(this);
@@ -1464,14 +1587,19 @@ void frmIspisOdabir::ispisPOS_poFile(QString PathDoDatoteke)
     if (!qApp->property("Printer-POS_RPT_MarginaRight").isNull())
         MarginaRight = qApp->property("Printer-POS_RPT_MarginaRight").toInt();
 
+    QMarginsF margins(MarginaLeft,MarginaTop,MarginaRight,MarginaBotton);
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
+    prnPrinter->setPageMargins(MarginaLeft,MarginaTop,MarginaRight,MarginaBotton,QPrinter::Millimeter);
+#elif QT_VERSION >= QT_VERSION_CHECK(6,0,0)
+    prnPrinter->setPageMargins(margins);
+#endif
+
     if (qApp->property("Printer-POS_RPT_DirektanIspis").toString() == "1")
     {
-        prnPrinter->setPageMargins(MarginaLeft,MarginaTop,MarginaRight,MarginaBotton,QPrinter::Millimeter);
         DokumentZaIspisA4->print(prnPrinter);
     }
     else
     {
-        prnPrinter->setPageMargins(MarginaLeft,MarginaTop,MarginaRight,MarginaBotton,QPrinter::Millimeter);
         pw.exec();
     }
     //pw.exec();
@@ -1497,7 +1625,12 @@ QString frmIspisOdabir::ispisVratiHtmlContentNarudzba(int RID)
     }
     QString htmlContent;
     QTextStream in(&htmlTemplate);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     in.setCodec("utf-8");
+#elif QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    in.setEncoding(QStringConverter::Utf8);
+#endif
+
     htmlContent = in.readAll();
 
 

@@ -223,10 +223,11 @@ public:
     }
 
 
-    int set_StavkaNarudzba(int narudzba)
+    void set_StavkaNarudzba(int narudzba)
     {
         _stavkaNarudzba = narudzba;
     }
+
 
     //getovi RacH
     int get_Rac1ID()
@@ -278,7 +279,7 @@ public:
     {
         return _stavkaNarucioUID;
     }
-    bool get_stavkaNarudzba()
+    int get_stavkaNarudzba()
     {
         return _stavkaNarudzba;
     }
